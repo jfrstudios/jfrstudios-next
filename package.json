@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "description": "JFR Studios — Bold digital agency crafting websites, brands and experiences that move people.",
+  "engines": {
+    "node": ">=18.17.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -15,32 +18,29 @@
   },
   "dependencies": {
     "next": "14.2.15",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "@gsap/react": "^2.1.1",
-    "gsap": "^3.12.5",
-    "framer-motion": "^11.11.7",
-    "lenis": "^1.1.13",
-    "next-sanity": "^9.8.7",
-    "@sanity/image-url": "^1.0.2",
-    "@portabletext/react": "^3.1.0",
-    "tailwind-merge": "^2.5.4",
-    "clsx": "^2.1.1",
-    "lucide-react": "^0.453.0",
-    "web3forms": "^1.0.0"
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "@gsap/react": "2.1.1",
+    "gsap": "3.12.5",
+    "framer-motion": "11.11.7",
+    "lenis": "1.1.13",
+    "next-sanity": "9.8.7",
+    "@sanity/image-url": "1.0.2",
+    "@portabletext/react": "3.1.0",
+    "tailwind-merge": "2.5.4",
+    "clsx": "2.1.1",
+    "lucide-react": "0.453.0"
   },
   "devDependencies": {
-    "@types/node": "^22.7.5",
-    "@types/react": "^18.3.11",
-    "@types/react-dom": "^18.3.0",
-    "autoprefixer": "^10.4.20",
-    "eslint": "^8.57.1",
+    "@types/node": "22.7.5",
+    "@types/react": "18.3.11",
+    "@types/react-dom": "18.3.0",
+    "autoprefixer": "10.4.20",
+    "eslint": "8.57.1",
     "eslint-config-next": "14.2.15",
-    "postcss": "^8.4.47",
-    "sanity": "^3.61.0",
-    "@sanity/vision": "^3.61.0",
-    "styled-components": "^6.1.13",
-    "tailwindcss": "^3.4.13",
-    "typescript": "^5.6.2"
+    "postcss": "8.4.47",
+    "sanity": "3.61.0",
+    "tailwindcss": "3.4.13",
+    "typescript": "5.6.2"
   }
 }
