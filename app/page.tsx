@@ -1,26 +1,18 @@
 import Link from 'next/link';
 import type { CSSProperties } from 'react';
 
-/**
- * JFR Studios — Premium Digital Studio
- * Gold + Black theme, international focus
- * Hand-crafted copy, nk.studio-level polish
- */
+// JFR Studios - Gold + Black theme for international clients
 
-// ============== Theme ==============
 const ink = '#07070A';
 const ink900 = '#0B0B10';
-const ink800 = '#13131A';
 const cream = '#F5F5F2';
 const muted = 'rgba(245, 245, 242, 0.62)';
 const mutedSoft = 'rgba(245, 245, 242, 0.38)';
 const line = 'rgba(245, 245, 242, 0.10)';
-const lineHi = 'rgba(245, 245, 242, 0.18)';
 const gold = '#D4AF37';
 const goldLight = '#E8C766';
 const goldDark = '#9C7A1C';
 
-// ============== Tokens ==============
 const container: CSSProperties = {
   maxWidth: '1280px',
   margin: '0 auto',
@@ -53,8 +45,8 @@ const h2Display: CSSProperties = {
   margin: 0,
 };
 
-const goldGradientText: CSSProperties = {
-  background: `linear-gradient(135deg, ${goldLight} 0%, ${gold} 50%, ${goldDark} 100%)`,
+const goldText: CSSProperties = {
+  background: `linear-gradient(135deg, ${goldLight}, ${goldDark})`,
   WebkitBackgroundClip: 'text',
   WebkitTextFillColor: 'transparent',
   backgroundClip: 'text',
@@ -89,7 +81,6 @@ const btnPrimary: CSSProperties = {
   textDecoration: 'none',
   border: 'none',
   cursor: 'pointer',
-  transition: 'transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), background 0.2s ease',
 };
 
 const btnGhost: CSSProperties = {
@@ -98,7 +89,7 @@ const btnGhost: CSSProperties = {
   gap: '10px',
   padding: '15px 28px',
   borderRadius: '999px',
-  border: `1px solid ${lineHi}`,
+  border: `1px solid ${line}`,
   color: cream,
   fontWeight: 500,
   fontSize: '12.5px',
@@ -107,14 +98,12 @@ const btnGhost: CSSProperties = {
   textDecoration: 'none',
   background: 'transparent',
   cursor: 'pointer',
-  transition: 'border-color 0.2s ease, color 0.2s ease, transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
 };
 
-// ============== Page ==============
 export default function HomePage() {
   return (
     <>
-      {/* ==================== HEADER ==================== */}
+      {/* Header */}
       <header
         style={{
           position: 'fixed',
@@ -151,19 +140,15 @@ export default function HomePage() {
             }}
           >
             <span style={{ color: cream }}>/JFR</span>
-            <span style={goldGradientText}>.</span>
+            <span style={goldText}>.</span>
             <span style={{ color: muted }}>studios</span>
           </Link>
 
           <nav
             aria-label="Primary"
-            style={{
-              display: 'flex',
-              gap: '36px',
-              alignItems: 'center',
-            }}
+            style={{ display: 'flex', gap: '36px', alignItems: 'center' }}
           >
-            {['Services', 'Work', 'About', 'Insights', 'Contact'].map((l) => (
+            {['Services', 'Work', 'About', 'Contact'].map((l) => (
               <a
                 key={l}
                 href={`#${l.toLowerCase()}`}
@@ -174,8 +159,6 @@ export default function HomePage() {
                   fontWeight: 500,
                   color: cream,
                   textDecoration: 'none',
-                  position: 'relative',
-                  padding: '4px 0',
                 }}
               >
                 {l}
@@ -185,18 +168,14 @@ export default function HomePage() {
 
           <a
             href="mailto:hello@jfrstudios.store"
-            style={{
-              ...btnGhost,
-              padding: '11px 22px',
-              fontSize: '11.5px',
-            }}
+            style={{ ...btnGhost, padding: '11px 22px', fontSize: '11.5px' }}
           >
-            Let's talk
+            Let&apos;s talk
           </a>
         </div>
       </header>
 
-      {/* ==================== HERO ==================== */}
+      {/* Hero */}
       <section
         style={{
           minHeight: '100vh',
@@ -208,7 +187,6 @@ export default function HomePage() {
           overflow: 'hidden',
         }}
       >
-        {/* Decorative orbs */}
         <div
           aria-hidden
           style={{
@@ -238,25 +216,7 @@ export default function HomePage() {
           }}
         />
 
-        {/* Faint grid */}
-        <div
-          aria-hidden
-          style={{
-            position: 'absolute',
-            inset: 0,
-            opacity: 0.18,
-            backgroundImage: `linear-gradient(${line} 1px, transparent 1px), linear-gradient(90deg, ${line} 1px, transparent 1px)`,
-            backgroundSize: '88px 88px',
-            maskImage:
-              'radial-gradient(ellipse 60% 50% at 50% 40%, black 0%, transparent 80%)',
-            WebkitMaskImage:
-              'radial-gradient(ellipse 60% 50% at 50% 40%, black 0%, transparent 80%)',
-            pointerEvents: 'none',
-          }}
-        />
-
         <div style={{ ...container, position: 'relative', zIndex: 1, width: '100%' }}>
-          {/* Status pill */}
           <div
             style={{
               display: 'inline-flex',
@@ -306,7 +266,6 @@ export default function HomePage() {
             Booking projects for Q3 2026 — worldwide
           </div>
 
-          {/* Headline */}
           <h1
             style={{
               fontSize: 'clamp(2.75rem, 8.5vw, 7.5rem)',
@@ -319,8 +278,7 @@ export default function HomePage() {
           >
             <span style={{ display: 'block' }}>A studio for brands</span>
             <span style={{ display: 'block' }}>
-              that refuse to{' '}
-              <span style={goldGradientText}>blend in.</span>
+              that refuse to <span style={goldText}>blend in.</span>
             </span>
             <span
               style={{
@@ -334,7 +292,6 @@ export default function HomePage() {
             </span>
           </h1>
 
-          {/* Sub + CTAs */}
           <div
             style={{
               marginTop: '64px',
@@ -369,7 +326,6 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Stats */}
           <div
             style={{
               marginTop: '112px',
@@ -388,13 +344,7 @@ export default function HomePage() {
               { v: '$12M+', l: 'Client revenue tracked' },
               { v: '< 24h', l: 'Reply, every time' },
             ].map((s) => (
-              <div
-                key={s.l}
-                style={{
-                  background: ink,
-                  padding: '36px 28px',
-                }}
-              >
+              <div key={s.l} style={{ background: ink, padding: '36px 28px' }}>
                 <p
                   style={{
                     fontSize: '46px',
@@ -423,86 +373,9 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-
-        {/* Scroll cue */}
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '32px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: '12px',
-            color: mutedSoft,
-            fontSize: '10px',
-            letterSpacing: '0.18em',
-            textTransform: 'uppercase',
-          }}
-        >
-          <span>Scroll</span>
-          <span
-            style={{
-              display: 'block',
-              width: '1px',
-              height: '36px',
-              background: `linear-gradient(180deg, ${gold}, transparent)`,
-            }}
-          />
-        </div>
       </section>
 
-      {/* ==================== MARQUEE ==================== */}
-      <section
-        style={{
-          padding: '44px 0',
-          borderTop: `1px solid ${line}`,
-          borderBottom: `1px solid ${line}`,
-          background: ink900,
-          overflow: 'hidden',
-        }}
-      >
-        <div
-          style={{
-            display: 'flex',
-            gap: '56px',
-            whiteSpace: 'nowrap',
-            animation: 'marquee 36s linear infinite',
-          }}
-        >
-          {[1, 2].flatMap(() =>
-            [
-              'Web Development',
-              'Brand Identity',
-              'Social Media',
-              'Graphic Design',
-              'UI/UX Design',
-              'Motion Graphics',
-              'Digital Marketing',
-              'Content Strategy',
-            ].map((item, i) => (
-              <span
-                key={`${i}-${item}`}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '56px',
-                  fontSize: 'clamp(2rem, 5vw, 4.5rem)',
-                  fontWeight: 600,
-                  letterSpacing: '-0.04em',
-                  color: mutedSoft,
-                }}
-              >
-                {item}
-                <span style={{ ...goldGradientText, fontSize: '0.7em' }}>✦</span>
-              </span>
-            ))
-          )}
-        </div>
-      </section>
-
-      {/* ==================== SERVICES ==================== */}
+      {/* Services */}
       <section id="services" style={section}>
         <div style={container}>
           <div
@@ -581,7 +454,6 @@ export default function HomePage() {
                   flexDirection: 'column',
                   gap: '20px',
                   minHeight: '340px',
-                  transition: 'background 0.3s ease',
                 }}
               >
                 <div
@@ -601,15 +473,7 @@ export default function HomePage() {
                   >
                     ({s.no})
                   </span>
-                  <span
-                    style={{
-                      fontSize: '20px',
-                      color: mutedSoft,
-                      transition: 'color 0.2s ease, transform 0.3s ease',
-                    }}
-                  >
-                    →
-                  </span>
+                  <span style={{ fontSize: '20px', color: mutedSoft }}>→</span>
                 </div>
                 <h3
                   style={{
@@ -647,7 +511,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ==================== WORK ==================== */}
+      {/* Work */}
       <section id="work" style={{ ...section, background: ink900 }}>
         <div style={container}>
           <div
@@ -671,7 +535,7 @@ export default function HomePage() {
               </h2>
             </div>
             <a href="#contact" style={btnGhost}>
-              Have a project? Let's talk
+              Have a project? Let&apos;s talk
             </a>
           </div>
 
@@ -688,28 +552,24 @@ export default function HomePage() {
                 title: 'Atlas Logistics',
                 cat: 'Web · Brand',
                 desc: 'A digital foundation for a regional logistics platform preparing to scale across South Asia.',
-                grad: `linear-gradient(135deg, ${gold}35, ${ink})`,
               },
               {
                 no: '02',
                 title: 'Karachi Coffee Co.',
                 cat: 'Brand · Packaging',
                 desc: 'A new identity for a specialty roaster — from the cup in your hand to the sign above the door.',
-                grad: `linear-gradient(135deg, ${cream}18, ${ink})`,
               },
               {
                 no: '03',
                 title: 'Northwind Studios',
                 cat: 'Web · Motion',
                 desc: 'An agency site with a WebGL hero, GSAP scroll work and a CMS the team actually wants to use.',
-                grad: `linear-gradient(135deg, ${goldDark}40, ${ink})`,
               },
               {
                 no: '04',
                 title: 'Saffron & Salt',
                 cat: 'Social · Content',
                 desc: 'A content engine for a restaurant group that tripled organic reach in twelve weeks.',
-                grad: `linear-gradient(135deg, ${gold}22, ${ink})`,
               },
             ].map((p) => (
               <article
@@ -719,14 +579,12 @@ export default function HomePage() {
                   border: `1px solid ${line}`,
                   borderRadius: '20px',
                   overflow: 'hidden',
-                  transition: 'border-color 0.3s ease, transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-                  cursor: 'pointer',
                 }}
               >
                 <div
                   style={{
                     aspectRatio: '4 / 3',
-                    background: p.grad,
+                    background: `linear-gradient(135deg, ${gold}30, ${ink})`,
                     position: 'relative',
                     display: 'flex',
                     alignItems: 'center',
@@ -803,7 +661,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ==================== ABOUT ==================== */}
+      {/* About */}
       <section id="about" style={section}>
         <div style={container}>
           <div
@@ -831,7 +689,7 @@ export default function HomePage() {
                   maxWidth: '420px',
                 }}
               >
-                We've been the team people call when the brief is hard, the
+                We&apos;ve been the team people call when the brief is hard, the
                 timeline is real, and the work has to be good.
               </p>
             </div>
@@ -845,8 +703,9 @@ export default function HomePage() {
                 }}
               >
                 JFR Studios was started because the work we wanted to make
-                didn't have a home in larger shops, and the work our clients
-                needed couldn't be done well by one freelancer at a time.
+                didn&apos;t have a home in larger shops, and the work our
+                clients needed couldn&apos;t be done well by one freelancer at
+                a time.
               </p>
               <p
                 style={{
@@ -856,10 +715,11 @@ export default function HomePage() {
                   margin: 0,
                 }}
               >
-                We're small on purpose. Every project is led by a senior, every
-                line of code and every frame is reviewed, and we don't take
-                on work we can't finish properly. The result is a studio that
-                ships calmly, talks straight, and treats your time like ours.
+                We&apos;re small on purpose. Every project is led by a senior,
+                every line of code and every frame is reviewed, and we
+                don&apos;t take on work we can&apos;t finish properly. The
+                result is a studio that ships calmly, talks straight, and
+                treats your time like ours.
               </p>
 
               <div
@@ -910,114 +770,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ==================== INSIGHTS ==================== */}
-      <section id="insights" style={{ ...section, background: ink900 }}>
-        <div style={container}>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'flex-end',
-              justifyContent: 'space-between',
-              flexWrap: 'wrap',
-              gap: '24px',
-              marginBottom: '64px',
-            }}
-          >
-            <div>
-              <p style={eyebrow}>
-                <span style={{ width: '32px', height: '1px', background: gold }} />
-                Insights
-              </p>
-              <h2 style={h2Display}>
-                Notes from the studio.{' '}
-                <span style={{ color: mutedSoft }}>Twice a month.</span>
-              </h2>
-            </div>
-            <a href="#contact" style={btnGhost}>
-              Subscribe
-            </a>
-          </div>
-
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '24px',
-            }}
-          >
-            {[
-              {
-                cat: 'Field notes',
-                title: 'Why "good enough" websites stop working the moment you stop touching them.',
-                meta: '8 min · Studio',
-              },
-              {
-                cat: 'Behind the build',
-                title: 'The redesign that quietly doubled a client's inbound leads in a quarter.',
-                meta: '12 min · Case',
-              },
-              {
-                cat: 'Opinion',
-                title: 'Stop calling it a "brand". It is a set of promises you keep showing up to.',
-                meta: '5 min · Essay',
-              },
-            ].map((p) => (
-              <article
-                key={p.title}
-                style={{
-                  background: ink,
-                  border: `1px solid ${line}`,
-                  borderRadius: '20px',
-                  padding: '32px 28px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '20px',
-                  minHeight: '240px',
-                }}
-              >
-                <span
-                  style={{
-                    fontSize: '10.5px',
-                    letterSpacing: '0.16em',
-                    textTransform: 'uppercase',
-                    fontWeight: 500,
-                    color: gold,
-                  }}
-                >
-                  {p.cat}
-                </span>
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    fontWeight: 600,
-                    letterSpacing: '-0.02em',
-                    color: cream,
-                    margin: 0,
-                    lineHeight: 1.3,
-                    flex: 1,
-                  }}
-                >
-                  {p.title}
-                </h3>
-                <p
-                  style={{
-                    fontSize: '11px',
-                    letterSpacing: '0.1em',
-                    textTransform: 'uppercase',
-                    color: mutedSoft,
-                    margin: 0,
-                  }}
-                >
-                  {p.meta}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ==================== CONTACT ==================== */}
-      <section id="contact" style={section}>
+      {/* Contact */}
+      <section id="contact" style={{ ...section, background: ink900 }}>
         <div style={container}>
           <div
             style={{
@@ -1034,7 +788,7 @@ export default function HomePage() {
               </p>
               <h2 style={{ ...h2Display, marginBottom: '32px' }}>
                 Tell us about the work.{' '}
-                <span style={goldGradientText}>We'll take it from there.</span>
+                <span style={goldText}>We&apos;ll take it from there.</span>
               </h2>
               <p
                 style={{
@@ -1046,8 +800,8 @@ export default function HomePage() {
                 }}
               >
                 One short email is enough to start. We read everything, reply
-                within a working day, and if we're not the right fit, we'll
-                tell you who is.
+                within a working day, and if we&apos;re not the right fit,
+                we&apos;ll tell you who is.
               </p>
             </div>
 
@@ -1067,15 +821,7 @@ export default function HomePage() {
                 }}
               >
                 hello@jfrstudios.store
-                <span
-                  style={{
-                    ...goldGradientText,
-                    fontSize: '0.85em',
-                    transition: 'transform 0.3s ease',
-                  }}
-                >
-                  ↗
-                </span>
+                <span style={{ ...goldText, fontSize: '0.85em' }}>↗</span>
               </a>
 
               <div
@@ -1166,7 +912,6 @@ export default function HomePage() {
                     style={{
                       ...tagPill,
                       textDecoration: 'none',
-                      transition: 'border-color 0.2s ease, color 0.2s ease',
                       padding: '8px 14px',
                     }}
                   >
@@ -1179,7 +924,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ==================== FOOTER ==================== */}
+      {/* Footer */}
       <footer
         style={{
           padding: '40px 0 32px',
@@ -1208,7 +953,7 @@ export default function HomePage() {
               }}
             >
               <span style={{ color: cream }}>/JFR</span>
-              <span style={goldGradientText}>.</span>
+              <span style={goldText}>.</span>
               <span style={{ color: muted }}>studios</span>
             </div>
             <p
@@ -1225,24 +970,17 @@ export default function HomePage() {
         </div>
       </footer>
 
-      {/* ==================== GLOBAL STYLES ==================== */}
       <style>{`
         @keyframes pulse {
           0%, 100% { transform: scale(1); opacity: 0.55; }
           50% { transform: scale(2.4); opacity: 0; }
         }
-        @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { -webkit-font-smoothing: antialiased; }
         ::selection { background: ${gold}; color: ${ink}; }
-        a:hover { color: ${gold}; }
+        a:hover { color: ${gold}; transition: color 0.2s ease; }
         a { transition: color 0.2s ease; }
-        button:hover, a[style*="btnPrimary"]:hover { transform: translateY(-1px); }
-        a[style*="btnGhost"]:hover { border-color: ${gold} !important; color: ${gold} !important; }
       `}</style>
     </>
   );
