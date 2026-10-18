@@ -1,19 +1,30 @@
 /**
- * Sanity Studio route.
- * Mounts the embedded CMS at /studio for content editing.
- *
- * Before this works you must:
- *   1. Create a project at https://sanity.io
- *   2. Set NEXT_PUBLIC_SANITY_PROJECT_ID in .env.local
- *   3. Run `npx sanity@latest init --reconfigure` if needed
+ * Studio placeholder.
+ * The full Sanity Studio will be re-enabled once we set up the CMS project.
  */
-'use client';
-
-import { NextStudio } from 'next-sanity/studio';
-import config from '../../../sanity.config';
+export default function StudioPage() {
+  return (
+    <div
+      style={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: '#07070A',
+        color: '#F5F5F2',
+        fontFamily: 'system-ui, sans-serif',
+        padding: '24px',
+        textAlign: 'center',
+      }}
+    >
+      <div>
+        <h1 style={{ fontSize: '32px', marginBottom: '12px' }}>Studio — Coming Soon</h1>
+        <p style={{ color: 'rgba(245, 245, 242, 0.6)' }}>
+          The CMS will be available here once the project is configured.
+        </p>
+      </div>
+    </div>
+  );
+}
 
 export const dynamic = 'force-static';
-
-export default function StudioPage() {
-  return <NextStudio config={config} />;
-}
