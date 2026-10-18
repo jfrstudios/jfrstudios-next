@@ -1,17 +1,21 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import type { CSSProperties } from 'react';
 
-// JFR Studios - Gold + Black theme for international clients
+// JFR Studios - Deep Blue + Black theme with magical robot mascot
 
 const ink = '#07070A';
-const ink900 = '#0B0B10';
+const ink900 = '#0B0B12';
 const cream = '#F5F5F2';
 const muted = 'rgba(245, 245, 242, 0.62)';
 const mutedSoft = 'rgba(245, 245, 242, 0.38)';
 const line = 'rgba(245, 245, 242, 0.10)';
-const gold = '#D4AF37';
-const goldLight = '#E8C766';
-const goldDark = '#9C7A1C';
+
+// Deep Blue palette - magical, futuristic, premium
+const blue = '#3B82F6';
+const blueLight = '#60A5FA';
+const blueDark = '#1E3A8A';
+const blueGlow = '#93C5FD';
 
 const container: CSSProperties = {
   maxWidth: '1280px',
@@ -33,7 +37,7 @@ const eyebrow: CSSProperties = {
   letterSpacing: '0.18em',
   textTransform: 'uppercase',
   fontWeight: 500,
-  color: gold,
+  color: blueLight,
   marginBottom: '24px',
 };
 
@@ -45,8 +49,8 @@ const h2Display: CSSProperties = {
   margin: 0,
 };
 
-const goldText: CSSProperties = {
-  background: `linear-gradient(135deg, ${goldLight}, ${goldDark})`,
+const blueText: CSSProperties = {
+  background: `linear-gradient(135deg, ${blueLight}, ${blueDark})`,
   WebkitBackgroundClip: 'text',
   WebkitTextFillColor: 'transparent',
   backgroundClip: 'text',
@@ -72,8 +76,8 @@ const btnPrimary: CSSProperties = {
   gap: '10px',
   padding: '15px 28px',
   borderRadius: '999px',
-  background: gold,
-  color: ink,
+  background: blue,
+  color: cream,
   fontWeight: 600,
   fontSize: '12.5px',
   letterSpacing: '0.06em',
@@ -140,7 +144,7 @@ export default function HomePage() {
             }}
           >
             <span style={{ color: cream }}>/JFR</span>
-            <span style={goldText}>.</span>
+            <span style={blueText}>.</span>
             <span style={{ color: muted }}>studios</span>
           </Link>
 
@@ -175,7 +179,7 @@ export default function HomePage() {
         </div>
       </header>
 
-      {/* Hero */}
+      {/* Hero with Magical Robot */}
       <section
         style={{
           minHeight: '100vh',
@@ -187,6 +191,7 @@ export default function HomePage() {
           overflow: 'hidden',
         }}
       >
+        {/* Deep blue glow orbs */}
         <div
           aria-hidden
           style={{
@@ -196,7 +201,8 @@ export default function HomePage() {
             width: '680px',
             height: '680px',
             borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(212, 175, 55, 0.22), transparent 60%)',
+            background:
+              'radial-gradient(circle, rgba(59, 130, 246, 0.28), transparent 60%)',
             filter: 'blur(110px)',
             pointerEvents: 'none',
           }}
@@ -210,7 +216,8 @@ export default function HomePage() {
             width: '560px',
             height: '560px',
             borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(156, 122, 28, 0.14), transparent 60%)',
+            background:
+              'radial-gradient(circle, rgba(30, 58, 138, 0.22), transparent 60%)',
             filter: 'blur(120px)',
             pointerEvents: 'none',
           }}
@@ -219,116 +226,157 @@ export default function HomePage() {
         <div style={{ ...container, position: 'relative', zIndex: 1, width: '100%' }}>
           <div
             style={{
-              display: 'inline-flex',
+              display: 'grid',
+              gridTemplateColumns: 'minmax(0, 1.2fr) minmax(0, 1fr)',
+              gap: '64px',
               alignItems: 'center',
-              gap: '12px',
-              fontSize: '11.5px',
-              letterSpacing: '0.18em',
-              textTransform: 'uppercase',
-              fontWeight: 500,
-              color: gold,
-              marginBottom: '48px',
-              padding: '8px 16px',
-              borderRadius: '999px',
-              border: `1px solid ${line}`,
-              background: 'rgba(212, 175, 55, 0.04)',
             }}
           >
-            <span
+            {/* Left: Text content */}
+            <div>
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  fontSize: '11.5px',
+                  letterSpacing: '0.18em',
+                  textTransform: 'uppercase',
+                  fontWeight: 500,
+                  color: blueLight,
+                  marginBottom: '32px',
+                  padding: '8px 16px',
+                  borderRadius: '999px',
+                  border: `1px solid ${line}`,
+                  background: 'rgba(59, 130, 246, 0.06)',
+                }}
+              >
+                <span
+                  style={{
+                    position: 'relative',
+                    display: 'inline-flex',
+                    width: '8px',
+                    height: '8px',
+                  }}
+                >
+                  <span
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      borderRadius: '50%',
+                      background: blueLight,
+                      opacity: 0.5,
+                      animation: 'pulse 2.4s ease-in-out infinite',
+                    }}
+                  />
+                  <span
+                    style={{
+                      position: 'relative',
+                      display: 'inline-block',
+                      width: '8px',
+                      height: '8px',
+                      borderRadius: '50%',
+                      background: blueLight,
+                    }}
+                  />
+                </span>
+                Booking projects for Q3 2026 — worldwide
+              </div>
+
+              <h1
+                style={{
+                  fontSize: 'clamp(2.5rem, 6.5vw, 5.5rem)',
+                  fontWeight: 700,
+                  letterSpacing: '-0.05em',
+                  lineHeight: 0.95,
+                  margin: 0,
+                }}
+              >
+                <span style={{ display: 'block' }}>A studio for brands</span>
+                <span style={{ display: 'block' }}>
+                  that refuse to <span style={blueText}>blend in.</span>
+                </span>
+                <span
+                  style={{
+                    display: 'block',
+                    color: mutedSoft,
+                    fontWeight: 500,
+                    marginTop: '8px',
+                  }}
+                >
+                  We design, build and grow them.
+                </span>
+              </h1>
+
+              <p
+                style={{
+                  marginTop: '32px',
+                  fontSize: '17px',
+                  lineHeight: 1.65,
+                  color: muted,
+                  maxWidth: '520px',
+                }}
+              >
+                JFR Studios is a small, sharp team of designers and engineers
+                based in Pakistan, working with founders, marketers and creative
+                leaders across the world. We make the kind of work that earns
+                attention — and turns it into customers.
+              </p>
+
+              <div
+                style={{
+                  marginTop: '40px',
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  gap: '12px',
+                }}
+              >
+                <a href="#contact" style={btnPrimary}>
+                  Start a project <span style={{ fontSize: '14px' }}>→</span>
+                </a>
+                <a href="#work" style={btnGhost}>
+                  See selected work
+                </a>
+              </div>
+            </div>
+
+            {/* Right: Magical Robot */}
+            <div
               style={{
                 position: 'relative',
-                display: 'inline-flex',
-                width: '8px',
-                height: '8px',
+                aspectRatio: '1 / 1',
+                width: '100%',
+                maxWidth: '460px',
+                marginLeft: 'auto',
+                animation: 'float 6s ease-in-out infinite',
               }}
             >
-              <span
+              {/* Glow behind robot */}
+              <div
+                aria-hidden
                 style={{
                   position: 'absolute',
-                  inset: 0,
-                  borderRadius: '50%',
-                  background: gold,
-                  opacity: 0.5,
-                  animation: 'pulse 2.4s ease-in-out infinite',
+                  inset: '-10%',
+                  background:
+                    'radial-gradient(circle, rgba(59, 130, 246, 0.35), transparent 70%)',
+                  filter: 'blur(40px)',
+                  zIndex: 0,
                 }}
               />
-              <span
-                style={{
-                  position: 'relative',
-                  display: 'inline-block',
-                  width: '8px',
-                  height: '8px',
-                  borderRadius: '50%',
-                  background: gold,
-                }}
+              <Image
+                src="/robot.svg"
+                alt="JFR Studios mascot"
+                fill
+                priority
+                style={{ position: 'relative', zIndex: 1, objectFit: 'contain' }}
               />
-            </span>
-            Booking projects for Q3 2026 — worldwide
-          </div>
-
-          <h1
-            style={{
-              fontSize: 'clamp(2.75rem, 8.5vw, 7.5rem)',
-              fontWeight: 700,
-              letterSpacing: '-0.05em',
-              lineHeight: 0.92,
-              margin: 0,
-              maxWidth: '1280px',
-            }}
-          >
-            <span style={{ display: 'block' }}>A studio for brands</span>
-            <span style={{ display: 'block' }}>
-              that refuse to <span style={goldText}>blend in.</span>
-            </span>
-            <span
-              style={{
-                display: 'block',
-                color: mutedSoft,
-                fontWeight: 500,
-                marginTop: '8px',
-              }}
-            >
-              We design, build and grow them.
-            </span>
-          </h1>
-
-          <div
-            style={{
-              marginTop: '64px',
-              display: 'grid',
-              gridTemplateColumns: 'minmax(0, 1.4fr) minmax(0, 1fr)',
-              gap: '56px',
-              alignItems: 'end',
-            }}
-          >
-            <p
-              style={{
-                fontSize: '18px',
-                lineHeight: 1.65,
-                color: muted,
-                margin: 0,
-                maxWidth: '560px',
-              }}
-            >
-              JFR Studios is a small, sharp team of designers and engineers
-              based in Pakistan, working with founders, marketers and creative
-              leaders across the world. We make the kind of work that earns
-              attention — and turns it into customers.
-            </p>
-
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
-              <a href="#contact" style={btnPrimary}>
-                Start a project <span style={{ fontSize: '14px' }}>→</span>
-              </a>
-              <a href="#work" style={btnGhost}>
-                See selected work
-              </a>
             </div>
           </div>
 
+          {/* Stats */}
           <div
             style={{
-              marginTop: '112px',
+              marginTop: '96px',
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))',
               gap: '1px',
@@ -349,7 +397,7 @@ export default function HomePage() {
                   style={{
                     fontSize: '46px',
                     fontWeight: 700,
-                    color: gold,
+                    color: blueLight,
                     margin: 0,
                     lineHeight: 1,
                     letterSpacing: '-0.04em',
@@ -387,7 +435,7 @@ export default function HomePage() {
             }}
           >
             <p style={eyebrow}>
-              <span style={{ width: '32px', height: '1px', background: gold }} />
+              <span style={{ width: '32px', height: '1px', background: blueLight }} />
               What we do
             </p>
             <h2 style={h2Display}>
@@ -468,7 +516,7 @@ export default function HomePage() {
                       fontSize: '12px',
                       letterSpacing: '0.16em',
                       fontWeight: 500,
-                      color: gold,
+                      color: blueLight,
                     }}
                   >
                     ({s.no})
@@ -526,7 +574,7 @@ export default function HomePage() {
           >
             <div style={{ maxWidth: '720px' }}>
               <p style={eyebrow}>
-                <span style={{ width: '32px', height: '1px', background: gold }} />
+                <span style={{ width: '32px', height: '1px', background: blueLight }} />
                 Selected work
               </p>
               <h2 style={h2Display}>
@@ -584,7 +632,7 @@ export default function HomePage() {
                 <div
                   style={{
                     aspectRatio: '4 / 3',
-                    background: `linear-gradient(135deg, ${gold}30, ${ink})`,
+                    background: `linear-gradient(135deg, rgba(59, 130, 246, 0.25), ${ink})`,
                     position: 'relative',
                     display: 'flex',
                     alignItems: 'center',
@@ -618,7 +666,7 @@ export default function HomePage() {
                         letterSpacing: '0.14em',
                         textTransform: 'uppercase',
                         fontWeight: 500,
-                        color: gold,
+                        color: blueLight,
                       }}
                     >
                       {p.cat}
@@ -674,7 +722,7 @@ export default function HomePage() {
           >
             <div>
               <p style={eyebrow}>
-                <span style={{ width: '32px', height: '1px', background: gold }} />
+                <span style={{ width: '32px', height: '1px', background: blueLight }} />
                 The studio
               </p>
               <h2 style={h2Display}>
@@ -743,7 +791,7 @@ export default function HomePage() {
                       style={{
                         fontSize: '24px',
                         fontWeight: 700,
-                        color: gold,
+                        color: blueLight,
                         margin: 0,
                         letterSpacing: '-0.03em',
                       }}
@@ -783,12 +831,12 @@ export default function HomePage() {
           >
             <div>
               <p style={eyebrow}>
-                <span style={{ width: '32px', height: '1px', background: gold }} />
+                <span style={{ width: '32px', height: '1px', background: blueLight }} />
                 Get in touch
               </p>
               <h2 style={{ ...h2Display, marginBottom: '32px' }}>
                 Tell us about the work.{' '}
-                <span style={goldText}>We&apos;ll take it from there.</span>
+                <span style={blueText}>We&apos;ll take it from there.</span>
               </h2>
               <p
                 style={{
@@ -821,7 +869,7 @@ export default function HomePage() {
                 }}
               >
                 hello@jfrstudios.store
-                <span style={{ ...goldText, fontSize: '0.85em' }}>↗</span>
+                <span style={{ ...blueText, fontSize: '0.85em' }}>↗</span>
               </a>
 
               <div
@@ -840,7 +888,7 @@ export default function HomePage() {
                       fontSize: '10.5px',
                       letterSpacing: '0.16em',
                       textTransform: 'uppercase',
-                      color: gold,
+                      color: blueLight,
                       margin: 0,
                       fontWeight: 500,
                       marginBottom: '8px',
@@ -867,7 +915,7 @@ export default function HomePage() {
                       fontSize: '10.5px',
                       letterSpacing: '0.16em',
                       textTransform: 'uppercase',
-                      color: gold,
+                      color: blueLight,
                       margin: 0,
                       fontWeight: 500,
                       marginBottom: '8px',
@@ -953,7 +1001,7 @@ export default function HomePage() {
               }}
             >
               <span style={{ color: cream }}>/JFR</span>
-              <span style={goldText}>.</span>
+              <span style={blueText}>.</span>
               <span style={{ color: muted }}>studios</span>
             </div>
             <p
@@ -975,11 +1023,15 @@ export default function HomePage() {
           0%, 100% { transform: scale(1); opacity: 0.55; }
           50% { transform: scale(2.4); opacity: 0; }
         }
+        @keyframes float {
+          0%, 100% { transform: translateY(0) rotate(0deg); }
+          50% { transform: translateY(-12px) rotate(2deg); }
+        }
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { -webkit-font-smoothing: antialiased; }
-        ::selection { background: ${gold}; color: ${ink}; }
-        a:hover { color: ${gold}; transition: color 0.2s ease; }
+        ::selection { background: ${blue}; color: ${cream}; }
+        a:hover { color: ${blueLight}; transition: color 0.2s ease; }
         a { transition: color 0.2s ease; }
       `}</style>
     </>
