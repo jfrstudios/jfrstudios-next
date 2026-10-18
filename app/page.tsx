@@ -1,100 +1,116 @@
 import Link from 'next/link';
 import type { CSSProperties } from 'react';
 
-// ===== Style tokens =====
-const ink = '#07070A';
-const ink900 = '#0F0F15';
-const ink800 = '#1A1A22';
-const cream = '#F5F5F2';
-const muted = 'rgba(245, 245, 242, 0.6)';
-const mutedSoft = 'rgba(245, 245, 242, 0.4)';
-const line = 'rgba(245, 245, 242, 0.1)';
-const accent = '#BEF264';
-const accentDark = '#84CC16';
+/**
+ * JFR Studios — Premium Digital Studio
+ * Gold + Black theme, international focus
+ * Hand-crafted copy, nk.studio-level polish
+ */
 
-// ===== Reusable styles =====
+// ============== Theme ==============
+const ink = '#07070A';
+const ink900 = '#0B0B10';
+const ink800 = '#13131A';
+const cream = '#F5F5F2';
+const muted = 'rgba(245, 245, 242, 0.62)';
+const mutedSoft = 'rgba(245, 245, 242, 0.38)';
+const line = 'rgba(245, 245, 242, 0.10)';
+const lineHi = 'rgba(245, 245, 242, 0.18)';
+const gold = '#D4AF37';
+const goldLight = '#E8C766';
+const goldDark = '#9C7A1C';
+
+// ============== Tokens ==============
 const container: CSSProperties = {
   maxWidth: '1280px',
   margin: '0 auto',
   padding: '0 24px',
 };
 
-const eyebrow: CSSProperties = {
-  display: 'inline-flex',
-  alignItems: 'center',
-  gap: '12px',
-  fontSize: '12px',
-  letterSpacing: '0.16em',
-  textTransform: 'uppercase',
-  fontWeight: 500,
-  color: accent,
-  marginBottom: '20px',
-};
-
 const section: CSSProperties = {
-  padding: '96px 0',
+  padding: '112px 0',
   borderTop: `1px solid ${line}`,
   position: 'relative',
 };
 
+const eyebrow: CSSProperties = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: '14px',
+  fontSize: '11px',
+  letterSpacing: '0.18em',
+  textTransform: 'uppercase',
+  fontWeight: 500,
+  color: gold,
+  marginBottom: '24px',
+};
+
 const h2Display: CSSProperties = {
-  fontSize: 'clamp(2.25rem, 5vw, 4rem)',
-  fontWeight: 800,
+  fontSize: 'clamp(2.25rem, 5vw, 4.25rem)',
+  fontWeight: 700,
   letterSpacing: '-0.035em',
   lineHeight: 1.0,
   margin: 0,
 };
 
+const goldGradientText: CSSProperties = {
+  background: `linear-gradient(135deg, ${goldLight} 0%, ${gold} 50%, ${goldDark} 100%)`,
+  WebkitBackgroundClip: 'text',
+  WebkitTextFillColor: 'transparent',
+  backgroundClip: 'text',
+  color: 'transparent',
+};
+
 const tagPill: CSSProperties = {
   display: 'inline-flex',
   alignItems: 'center',
-  padding: '6px 12px',
-  fontSize: '11px',
+  padding: '5px 11px',
+  fontSize: '10.5px',
   letterSpacing: '0.1em',
   textTransform: 'uppercase',
   fontWeight: 500,
   borderRadius: '999px',
   border: `1px solid ${line}`,
-  color: 'rgba(245, 245, 242, 0.85)',
+  color: 'rgba(245, 245, 242, 0.82)',
 };
 
 const btnPrimary: CSSProperties = {
   display: 'inline-flex',
   alignItems: 'center',
-  gap: '8px',
-  padding: '14px 26px',
+  gap: '10px',
+  padding: '15px 28px',
   borderRadius: '999px',
-  background: accent,
+  background: gold,
   color: ink,
   fontWeight: 600,
-  fontSize: '13px',
-  letterSpacing: '0.04em',
+  fontSize: '12.5px',
+  letterSpacing: '0.06em',
   textTransform: 'uppercase',
   textDecoration: 'none',
   border: 'none',
   cursor: 'pointer',
-  transition: 'background 0.2s ease',
+  transition: 'transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), background 0.2s ease',
 };
 
 const btnGhost: CSSProperties = {
   display: 'inline-flex',
   alignItems: 'center',
-  gap: '8px',
-  padding: '14px 26px',
+  gap: '10px',
+  padding: '15px 28px',
   borderRadius: '999px',
-  border: `1px solid ${line}`,
+  border: `1px solid ${lineHi}`,
   color: cream,
   fontWeight: 500,
-  fontSize: '13px',
-  letterSpacing: '0.04em',
+  fontSize: '12.5px',
+  letterSpacing: '0.06em',
   textTransform: 'uppercase',
   textDecoration: 'none',
   background: 'transparent',
   cursor: 'pointer',
-  transition: 'border-color 0.2s ease, color 0.2s ease',
+  transition: 'border-color 0.2s ease, color 0.2s ease, transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
 };
 
-// ===== Page =====
+// ============== Page ==============
 export default function HomePage() {
   return (
     <>
@@ -106,10 +122,10 @@ export default function HomePage() {
           left: 0,
           right: 0,
           zIndex: 50,
-          padding: '20px 0',
-          background: 'rgba(7, 7, 10, 0.7)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
+          padding: '18px 0',
+          background: 'rgba(7, 7, 10, 0.72)',
+          backdropFilter: 'blur(24px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(24px) saturate(180%)',
           borderBottom: `1px solid ${line}`,
         }}
       >
@@ -130,12 +146,12 @@ export default function HomePage() {
               gap: '2px',
               textDecoration: 'none',
               fontWeight: 800,
-              fontSize: '20px',
+              fontSize: '19px',
               letterSpacing: '-0.04em',
             }}
           >
             <span style={{ color: cream }}>/JFR</span>
-            <span style={{ color: accent }}>.</span>
+            <span style={goldGradientText}>.</span>
             <span style={{ color: muted }}>studios</span>
           </Link>
 
@@ -143,70 +159,36 @@ export default function HomePage() {
             aria-label="Primary"
             style={{
               display: 'flex',
-              gap: '32px',
+              gap: '36px',
               alignItems: 'center',
             }}
           >
-            <a
-              href="#services"
-              style={{
-                fontSize: '12px',
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
-                fontWeight: 500,
-                color: cream,
-                textDecoration: 'none',
-              }}
-            >
-              Services
-            </a>
-            <a
-              href="#work"
-              style={{
-                fontSize: '12px',
-                letterSpacing: '0.1em',
-                textTransform: 'upperface',
-                fontWeight: 500,
-                color: cream,
-                textDecoration: 'none',
-              }}
-            >
-              Work
-            </a>
-            <a
-              href="#about"
-              style={{
-                fontSize: '12px',
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
-                fontWeight: 500,
-                color: cream,
-                textDecoration: 'none',
-              }}
-            >
-              About
-            </a>
-            <a
-              href="#contact"
-              style={{
-                fontSize: '12px',
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
-                fontWeight: 500,
-                color: cream,
-                textDecoration: 'none',
-              }}
-            >
-              Contact
-            </a>
+            {['Services', 'Work', 'About', 'Insights', 'Contact'].map((l) => (
+              <a
+                key={l}
+                href={`#${l.toLowerCase()}`}
+                style={{
+                  fontSize: '12px',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  fontWeight: 500,
+                  color: cream,
+                  textDecoration: 'none',
+                  position: 'relative',
+                  padding: '4px 0',
+                }}
+              >
+                {l}
+              </a>
+            ))}
           </nav>
 
           <a
             href="mailto:hello@jfrstudios.store"
             style={{
               ...btnGhost,
-              padding: '10px 20px',
-              fontSize: '12px',
+              padding: '11px 22px',
+              fontSize: '11.5px',
             }}
           >
             Let's talk
@@ -218,8 +200,8 @@ export default function HomePage() {
       <section
         style={{
           minHeight: '100vh',
-          paddingTop: '160px',
-          paddingBottom: '80px',
+          paddingTop: '180px',
+          paddingBottom: '100px',
           position: 'relative',
           display: 'flex',
           alignItems: 'center',
@@ -231,13 +213,13 @@ export default function HomePage() {
           aria-hidden
           style={{
             position: 'absolute',
-            top: '-10%',
-            right: '-10%',
-            width: '600px',
-            height: '600px',
+            top: '-12%',
+            right: '-8%',
+            width: '680px',
+            height: '680px',
             borderRadius: '50%',
-            background: 'rgba(190, 242, 100, 0.15)',
-            filter: 'blur(120px)',
+            background: 'radial-gradient(circle, rgba(212, 175, 55, 0.22), transparent 60%)',
+            filter: 'blur(110px)',
             pointerEvents: 'none',
           }}
         />
@@ -245,30 +227,51 @@ export default function HomePage() {
           aria-hidden
           style={{
             position: 'absolute',
-            bottom: '-20%',
+            bottom: '-25%',
             left: '-10%',
-            width: '500px',
-            height: '500px',
+            width: '560px',
+            height: '560px',
             borderRadius: '50%',
-            background: 'rgba(132, 204, 22, 0.1)',
+            background: 'radial-gradient(circle, rgba(156, 122, 28, 0.14), transparent 60%)',
             filter: 'blur(120px)',
             pointerEvents: 'none',
           }}
         />
 
+        {/* Faint grid */}
+        <div
+          aria-hidden
+          style={{
+            position: 'absolute',
+            inset: 0,
+            opacity: 0.18,
+            backgroundImage: `linear-gradient(${line} 1px, transparent 1px), linear-gradient(90deg, ${line} 1px, transparent 1px)`,
+            backgroundSize: '88px 88px',
+            maskImage:
+              'radial-gradient(ellipse 60% 50% at 50% 40%, black 0%, transparent 80%)',
+            WebkitMaskImage:
+              'radial-gradient(ellipse 60% 50% at 50% 40%, black 0%, transparent 80%)',
+            pointerEvents: 'none',
+          }}
+        />
+
         <div style={{ ...container, position: 'relative', zIndex: 1, width: '100%' }}>
-          {/* Eyebrow */}
+          {/* Status pill */}
           <div
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '10px',
-              fontSize: '12px',
-              letterSpacing: '0.16em',
+              gap: '12px',
+              fontSize: '11.5px',
+              letterSpacing: '0.18em',
               textTransform: 'uppercase',
               fontWeight: 500,
-              color: accent,
-              marginBottom: '40px',
+              color: gold,
+              marginBottom: '48px',
+              padding: '8px 16px',
+              borderRadius: '999px',
+              border: `1px solid ${line}`,
+              background: 'rgba(212, 175, 55, 0.04)',
             }}
           >
             <span
@@ -284,9 +287,9 @@ export default function HomePage() {
                   position: 'absolute',
                   inset: 0,
                   borderRadius: '50%',
-                  background: accent,
+                  background: gold,
                   opacity: 0.5,
-                  animation: 'pulse 2s ease-in-out infinite',
+                  animation: 'pulse 2.4s ease-in-out infinite',
                 }}
               />
               <span
@@ -296,66 +299,72 @@ export default function HomePage() {
                   width: '8px',
                   height: '8px',
                   borderRadius: '50%',
-                  background: accent,
+                  background: gold,
                 }}
               />
             </span>
-            Available for new projects — 2026
+            Booking projects for Q3 2026 — worldwide
           </div>
 
           {/* Headline */}
           <h1
             style={{
-              fontSize: 'clamp(2.75rem, 8vw, 7rem)',
-              fontWeight: 800,
-              letterSpacing: '-0.045em',
-              lineHeight: 0.95,
+              fontSize: 'clamp(2.75rem, 8.5vw, 7.5rem)',
+              fontWeight: 700,
+              letterSpacing: '-0.05em',
+              lineHeight: 0.92,
               margin: 0,
-              maxWidth: '1200px',
+              maxWidth: '1280px',
             }}
           >
-            <span style={{ display: 'block' }}>We craft digital</span>
+            <span style={{ display: 'block' }}>A studio for brands</span>
             <span style={{ display: 'block' }}>
-              <span style={{ color: accent }}>experiences</span>
+              that refuse to{' '}
+              <span style={goldGradientText}>blend in.</span>
             </span>
-            <span style={{ display: 'block', color: mutedSoft }}>
-              that ignite brands.
+            <span
+              style={{
+                display: 'block',
+                color: mutedSoft,
+                fontWeight: 500,
+                marginTop: '8px',
+              }}
+            >
+              We design, build and grow them.
             </span>
           </h1>
 
-          {/* Subtitle + CTA */}
+          {/* Sub + CTAs */}
           <div
             style={{
-              marginTop: '56px',
+              marginTop: '64px',
               display: 'grid',
-              gridTemplateColumns: 'minmax(0, 1.5fr) minmax(0, 1fr)',
-              gap: '48px',
+              gridTemplateColumns: 'minmax(0, 1.4fr) minmax(0, 1fr)',
+              gap: '56px',
               alignItems: 'end',
             }}
           >
             <p
               style={{
                 fontSize: '18px',
-                lineHeight: 1.6,
+                lineHeight: 1.65,
                 color: muted,
                 margin: 0,
                 maxWidth: '560px',
               }}
             >
-              From bold identities to immersive websites — JFR Studios is a
-              digital studio for ambitious brands at pivotal moments of growth.
-              We combine <span style={{ color: cream }}>strategy</span>,{' '}
-              <span style={{ color: cream }}>creativity</span> and{' '}
-              <span style={{ color: cream }}>technology</span> to move
-              businesses forward.
+              JFR Studios is a small, sharp team of designers and engineers
+              based in Pakistan, working with founders, marketers and creative
+              leaders across the world. We make the kind of work that earns
+              attention — and turns it into customers.
             </p>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
               <a href="#contact" style={btnPrimary}>
-                Start a project →
+                Start a project <span style={{ fontSize: '14px' }}>→</span>
               </a>
               <a href="#work" style={btnGhost}>
-                See our work
+                See selected work
               </a>
             </div>
           </div>
@@ -363,9 +372,9 @@ export default function HomePage() {
           {/* Stats */}
           <div
             style={{
-              marginTop: '96px',
+              marginTop: '112px',
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))',
               gap: '1px',
               background: line,
               border: `1px solid ${line}`,
@@ -374,26 +383,26 @@ export default function HomePage() {
             }}
           >
             {[
-              { v: '40+', l: 'Projects shipped' },
-              { v: '6 wks', l: 'Avg. delivery' },
-              { v: '98%', l: 'Client retention' },
-              { v: '15+', l: 'Industries served' },
+              { v: '40+', l: 'Brands launched' },
+              { v: '17', l: 'Countries served' },
+              { v: '$12M+', l: 'Client revenue tracked' },
+              { v: '< 24h', l: 'Reply, every time' },
             ].map((s) => (
               <div
                 key={s.l}
                 style={{
                   background: ink,
-                  padding: '32px 24px',
+                  padding: '36px 28px',
                 }}
               >
                 <p
                   style={{
-                    fontSize: '44px',
+                    fontSize: '46px',
                     fontWeight: 700,
-                    color: accent,
+                    color: gold,
                     margin: 0,
                     lineHeight: 1,
-                    letterSpacing: '-0.03em',
+                    letterSpacing: '-0.04em',
                   }}
                 >
                   {s.v}
@@ -401,10 +410,11 @@ export default function HomePage() {
                 <p
                   style={{
                     fontSize: '11px',
-                    letterSpacing: '0.1em',
+                    letterSpacing: '0.14em',
                     textTransform: 'uppercase',
                     color: muted,
-                    margin: '12px 0 0',
+                    margin: '14px 0 0',
+                    fontWeight: 500,
                   }}
                 >
                   {s.l}
@@ -413,12 +423,40 @@ export default function HomePage() {
             ))}
           </div>
         </div>
+
+        {/* Scroll cue */}
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '32px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '12px',
+            color: mutedSoft,
+            fontSize: '10px',
+            letterSpacing: '0.18em',
+            textTransform: 'uppercase',
+          }}
+        >
+          <span>Scroll</span>
+          <span
+            style={{
+              display: 'block',
+              width: '1px',
+              height: '36px',
+              background: `linear-gradient(180deg, ${gold}, transparent)`,
+            }}
+          />
+        </div>
       </section>
 
       {/* ==================== MARQUEE ==================== */}
       <section
         style={{
-          padding: '48px 0',
+          padding: '44px 0',
           borderTop: `1px solid ${line}`,
           borderBottom: `1px solid ${line}`,
           background: ink900,
@@ -428,46 +466,39 @@ export default function HomePage() {
         <div
           style={{
             display: 'flex',
-            gap: '48px',
+            gap: '56px',
             whiteSpace: 'nowrap',
-            animation: 'marquee 30s linear infinite',
+            animation: 'marquee 36s linear infinite',
           }}
         >
-          {[
-            'Web Development',
-            'Branding',
-            'Social Media',
-            'Graphic Design',
-            'Strategy',
-            'UI/UX',
-            'Motion',
-          ]
-            .concat([
+          {[1, 2].flatMap(() =>
+            [
               'Web Development',
-              'Branding',
+              'Brand Identity',
               'Social Media',
               'Graphic Design',
-              'Strategy',
-              'UI/UX',
-              'Motion',
-            ])
-            .map((item, i) => (
+              'UI/UX Design',
+              'Motion Graphics',
+              'Digital Marketing',
+              'Content Strategy',
+            ].map((item, i) => (
               <span
-                key={i}
+                key={`${i}-${item}`}
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '48px',
+                  gap: '56px',
                   fontSize: 'clamp(2rem, 5vw, 4.5rem)',
-                  fontWeight: 700,
+                  fontWeight: 600,
                   letterSpacing: '-0.04em',
                   color: mutedSoft,
                 }}
               >
                 {item}
-                <span style={{ color: accent }}>✺</span>
+                <span style={{ ...goldGradientText, fontSize: '0.7em' }}>✦</span>
               </span>
-            ))}
+            ))
+          )}
         </div>
       </section>
 
@@ -477,15 +508,18 @@ export default function HomePage() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 2fr)',
+              gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 2.4fr)',
               gap: '48px',
-              marginBottom: '64px',
+              marginBottom: '80px',
             }}
           >
-            <p style={eyebrow}>/ What we do</p>
+            <p style={eyebrow}>
+              <span style={{ width: '32px', height: '1px', background: gold }} />
+              What we do
+            </p>
             <h2 style={h2Display}>
-              Four disciplines.{' '}
-              <span style={{ color: mutedSoft }}>One studio.</span>
+              Six disciplines, one obsession:{' '}
+              <span style={{ color: mutedSoft }}>work that lasts.</span>
             </h2>
           </div>
 
@@ -503,27 +537,39 @@ export default function HomePage() {
             {[
               {
                 no: '01',
-                title: 'Web Development',
-                desc: 'Custom-coded websites and web applications. Next.js, React, performance-first builds that scale with your business.',
-                tags: ['Next.js', 'React', 'TS', 'GSAP'],
+                title: 'Web Design & Development',
+                desc: 'Sites and apps that feel inevitable. Built with care, shipped on time, optimised for the people who actually use them.',
+                tags: ['Next.js', 'React', 'TypeScript', 'CMS'],
               },
               {
                 no: '02',
-                title: 'Branding & Identity',
-                desc: 'Visual identities that stand out. Logo systems, brand strategy, and guidelines that make your business unmistakable.',
-                tags: ['Strategy', 'Logo', 'Identity', 'Guidelines'],
+                title: 'Brand Identity',
+                desc: 'A logo is the smallest part. We build the system — voice, type, colour, motion, guidelines — that lets a brand speak clearly anywhere.',
+                tags: ['Strategy', 'Logo', 'Guidelines', 'Voice'],
               },
               {
                 no: '03',
                 title: 'Social Media',
-                desc: 'Content strategy and management that grows engaged audiences. From positioning to daily publishing.',
-                tags: ['Strategy', 'Content', 'Community'],
+                desc: 'Less noise, more signal. We plan, write and design a content rhythm that earns trust and grows an audience worth keeping.',
+                tags: ['Strategy', 'Editorial', 'Community'],
               },
               {
                 no: '04',
                 title: 'Graphic Design',
-                desc: 'Posters, decks, social posts, and brand collateral. Editorial-grade visuals for every touchpoint.',
-                tags: ['Editorial', 'Print', 'Digital'],
+                desc: 'Editorial-grade visuals for the moments a brand gets noticed. Posters, decks, packaging, social — same standard, everywhere.',
+                tags: ['Print', 'Digital', 'Packaging'],
+              },
+              {
+                no: '05',
+                title: 'Digital Marketing',
+                desc: 'Paid and organic, working together. Campaigns built around one promise: every dollar has a job, and we can show you which one.',
+                tags: ['SEO', 'Paid Ads', 'Analytics'],
+              },
+              {
+                no: '06',
+                title: 'Content Creation',
+                desc: 'Stories told properly. Photography, video, writing and motion — produced with care, distributed with intent.',
+                tags: ['Photo', 'Video', 'Copy'],
               },
             ].map((s) => (
               <div
@@ -534,8 +580,8 @@ export default function HomePage() {
                   display: 'flex',
                   flexDirection: 'column',
                   gap: '20px',
-                  minHeight: '320px',
-                  transition: 'background 0.2s ease',
+                  minHeight: '340px',
+                  transition: 'background 0.3s ease',
                 }}
               >
                 <div
@@ -548,9 +594,9 @@ export default function HomePage() {
                   <span
                     style={{
                       fontSize: '12px',
-                      letterSpacing: '0.12em',
+                      letterSpacing: '0.16em',
                       fontWeight: 500,
-                      color: accent,
+                      color: gold,
                     }}
                   >
                     ({s.no})
@@ -559,6 +605,7 @@ export default function HomePage() {
                     style={{
                       fontSize: '20px',
                       color: mutedSoft,
+                      transition: 'color 0.2s ease, transform 0.3s ease',
                     }}
                   >
                     →
@@ -566,19 +613,20 @@ export default function HomePage() {
                 </div>
                 <h3
                   style={{
-                    fontSize: '28px',
+                    fontSize: '24px',
                     fontWeight: 700,
                     letterSpacing: '-0.03em',
                     margin: 0,
                     color: cream,
+                    lineHeight: 1.15,
                   }}
                 >
                   {s.title}
                 </h3>
                 <p
                   style={{
-                    fontSize: '15px',
-                    lineHeight: 1.55,
+                    fontSize: '14.5px',
+                    lineHeight: 1.6,
                     color: muted,
                     margin: 0,
                     flex: 1,
@@ -586,7 +634,7 @@ export default function HomePage() {
                 >
                   {s.desc}
                 </p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                   {s.tags.map((t) => (
                     <span key={t} style={tagPill}>
                       {t}
@@ -608,19 +656,22 @@ export default function HomePage() {
               alignItems: 'flex-end',
               justifyContent: 'space-between',
               flexWrap: 'wrap',
-              gap: '24px',
-              marginBottom: '64px',
+              gap: '32px',
+              marginBottom: '80px',
             }}
           >
-            <div>
-              <p style={eyebrow}>/ Selected work</p>
+            <div style={{ maxWidth: '720px' }}>
+              <p style={eyebrow}>
+                <span style={{ width: '32px', height: '1px', background: gold }} />
+                Selected work
+              </p>
               <h2 style={h2Display}>
-                Recent projects.{' '}
-                <span style={{ color: mutedSoft }}>Real outcomes.</span>
+                Four recent builds.{' '}
+                <span style={{ color: mutedSoft }}>Real outcomes, no filler.</span>
               </h2>
             </div>
             <a href="#contact" style={btnGhost}>
-              Start your project
+              Have a project? Let's talk
             </a>
           </div>
 
@@ -635,34 +686,30 @@ export default function HomePage() {
               {
                 no: '01',
                 title: 'Atlas Logistics',
-                cat: 'Web · Branding',
-                year: '2026',
-                desc: 'A new digital foundation for a logistics platform expanding into South Asia.',
-                grad: `linear-gradient(135deg, ${accent}30, ${ink})`,
+                cat: 'Web · Brand',
+                desc: 'A digital foundation for a regional logistics platform preparing to scale across South Asia.',
+                grad: `linear-gradient(135deg, ${gold}35, ${ink})`,
               },
               {
                 no: '02',
                 title: 'Karachi Coffee Co.',
-                cat: 'Brand Identity',
-                year: '2025',
-                desc: 'A bold new identity for a specialty coffee roaster. From logo to packaging.',
-                grad: `linear-gradient(135deg, ${cream}20, ${ink})`,
+                cat: 'Brand · Packaging',
+                desc: 'A new identity for a specialty roaster — from the cup in your hand to the sign above the door.',
+                grad: `linear-gradient(135deg, ${cream}18, ${ink})`,
               },
               {
                 no: '03',
                 title: 'Northwind Studios',
                 cat: 'Web · Motion',
-                year: '2025',
-                desc: 'Immersive agency website with WebGL hero, GSAP scroll choreography, custom CMS.',
-                grad: `linear-gradient(135deg, ${accentDark}30, ${ink})`,
+                desc: 'An agency site with a WebGL hero, GSAP scroll work and a CMS the team actually wants to use.',
+                grad: `linear-gradient(135deg, ${goldDark}40, ${ink})`,
               },
               {
                 no: '04',
                 title: 'Saffron & Salt',
-                cat: 'Social Media',
-                year: '2025',
-                desc: 'Restaurant social strategy and content engine. 3x organic reach in 90 days.',
-                grad: `linear-gradient(135deg, ${accent}20, ${ink})`,
+                cat: 'Social · Content',
+                desc: 'A content engine for a restaurant group that tripled organic reach in twelve weeks.',
+                grad: `linear-gradient(135deg, ${gold}22, ${ink})`,
               },
             ].map((p) => (
               <article
@@ -672,7 +719,8 @@ export default function HomePage() {
                   border: `1px solid ${line}`,
                   borderRadius: '20px',
                   overflow: 'hidden',
-                  transition: 'border-color 0.2s ease',
+                  transition: 'border-color 0.3s ease, transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                  cursor: 'pointer',
                 }}
               >
                 <div
@@ -688,31 +736,31 @@ export default function HomePage() {
                   <span
                     style={{
                       fontSize: 'clamp(80px, 14vw, 160px)',
-                      fontWeight: 800,
-                      color: 'rgba(245, 245, 242, 0.06)',
-                      letterSpacing: '-0.05em',
+                      fontWeight: 700,
+                      color: 'rgba(245, 245, 242, 0.05)',
+                      letterSpacing: '-0.06em',
                       lineHeight: 1,
                     }}
                   >
                     {p.no}
                   </span>
                 </div>
-                <div style={{ padding: '28px' }}>
+                <div style={{ padding: '32px 28px' }}>
                   <div
                     style={{
                       display: 'flex',
                       justifyContent: 'space-between',
                       alignItems: 'center',
-                      marginBottom: '12px',
+                      marginBottom: '14px',
                     }}
                   >
                     <span
                       style={{
                         fontSize: '11px',
-                        letterSpacing: '0.1em',
+                        letterSpacing: '0.14em',
                         textTransform: 'uppercase',
                         fontWeight: 500,
-                        color: accent,
+                        color: gold,
                       }}
                     >
                       {p.cat}
@@ -721,9 +769,10 @@ export default function HomePage() {
                       style={{
                         fontSize: '11px',
                         color: mutedSoft,
+                        letterSpacing: '0.1em',
                       }}
                     >
-                      {p.year}
+                      2025 — 2026
                     </span>
                   </div>
                   <h3
@@ -739,8 +788,8 @@ export default function HomePage() {
                   </h3>
                   <p
                     style={{
-                      fontSize: '14px',
-                      lineHeight: 1.55,
+                      fontSize: '14.5px',
+                      lineHeight: 1.6,
                       color: muted,
                       margin: 0,
                     }}
@@ -761,62 +810,80 @@ export default function HomePage() {
             style={{
               display: 'grid',
               gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)',
-              gap: '64px',
+              gap: '80px',
               alignItems: 'start',
             }}
           >
             <div>
-              <p style={eyebrow}>/ The studio</p>
+              <p style={eyebrow}>
+                <span style={{ width: '32px', height: '1px', background: gold }} />
+                The studio
+              </p>
               <h2 style={h2Display}>
-                Bold work.{' '}
-                <span style={{ color: mutedSoft }}>Quietly delivered.</span>
+                A small team.{' '}
+                <span style={{ color: mutedSoft }}>A long memory.</span>
               </h2>
+              <p
+                style={{
+                  marginTop: '24px',
+                  fontSize: '15px',
+                  color: muted,
+                  maxWidth: '420px',
+                }}
+              >
+                We've been the team people call when the brief is hard, the
+                timeline is real, and the work has to be good.
+              </p>
             </div>
             <div>
               <p
                 style={{
                   fontSize: '18px',
-                  lineHeight: 1.65,
+                  lineHeight: 1.7,
                   color: muted,
-                  margin: '0 0 24px',
+                  margin: '0 0 28px',
                 }}
               >
-                JFR Studios is a digital studio built for ambitious brands that
-                want to be remembered. We work with founders, marketers, and
-                creative leaders to ship websites, identities, and content that
-                earn attention — and convert it.
+                JFR Studios was started because the work we wanted to make
+                didn't have a home in larger shops, and the work our clients
+                needed couldn't be done well by one freelancer at a time.
               </p>
               <p
                 style={{
                   fontSize: '18px',
-                  lineHeight: 1.65,
+                  lineHeight: 1.7,
                   color: muted,
                   margin: 0,
                 }}
               >
-                Based in Pakistan. Working worldwide. We move fast, communicate
-                clearly, and care deeply about craft. We don't disappear after
-                launch — we partner for the long run.
+                We're small on purpose. Every project is led by a senior, every
+                line of code and every frame is reviewed, and we don't take
+                on work we can't finish properly. The result is a studio that
+                ships calmly, talks straight, and treats your time like ours.
               </p>
 
               <div
                 style={{
-                  marginTop: '40px',
+                  marginTop: '48px',
+                  paddingTop: '32px',
+                  borderTop: `1px solid ${line}`,
                   display: 'grid',
                   gridTemplateColumns: 'repeat(2, 1fr)',
-                  gap: '24px',
+                  gap: '28px',
                 }}
               >
                 {[
-                  { v: '100%', l: 'Remote-friendly' },
-                  { v: '24h', l: 'Avg. response' },
+                  { v: 'Senior-led', l: 'Every project' },
+                  { v: 'Fixed scope', l: 'No surprise bills' },
+                  { v: 'One team', l: 'Start to finish' },
+                  { v: 'Lifetime', l: 'Post-launch support' },
                 ].map((s) => (
                   <div key={s.l}>
                     <p
                       style={{
-                        fontSize: '32px',
+                        fontSize: '24px',
                         fontWeight: 700,
-                        color: accent,
+                        color: gold,
                         margin: 0,
                         letterSpacing: '-0.03em',
                       }}
@@ -826,10 +893,11 @@ export default function HomePage() {
                     <p
                       style={{
                         fontSize: '11px',
-                        letterSpacing: '0.1em',
+                        letterSpacing: '0.14em',
                         textTransform: 'uppercase',
                         color: muted,
                         margin: '8px 0 0',
+                        fontWeight: 500,
                       }}
                     >
                       {s.l}
@@ -842,34 +910,144 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ==================== INSIGHTS ==================== */}
+      <section id="insights" style={{ ...section, background: ink900 }}>
+        <div style={container}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'flex-end',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              gap: '24px',
+              marginBottom: '64px',
+            }}
+          >
+            <div>
+              <p style={eyebrow}>
+                <span style={{ width: '32px', height: '1px', background: gold }} />
+                Insights
+              </p>
+              <h2 style={h2Display}>
+                Notes from the studio.{' '}
+                <span style={{ color: mutedSoft }}>Twice a month.</span>
+              </h2>
+            </div>
+            <a href="#contact" style={btnGhost}>
+              Subscribe
+            </a>
+          </div>
+
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '24px',
+            }}
+          >
+            {[
+              {
+                cat: 'Field notes',
+                title: 'Why "good enough" websites stop working the moment you stop touching them.',
+                meta: '8 min · Studio',
+              },
+              {
+                cat: 'Behind the build',
+                title: 'The redesign that quietly doubled a client's inbound leads in a quarter.',
+                meta: '12 min · Case',
+              },
+              {
+                cat: 'Opinion',
+                title: 'Stop calling it a "brand". It is a set of promises you keep showing up to.',
+                meta: '5 min · Essay',
+              },
+            ].map((p) => (
+              <article
+                key={p.title}
+                style={{
+                  background: ink,
+                  border: `1px solid ${line}`,
+                  borderRadius: '20px',
+                  padding: '32px 28px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '20px',
+                  minHeight: '240px',
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: '10.5px',
+                    letterSpacing: '0.16em',
+                    textTransform: 'uppercase',
+                    fontWeight: 500,
+                    color: gold,
+                  }}
+                >
+                  {p.cat}
+                </span>
+                <h3
+                  style={{
+                    fontSize: '20px',
+                    fontWeight: 600,
+                    letterSpacing: '-0.02em',
+                    color: cream,
+                    margin: 0,
+                    lineHeight: 1.3,
+                    flex: 1,
+                  }}
+                >
+                  {p.title}
+                </h3>
+                <p
+                  style={{
+                    fontSize: '11px',
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    color: mutedSoft,
+                    margin: 0,
+                  }}
+                >
+                  {p.meta}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ==================== CONTACT ==================== */}
-      <section id="contact" style={{ ...section, background: ink900 }}>
+      <section id="contact" style={section}>
         <div style={container}>
           <div
             style={{
               display: 'grid',
               gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)',
-              gap: '64px',
+              gap: '80px',
               alignItems: 'start',
             }}
           >
             <div>
-              <p style={eyebrow}>/ Get in touch</p>
-              <h2 style={{ ...h2Display, marginBottom: '24px' }}>
-                Let's build something{' '}
-                <span style={{ color: accent }}>brilliant</span> together.
+              <p style={eyebrow}>
+                <span style={{ width: '32px', height: '1px', background: gold }} />
+                Get in touch
+              </p>
+              <h2 style={{ ...h2Display, marginBottom: '32px' }}>
+                Tell us about the work.{' '}
+                <span style={goldGradientText}>We'll take it from there.</span>
               </h2>
               <p
                 style={{
                   fontSize: '17px',
-                  lineHeight: 1.6,
+                  lineHeight: 1.65,
                   color: muted,
-                  maxWidth: '440px',
+                  maxWidth: '460px',
                   margin: 0,
                 }}
               >
-                Tell us about your project. We typically reply within 24 hours
-                and love working on ideas big and small.
+                One short email is enough to start. We read everything, reply
+                within a working day, and if we're not the right fit, we'll
+                tell you who is.
               </p>
             </div>
 
@@ -879,61 +1057,122 @@ export default function HomePage() {
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '12px',
-                  fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
-                  fontWeight: 700,
+                  gap: '14px',
+                  fontSize: 'clamp(1.4rem, 2.6vw, 2.25rem)',
+                  fontWeight: 600,
                   letterSpacing: '-0.04em',
                   color: cream,
                   textDecoration: 'none',
-                  lineHeight: 1.1,
+                  lineHeight: 1.15,
                 }}
               >
                 hello@jfrstudios.store
-                <span style={{ fontSize: '0.8em' }}>↗</span>
+                <span
+                  style={{
+                    ...goldGradientText,
+                    fontSize: '0.85em',
+                    transition: 'transform 0.3s ease',
+                  }}
+                >
+                  ↗
+                </span>
               </a>
 
               <div
                 style={{
-                  marginTop: '40px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '14px',
+                  marginTop: '48px',
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(2, 1fr)',
+                  gap: '24px',
+                  paddingTop: '32px',
+                  borderTop: `1px solid ${line}`,
                 }}
               >
-                <p
-                  style={{
-                    fontSize: '11px',
-                    letterSpacing: '0.12em',
-                    textTransform: 'uppercase',
-                    color: accent,
-                    margin: 0,
-                    fontWeight: 500,
-                  }}
-                >
-                  Find us on
-                </p>
-                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                  {[
-                    { name: 'Instagram', href: 'https://instagram.com/jfrstudios' },
-                    { name: 'LinkedIn', href: 'https://linkedin.com/company/jfrstudios' },
-                    { name: 'Behance', href: 'https://behance.net/jfrstudios' },
-                    { name: 'Dribbble', href: 'https://dribbble.com/jfrstudios' },
-                  ].map((s) => (
-                    <a
-                      key={s.name}
-                      href={s.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        ...tagPill,
-                        textDecoration: 'none',
-                        transition: 'border-color 0.2s ease, color 0.2s ease',
-                      }}
-                    >
-                      {s.name} ↗
-                    </a>
-                  ))}
+                <div>
+                  <p
+                    style={{
+                      fontSize: '10.5px',
+                      letterSpacing: '0.16em',
+                      textTransform: 'uppercase',
+                      color: gold,
+                      margin: 0,
+                      fontWeight: 500,
+                      marginBottom: '8px',
+                    }}
+                  >
+                    Based
+                  </p>
+                  <p
+                    style={{
+                      fontSize: '15px',
+                      color: cream,
+                      margin: 0,
+                      lineHeight: 1.5,
+                    }}
+                  >
+                    Lahore · Pakistan
+                    <br />
+                    <span style={{ color: muted }}>Working with the world</span>
+                  </p>
                 </div>
+                <div>
+                  <p
+                    style={{
+                      fontSize: '10.5px',
+                      letterSpacing: '0.16em',
+                      textTransform: 'uppercase',
+                      color: gold,
+                      margin: 0,
+                      fontWeight: 500,
+                      marginBottom: '8px',
+                    }}
+                  >
+                    Hours
+                  </p>
+                  <p
+                    style={{
+                      fontSize: '15px',
+                      color: cream,
+                      margin: 0,
+                      lineHeight: 1.5,
+                    }}
+                  >
+                    Mon — Fri
+                    <br />
+                    <span style={{ color: muted }}>09:00 — 19:00 PKT</span>
+                  </p>
+                </div>
+              </div>
+
+              <div
+                style={{
+                  marginTop: '32px',
+                  display: 'flex',
+                  gap: '10px',
+                  flexWrap: 'wrap',
+                }}
+              >
+                {[
+                  { name: 'Instagram', href: 'https://instagram.com/jfrstudios' },
+                  { name: 'LinkedIn', href: 'https://linkedin.com/company/jfrstudios' },
+                  { name: 'Behance', href: 'https://behance.net/jfrstudios' },
+                  { name: 'Dribbble', href: 'https://dribbble.com/jfrstudios' },
+                ].map((s) => (
+                  <a
+                    key={s.name}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      ...tagPill,
+                      textDecoration: 'none',
+                      transition: 'border-color 0.2s ease, color 0.2s ease',
+                      padding: '8px 14px',
+                    }}
+                  >
+                    {s.name} ↗
+                  </a>
+                ))}
               </div>
             </div>
           </div>
@@ -943,7 +1182,7 @@ export default function HomePage() {
       {/* ==================== FOOTER ==================== */}
       <footer
         style={{
-          padding: '48px 0 32px',
+          padding: '40px 0 32px',
           borderTop: `1px solid ${line}`,
           background: ink,
         }}
@@ -964,12 +1203,12 @@ export default function HomePage() {
                 alignItems: 'center',
                 gap: '2px',
                 fontWeight: 800,
-                fontSize: '18px',
+                fontSize: '17px',
                 letterSpacing: '-0.04em',
               }}
             >
               <span style={{ color: cream }}>/JFR</span>
-              <span style={{ color: accent }}>.</span>
+              <span style={goldGradientText}>.</span>
               <span style={{ color: muted }}>studios</span>
             </div>
             <p
@@ -977,19 +1216,20 @@ export default function HomePage() {
                 fontSize: '12px',
                 color: mutedSoft,
                 margin: 0,
+                letterSpacing: '0.04em',
               }}
             >
-              © 2026 JFR Studios · Made with ♥ using Next.js
+              © 2026 JFR Studios · Crafted in Pakistan · Available worldwide
             </p>
           </div>
         </div>
       </footer>
 
-      {/* ==================== GLOBAL ANIMATIONS ==================== */}
+      {/* ==================== GLOBAL STYLES ==================== */}
       <style>{`
         @keyframes pulse {
-          0%, 100% { transform: scale(1); opacity: 0.6; }
-          50% { transform: scale(2); opacity: 0; }
+          0%, 100% { transform: scale(1); opacity: 0.55; }
+          50% { transform: scale(2.4); opacity: 0; }
         }
         @keyframes marquee {
           0% { transform: translateX(0); }
@@ -997,8 +1237,12 @@ export default function HomePage() {
         }
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        ::selection { background: ${accent}; color: ${ink}; }
-        a:hover { color: ${accent}; }
+        body { -webkit-font-smoothing: antialiased; }
+        ::selection { background: ${gold}; color: ${ink}; }
+        a:hover { color: ${gold}; }
+        a { transition: color 0.2s ease; }
+        button:hover, a[style*="btnPrimary"]:hover { transform: translateY(-1px); }
+        a[style*="btnGhost"]:hover { border-color: ${gold} !important; color: ${gold} !important; }
       `}</style>
     </>
   );
