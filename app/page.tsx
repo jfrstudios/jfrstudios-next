@@ -1,113 +1,137 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import type { CSSProperties } from 'react';
 
-// JFR Studios - Deep Blue + Black theme with magical robot mascot
+// JFR Studios - Gold + Black + Cream agency theme
 
-const ink = '#07070A';
-const ink900 = '#0B0B12';
-const cream = '#F5F5F2';
-const muted = 'rgba(245, 245, 242, 0.62)';
-const mutedSoft = 'rgba(245, 245, 242, 0.38)';
-const line = 'rgba(245, 245, 242, 0.10)';
+// Color tokens
+const ink = '#0A0A0A';
+const inkWarm = '#14110D';
+const cream = '#F5F0E5';
+const creamBright = '#FAF7F0';
+const gold = '#D4A437';
+const goldLight = '#F5C76A';
+const goldDark = '#A87C1F';
 
-// Deep Blue palette - magical, futuristic, premium
-const blue = '#3B82F6';
-const blueLight = '#60A5FA';
-const blueDark = '#1E3A8A';
-const blueGlow = '#93C5FD';
+const mutedDark = 'rgba(245, 240, 229, 0.72)';
+const mutedDarkSoft = 'rgba(245, 240, 229, 0.5)';
+const mutedDarkMute = 'rgba(245, 240, 229, 0.32)';
+const lineDark = 'rgba(245, 240, 229, 0.12)';
+const lineDarkSoft = 'rgba(245, 240, 229, 0.06)';
 
+const mutedLight = 'rgba(20, 17, 13, 0.62)';
+const mutedLightSoft = 'rgba(20, 17, 13, 0.4)';
+const lineLight = 'rgba(20, 17, 13, 0.10)';
+
+// Layout primitives
 const container: CSSProperties = {
   maxWidth: '1280px',
   margin: '0 auto',
   padding: '0 24px',
 };
 
-const section: CSSProperties = {
-  padding: '112px 0',
-  borderTop: `1px solid ${line}`,
-  position: 'relative',
-};
+// Hero / portrait imagery (free Unsplash CDN)
+const imgHero = 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=900&h=720&fit=crop';
+const imgAbout = 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&h=720&fit=crop';
+const imgPortfolioWeb = 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&h=520&fit=crop';
+const imgPortfolioSocial = 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=520&fit=crop';
+const imgPortfolioBrand = 'https://images.unsplash.com/photo-1561070791-2526d30994b8?w=800&h=520&fit=crop';
+const imgPortfolioContent = 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&h=520&fit=crop';
+const imgBlogDesign = 'https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600&h=400&fit=crop';
+const imgBlogSocial = 'https://images.unsplash.com/photo-1611605698335-8b1569810432?w=600&h=400&fit=crop';
+const imgBlogMarketing = 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop';
+const imgBlogContent = 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&h=400&fit=crop';
+const imgLeaf = 'https://images.unsplash.com/photo-1545244125-b4eff5fa1df6?w=600&h=600&fit=crop';
 
-const eyebrow: CSSProperties = {
-  display: 'inline-flex',
-  alignItems: 'center',
-  gap: '14px',
-  fontSize: '11px',
-  letterSpacing: '0.18em',
-  textTransform: 'uppercase',
-  fontWeight: 500,
-  color: blueLight,
-  marginBottom: '24px',
-};
+// Navigation list
+const navItems = ['Home', 'Services', 'Portfolio', 'About Us', 'Pricing', 'Shop', 'FAQ', 'Contact'];
 
-const h2Display: CSSProperties = {
-  fontSize: 'clamp(2.25rem, 5vw, 4.25rem)',
-  fontWeight: 700,
-  letterSpacing: '-0.035em',
-  lineHeight: 1.0,
-  margin: 0,
-};
+// Service cards
+const services = [
+  { title: 'Web Design & Development', desc: 'Modern, responsive and user-friendly websites.', icon: 'web' },
+  { title: 'Social Media Management', desc: 'Grow your brand with engaging content & strategy.', icon: 'social' },
+  { title: 'Branding & Identity', desc: 'Build a unique brand that stands out.', icon: 'brand' },
+  { title: 'Graphic Design', desc: 'Stunning visuals for your brand.', icon: 'design' },
+  { title: 'Digital Marketing', desc: 'Drive traffic, generate leads and increase sales.', icon: 'marketing' },
+  { title: 'Content Creation', desc: 'Scroll-stopping content that tells your story.', icon: 'content' },
+];
 
-const blueText: CSSProperties = {
-  background: `linear-gradient(135deg, ${blueLight}, ${blueDark})`,
-  WebkitBackgroundClip: 'text',
-  WebkitTextFillColor: 'transparent',
-  backgroundClip: 'text',
-  color: 'transparent',
-};
+// Portfolio cards
+const portfolio = [
+  { tag: 'Web Design & Development', title: 'Brand Strategy', img: imgPortfolioWeb, cat: 'Web Design' },
+  { tag: 'Social Media Management', title: 'Social Media', img: imgPortfolioSocial, cat: 'Social Media' },
+  { tag: 'Brand Identity', title: 'Branding', img: imgPortfolioBrand, cat: 'Branding' },
+  { tag: 'Video & Photo Content', title: 'Content Creation', img: imgPortfolioContent, cat: 'Content Creation' },
+];
 
-const tagPill: CSSProperties = {
-  display: 'inline-flex',
-  alignItems: 'center',
-  padding: '5px 11px',
-  fontSize: '10.5px',
-  letterSpacing: '0.1em',
-  textTransform: 'uppercase',
-  fontWeight: 500,
-  borderRadius: '999px',
-  border: `1px solid ${line}`,
-  color: 'rgba(245, 245, 242, 0.82)',
-};
+// Blog cards
+const blog = [
+  { tag: 'Design', date: 'Apr 10, 2025', title: '10 Modern Web Design Trends for 2025', img: imgBlogDesign },
+  { tag: 'Social Media', date: 'Apr 20, 2025', title: 'How to Grow Your Brand on Social Media', img: imgBlogSocial },
+  { tag: 'Marketing', date: 'Apr 18, 2025', title: 'Digital Marketing Strategies That Actually Work', img: imgBlogMarketing },
+  { tag: 'Content', date: 'Apr 12, 2025', title: 'The Power of Short Videos for Your Brand', img: imgBlogContent },
+];
 
-const btnPrimary: CSSProperties = {
-  display: 'inline-flex',
-  alignItems: 'center',
-  gap: '10px',
-  padding: '15px 28px',
-  borderRadius: '999px',
-  background: blue,
-  color: cream,
-  fontWeight: 600,
-  fontSize: '12.5px',
-  letterSpacing: '0.06em',
-  textTransform: 'uppercase',
-  textDecoration: 'none',
-  border: 'none',
-  cursor: 'pointer',
-};
+// Feature pills (About right column)
+const features = [
+  { title: 'Premium Quality', desc: 'We deliver excellence in every project.' },
+  { title: 'On-Time Delivery', desc: 'Your time matters to us.' },
+  { title: 'Client Focused', desc: 'Your goals are our priority.' },
+  { title: '24/7 Support', desc: 'We are always here for you.' },
+];
 
-const btnGhost: CSSProperties = {
-  display: 'inline-flex',
-  alignItems: 'center',
-  gap: '10px',
-  padding: '15px 28px',
-  borderRadius: '999px',
-  border: `1px solid ${line}`,
-  color: cream,
-  fontWeight: 500,
-  fontSize: '12.5px',
-  letterSpacing: '0.06em',
-  textTransform: 'uppercase',
-  textDecoration: 'none',
-  background: 'transparent',
-  cursor: 'pointer',
-};
+// Service icon SVG path helper
+function Icon({ name }: { name: string }) {
+  const stroke = gold;
+  switch (name) {
+    case 'web':
+      return (
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+          <path d="M8 6 L2 12 L8 18 M16 6 L22 12 L16 18 M14 4 L10 20" stroke={stroke} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      );
+    case 'social':
+      return (
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="3" width="18" height="18" rx="5" stroke={stroke} strokeWidth="1.6" />
+          <circle cx="12" cy="12" r="4" stroke={stroke} strokeWidth="1.6" />
+          <circle cx="17.5" cy="6.5" r="0.8" fill={stroke} />
+        </svg>
+      );
+    case 'brand':
+      return (
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2 L15 9 L22 10 L17 15 L18 22 L12 18 L6 22 L7 15 L2 10 L9 9 Z" stroke={stroke} strokeWidth="1.6" strokeLinejoin="round" />
+        </svg>
+      );
+    case 'design':
+      return (
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+          <path d="M12 19 L7 22 L8 16 L3 12 L9 11 L12 5 L15 11 L21 12 L16 16 L17 22 Z" stroke={stroke} strokeWidth="1.6" strokeLinejoin="round" />
+        </svg>
+      );
+    case 'marketing':
+      return (
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+          <path d="M3 11 L21 3 V13 L11 21 Z" stroke={stroke} strokeWidth="1.6" strokeLinejoin="round" />
+          <circle cx="16" cy="8" r="1.5" fill={stroke} />
+        </svg>
+      );
+    case 'content':
+      return (
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="5" width="18" height="14" rx="2" stroke={stroke} strokeWidth="1.6" />
+          <path d="M10 9 L15 12 L10 15 Z" fill={stroke} />
+        </svg>
+      );
+    default:
+      return null;
+  }
+}
 
 export default function HomePage() {
   return (
     <>
-      {/* Header */}
+      {/* HEADER */}
       <header
         style={{
           position: 'fixed',
@@ -115,11 +139,11 @@ export default function HomePage() {
           left: 0,
           right: 0,
           zIndex: 50,
-          padding: '18px 0',
-          background: 'rgba(7, 7, 10, 0.72)',
-          backdropFilter: 'blur(24px) saturate(180%)',
-          WebkitBackdropFilter: 'blur(24px) saturate(180%)',
-          borderBottom: `1px solid ${line}`,
+          padding: '16px 0',
+          background: 'rgba(10, 10, 10, 0.78)',
+          backdropFilter: 'blur(20px) saturate(160%)',
+          WebkitBackdropFilter: 'blur(20px) saturate(160%)',
+          borderBottom: `1px solid ${lineDark}`,
         }}
       >
         <div
@@ -130,39 +154,23 @@ export default function HomePage() {
             justifyContent: 'space-between',
           }}
         >
-          <Link
-            href="/"
-            aria-label="JFR Studios home"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '2px',
-              textDecoration: 'none',
-              fontWeight: 800,
-              fontSize: '19px',
-              letterSpacing: '-0.04em',
-            }}
-          >
-            <span style={{ color: cream }}>/JFR</span>
-            <span style={blueText}>.</span>
-            <span style={{ color: muted }}>studios</span>
+          <Link href="/" aria-label="JFR Studios home" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
+            <img src="/logo.svg" alt="JFR Studios" style={{ height: '42px', width: 'auto' }} />
           </Link>
 
-          <nav
-            aria-label="Primary"
-            style={{ display: 'flex', gap: '36px', alignItems: 'center' }}
-          >
-            {['Services', 'Work', 'About', 'Contact'].map((l) => (
+          <nav aria-label="Primary" style={{ display: 'flex', gap: '30px', alignItems: 'center' }}>
+            {navItems.map((l) => (
               <a
                 key={l}
-                href={`#${l.toLowerCase()}`}
+                href={`#${l.toLowerCase().replace(/\s+/g, '-')}`}
                 style={{
-                  fontSize: '12px',
-                  letterSpacing: '0.12em',
-                  textTransform: 'uppercase',
+                  fontSize: '13px',
+                  letterSpacing: '0.04em',
                   fontWeight: 500,
-                  color: cream,
+                  color: l === 'Home' ? gold : cream,
                   textDecoration: 'none',
+                  paddingBottom: '4px',
+                  borderBottom: l === 'Home' ? `2px solid ${gold}` : '2px solid transparent',
                 }}
               >
                 {l}
@@ -172,536 +180,407 @@ export default function HomePage() {
 
           <a
             href="mailto:hello@jfrstudios.store"
-            style={{ ...btnGhost, padding: '11px 22px', fontSize: '11.5px' }}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '11px 22px',
+              borderRadius: '999px',
+              border: `1px solid ${gold}`,
+              color: gold,
+              fontWeight: 600,
+              fontSize: '13px',
+              textDecoration: 'none',
+            }}
           >
-            Let&apos;s talk
+            Let&apos;s Talk <span aria-hidden>&#8594;</span>
           </a>
         </div>
       </header>
 
-      {/* Hero with Magical Robot */}
+      {/* HERO */}
       <section
+        id="home"
         style={{
-          minHeight: '100vh',
-          paddingTop: '180px',
-          paddingBottom: '100px',
+          paddingTop: '170px',
+          paddingBottom: '80px',
+          background: ink,
+          color: cream,
           position: 'relative',
-          display: 'flex',
-          alignItems: 'center',
           overflow: 'hidden',
         }}
       >
-        {/* Deep blue glow orbs */}
-        <div
-          aria-hidden
-          style={{
-            position: 'absolute',
-            top: '-12%',
-            right: '-8%',
-            width: '680px',
-            height: '680px',
-            borderRadius: '50%',
-            background:
-              'radial-gradient(circle, rgba(59, 130, 246, 0.28), transparent 60%)',
-            filter: 'blur(110px)',
-            pointerEvents: 'none',
-          }}
-        />
-        <div
-          aria-hidden
-          style={{
-            position: 'absolute',
-            bottom: '-25%',
-            left: '-10%',
-            width: '560px',
-            height: '560px',
-            borderRadius: '50%',
-            background:
-              'radial-gradient(circle, rgba(30, 58, 138, 0.22), transparent 60%)',
-            filter: 'blur(120px)',
-            pointerEvents: 'none',
-          }}
-        />
+        <div style={{ ...container, display: 'grid', gridTemplateColumns: '1.05fr 0.95fr', gap: '60px', alignItems: 'center' }}>
+          <div>
+            <div
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '14px',
+                fontSize: '11px',
+                letterSpacing: '0.22em',
+                textTransform: 'uppercase',
+                fontWeight: 600,
+                color: gold,
+                marginBottom: '28px',
+              }}
+            >
+              <span style={{ display: 'inline-block', width: '40px', height: '1px', background: gold }} />
+              Digital Agency
+            </div>
+            <h1
+              style={{
+                fontFamily: 'Georgia, "Times New Roman", serif',
+                fontSize: 'clamp(2.5rem, 5.4vw, 4.6rem)',
+                fontWeight: 700,
+                letterSpacing: '-0.02em',
+                lineHeight: 1.05,
+                margin: '0 0 28px',
+                color: cream,
+              }}
+            >
+              Ideas Into <span style={{ color: gold, fontStyle: 'italic' }}>Powerful</span> Digital Experiences
+            </h1>
+            <p style={{ fontSize: '16.5px', lineHeight: 1.65, color: mutedDark, maxWidth: '560px', margin: '0 0 40px' }}>
+              JFR Studios is a creative digital agency helping brands grow with modern design, strategic marketing and powerful digital solutions.
+            </p>
+            <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
+              <a
+                href="#services"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  padding: '15px 32px',
+                  borderRadius: '6px',
+                  background: gold,
+                  color: ink,
+                  fontWeight: 600,
+                  fontSize: '13px',
+                  letterSpacing: '0.06em',
+                  textTransform: 'uppercase',
+                  textDecoration: 'none',
+                }}
+              >
+                Explore Our Services <span aria-hidden>&#8594;</span>
+              </a>
+            </div>
+          </div>
 
-        <div style={{ ...container, position: 'relative', zIndex: 1, width: '100%' }}>
           <div
             style={{
-              display: 'grid',
-              gridTemplateColumns: 'minmax(0, 1.2fr) minmax(0, 1fr)',
-              gap: '64px',
-              alignItems: 'center',
+              position: 'relative',
+              borderRadius: '14px',
+              overflow: 'hidden',
+              aspectRatio: '4 / 3',
+              border: `1px solid ${lineDark}`,
+              background: inkWarm,
             }}
           >
-            {/* Left: Text content */}
+            <img
+              src={imgHero}
+              alt="JFR Studios digital workspace"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: 'brightness(0.85) contrast(1.05)' }}
+            />
+            <div
+              aria-hidden
+              style={{
+                position: 'absolute',
+                inset: 0,
+                background: 'linear-gradient(135deg, rgba(212,164,55,0.18), transparent 50%, rgba(10,10,10,0.4))',
+              }}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* STATS BAR */}
+      <section style={{ background: ink, borderTop: `1px solid ${lineDark}`, borderBottom: `1px solid ${lineDark}`, padding: '40px 0' }}>
+        <div style={{ ...container, display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px' }}>
+          {[
+            { num: '100+', label: 'Projects Completed', icon: 'briefcase' },
+            { num: '50+', label: 'Happy Clients', icon: 'smile' },
+            { num: '5+', label: 'Years Experience', icon: 'trophy' },
+            { num: '100%', label: 'Client Satisfaction', icon: 'heart' },
+          ].map((s) => (
+            <div key={s.label} style={{ display: 'flex', alignItems: 'center', gap: '20px', padding: '8px 18px', borderRight: `1px solid ${lineDark}` }}>
+              <span style={{ color: gold, fontSize: '28px' }}>
+                {s.icon === 'briefcase' && (
+                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="18" height="13" rx="2" stroke={gold} strokeWidth="1.6" /><path d="M9 7 V5 a2 2 0 0 1 2 -2 h2 a2 2 0 0 1 2 2 V7" stroke={gold} strokeWidth="1.6" /></svg>
+                )}
+                {s.icon === 'smile' && (
+                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke={gold} strokeWidth="1.6" /><circle cx="9" cy="10" r="0.9" fill={gold} /><circle cx="15" cy="10" r="0.9" fill={gold} /><path d="M8 14 Q12 18 16 14" stroke={gold} strokeWidth="1.6" strokeLinecap="round" fill="none" /></svg>
+                )}
+                {s.icon === 'trophy' && (
+                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M7 4 H17 V9 a5 5 0 0 1 -10 0 V4 Z M7 6 H4 V8 a3 3 0 0 0 3 3 M17 6 H20 V8 a3 3 0 0 1 -3 3 M9 19 H15 M10 14 H14 V19" stroke={gold} strokeWidth="1.6" strokeLinejoin="round" fill="none" /></svg>
+                )}
+                {s.icon === 'heart' && (
+                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M12 20 S4 14 4 8.5 A4.5 4.5 0 0 1 12 7 a4.5 4.5 0 0 1 8 1.5 C20 14 12 20 12 20 Z" stroke={gold} strokeWidth="1.6" strokeLinejoin="round" fill="none" /></svg>
+                )}
+              </span>
+              <div>
+                <div style={{ fontFamily: 'Georgia, serif', fontSize: '30px', fontWeight: 700, color: cream, lineHeight: 1 }}>{s.num}</div>
+                <div style={{ fontSize: '12px', color: mutedDarkSoft, marginTop: '4px', letterSpacing: '0.04em' }}>{s.label}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section id="services" style={{ background: creamBright, color: ink, padding: '110px 0' }}>
+        <div style={container}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '60px', alignItems: 'start' }}>
             <div>
               <div
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '12px',
-                  fontSize: '11.5px',
-                  letterSpacing: '0.18em',
+                  fontSize: '11px',
+                  letterSpacing: '0.22em',
                   textTransform: 'uppercase',
-                  fontWeight: 500,
-                  color: blueLight,
-                  marginBottom: '32px',
-                  padding: '8px 16px',
-                  borderRadius: '999px',
-                  border: `1px solid ${line}`,
-                  background: 'rgba(59, 130, 246, 0.06)',
-                }}
-              >
-                <span
-                  style={{
-                    position: 'relative',
-                    display: 'inline-flex',
-                    width: '8px',
-                    height: '8px',
-                  }}
-                >
-                  <span
-                    style={{
-                      position: 'absolute',
-                      inset: 0,
-                      borderRadius: '50%',
-                      background: blueLight,
-                      opacity: 0.5,
-                      animation: 'pulse 2.4s ease-in-out infinite',
-                    }}
-                  />
-                  <span
-                    style={{
-                      position: 'relative',
-                      display: 'inline-block',
-                      width: '8px',
-                      height: '8px',
-                      borderRadius: '50%',
-                      background: blueLight,
-                    }}
-                  />
-                </span>
-                Booking projects for Q3 2026 — worldwide
-              </div>
-
-              <h1
-                style={{
-                  fontSize: 'clamp(2.5rem, 6.5vw, 5.5rem)',
                   fontWeight: 700,
-                  letterSpacing: '-0.05em',
-                  lineHeight: 0.95,
-                  margin: 0,
+                  color: gold,
+                  marginBottom: '20px',
                 }}
               >
-                <span style={{ display: 'block' }}>A studio for brands</span>
-                <span style={{ display: 'block' }}>
-                  that refuse to <span style={blueText}>blend in.</span>
-                </span>
-                <span
-                  style={{
-                    display: 'block',
-                    color: mutedSoft,
-                    fontWeight: 500,
-                    marginTop: '8px',
-                  }}
-                >
-                  We design, build and grow them.
-                </span>
-              </h1>
-
-              <p
-                style={{
-                  marginTop: '32px',
-                  fontSize: '17px',
-                  lineHeight: 1.65,
-                  color: muted,
-                  maxWidth: '520px',
-                }}
-              >
-                JFR Studios is a small, sharp team of designers and engineers
-                based in Pakistan, working with founders, marketers and creative
-                leaders across the world. We make the kind of work that earns
-                attention — and turns it into customers.
-              </p>
-
-              <div
-                style={{
-                  marginTop: '40px',
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  gap: '12px',
-                }}
-              >
-                <a href="#contact" style={btnPrimary}>
-                  Start a project <span style={{ fontSize: '14px' }}>→</span>
-                </a>
-                <a href="#work" style={btnGhost}>
-                  See selected work
-                </a>
+                Our Services
+                <span style={{ display: 'inline-block', width: '30px', height: '1px', background: gold }} />
               </div>
-            </div>
-
-            {/* Right: Magical Robot */}
-            <div
-              style={{
-                position: 'relative',
-                aspectRatio: '1 / 1',
-                width: '100%',
-                maxWidth: '460px',
-                marginLeft: 'auto',
-                animation: 'float 6s ease-in-out infinite',
-              }}
-            >
-              {/* Glow behind robot */}
-              <div
-                aria-hidden
+              <h2
                 style={{
-                  position: 'absolute',
-                  inset: '-10%',
-                  background:
-                    'radial-gradient(circle, rgba(59, 130, 246, 0.35), transparent 70%)',
-                  filter: 'blur(40px)',
-                  zIndex: 0,
-                }}
-              />
-              <Image
-                src="/robot.svg"
-                alt="JFR Studios mascot"
-                fill
-                priority
-                style={{ position: 'relative', zIndex: 1, objectFit: 'contain' }}
-              />
-            </div>
-          </div>
-
-          {/* Stats */}
-          <div
-            style={{
-              marginTop: '96px',
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))',
-              gap: '1px',
-              background: line,
-              border: `1px solid ${line}`,
-              borderRadius: '20px',
-              overflow: 'hidden',
-            }}
-          >
-            {[
-              { v: '40+', l: 'Brands launched' },
-              { v: '17', l: 'Countries served' },
-              { v: '$12M+', l: 'Client revenue tracked' },
-              { v: '< 24h', l: 'Reply, every time' },
-            ].map((s) => (
-              <div key={s.l} style={{ background: ink, padding: '36px 28px' }}>
-                <p
-                  style={{
-                    fontSize: '46px',
-                    fontWeight: 700,
-                    color: blueLight,
-                    margin: 0,
-                    lineHeight: 1,
-                    letterSpacing: '-0.04em',
-                  }}
-                >
-                  {s.v}
-                </p>
-                <p
-                  style={{
-                    fontSize: '11px',
-                    letterSpacing: '0.14em',
-                    textTransform: 'uppercase',
-                    color: muted,
-                    margin: '14px 0 0',
-                    fontWeight: 500,
-                  }}
-                >
-                  {s.l}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services */}
-      <section id="services" style={section}>
-        <div style={container}>
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 2.4fr)',
-              gap: '48px',
-              marginBottom: '80px',
-            }}
-          >
-            <p style={eyebrow}>
-              <span style={{ width: '32px', height: '1px', background: blueLight }} />
-              What we do
-            </p>
-            <h2 style={h2Display}>
-              Six disciplines, one obsession:{' '}
-              <span style={{ color: mutedSoft }}>work that lasts.</span>
-            </h2>
-          </div>
-
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '1px',
-              background: line,
-              border: `1px solid ${line}`,
-              borderRadius: '24px',
-              overflow: 'hidden',
-            }}
-          >
-            {[
-              {
-                no: '01',
-                title: 'Web Design & Development',
-                desc: 'Sites and apps that feel inevitable. Built with care, shipped on time, optimised for the people who actually use them.',
-                tags: ['Next.js', 'React', 'TypeScript', 'CMS'],
-              },
-              {
-                no: '02',
-                title: 'Brand Identity',
-                desc: 'A logo is the smallest part. We build the system — voice, type, colour, motion, guidelines — that lets a brand speak clearly anywhere.',
-                tags: ['Strategy', 'Logo', 'Guidelines', 'Voice'],
-              },
-              {
-                no: '03',
-                title: 'Social Media',
-                desc: 'Less noise, more signal. We plan, write and design a content rhythm that earns trust and grows an audience worth keeping.',
-                tags: ['Strategy', 'Editorial', 'Community'],
-              },
-              {
-                no: '04',
-                title: 'Graphic Design',
-                desc: 'Editorial-grade visuals for the moments a brand gets noticed. Posters, decks, packaging, social — same standard, everywhere.',
-                tags: ['Print', 'Digital', 'Packaging'],
-              },
-              {
-                no: '05',
-                title: 'Digital Marketing',
-                desc: 'Paid and organic, working together. Campaigns built around one promise: every dollar has a job, and we can show you which one.',
-                tags: ['SEO', 'Paid Ads', 'Analytics'],
-              },
-              {
-                no: '06',
-                title: 'Content Creation',
-                desc: 'Stories told properly. Photography, video, writing and motion — produced with care, distributed with intent.',
-                tags: ['Photo', 'Video', 'Copy'],
-              },
-            ].map((s) => (
-              <div
-                key={s.no}
-                style={{
-                  background: ink,
-                  padding: '40px 32px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '20px',
-                  minHeight: '340px',
+                  fontFamily: 'Georgia, serif',
+                  fontSize: 'clamp(1.9rem, 3.4vw, 2.9rem)',
+                  fontWeight: 700,
+                  letterSpacing: '-0.02em',
+                  lineHeight: 1.1,
+                  margin: '0 0 22px',
+                  color: ink,
                 }}
               >
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: '12px',
-                      letterSpacing: '0.16em',
-                      fontWeight: 500,
-                      color: blueLight,
-                    }}
-                  >
-                    ({s.no})
-                  </span>
-                  <span style={{ fontSize: '20px', color: mutedSoft }}>→</span>
-                </div>
-                <h3
-                  style={{
-                    fontSize: '24px',
-                    fontWeight: 700,
-                    letterSpacing: '-0.03em',
-                    margin: 0,
-                    color: cream,
-                    lineHeight: 1.15,
-                  }}
-                >
-                  {s.title}
-                </h3>
-                <p
-                  style={{
-                    fontSize: '14.5px',
-                    lineHeight: 1.6,
-                    color: muted,
-                    margin: 0,
-                    flex: 1,
-                  }}
-                >
-                  {s.desc}
-                </p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-                  {s.tags.map((t) => (
-                    <span key={t} style={tagPill}>
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Work */}
-      <section id="work" style={{ ...section, background: ink900 }}>
-        <div style={container}>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'flex-end',
-              justifyContent: 'space-between',
-              flexWrap: 'wrap',
-              gap: '32px',
-              marginBottom: '80px',
-            }}
-          >
-            <div style={{ maxWidth: '720px' }}>
-              <p style={eyebrow}>
-                <span style={{ width: '32px', height: '1px', background: blueLight }} />
-                Selected work
-              </p>
-              <h2 style={h2Display}>
-                Four recent builds.{' '}
-                <span style={{ color: mutedSoft }}>Real outcomes, no filler.</span>
+                Complete Digital Solutions For Your Brand
               </h2>
+              <p style={{ fontSize: '15px', lineHeight: 1.7, color: mutedLight, maxWidth: '440px', margin: '0 0 28px' }}>
+                We help businesses build a strong online presence with creative design, smart strategy and result-driven solutions.
+              </p>
+              <a
+                href="#portfolio"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  padding: '12px 26px',
+                  borderRadius: '6px',
+                  border: `1.5px solid ${gold}`,
+                  color: gold,
+                  fontWeight: 600,
+                  fontSize: '12.5px',
+                  letterSpacing: '0.06em',
+                  textTransform: 'uppercase',
+                  textDecoration: 'none',
+                }}
+              >
+                View All Services <span aria-hidden>&#8594;</span>
+              </a>
             </div>
-            <a href="#contact" style={btnGhost}>
-              Have a project? Let&apos;s talk
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px' }}>
+              {services.map((s) => (
+                <div
+                  key={s.title}
+                  style={{
+                    background: '#fff',
+                    border: `1px solid ${lineLight}`,
+                    borderRadius: '10px',
+                    padding: '26px 22px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '14px',
+                    transition: 'transform 0.2s ease',
+                  }}
+                >
+                  <Icon name={s.icon} />
+                  <h3 style={{ fontFamily: 'Georgia, serif', fontSize: '17px', fontWeight: 700, margin: 0, color: ink, lineHeight: 1.3 }}>{s.title}</h3>
+                  <p style={{ fontSize: '13.5px', color: mutedLight, margin: 0, lineHeight: 1.55 }}>{s.desc}</p>
+                  <a href="#contact" style={{ marginTop: 'auto', color: gold, fontSize: '13px', fontWeight: 600, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                    Learn More <span aria-hidden>&#8594;</span>
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ABOUT */}
+      <section id="about-us" style={{ background: ink, color: cream, padding: '110px 0', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ ...container, display: 'grid', gridTemplateColumns: '0.95fr 1.05fr', gap: '60px', alignItems: 'center' }}>
+          <div style={{ position: 'relative', borderRadius: '14px', overflow: 'hidden', aspectRatio: '4 / 3', border: `1px solid ${lineDark}` }}>
+            <img src={imgAbout} alt="JFR Studios team workspace" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: 'brightness(0.78) contrast(1.08)' }} />
+            <div aria-hidden style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(212,164,55,0.15), transparent 60%)' }} />
+          </div>
+
+          <div>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', fontSize: '11px', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700, color: gold, marginBottom: '20px' }}>
+              About Us
+              <span style={{ display: 'inline-block', width: '30px', height: '1px', background: gold }} />
+            </div>
+            <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(1.9rem, 3.4vw, 2.9rem)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1, margin: '0 0 24px' }}>
+              Creative Minds <span style={{ color: gold, fontStyle: 'italic' }}>Behind Your Success</span>.
+            </h2>
+            <p style={{ fontSize: '15.5px', lineHeight: 1.7, color: mutedDark, margin: '0 0 28px' }}>
+              JFR Studios is a team of designers, developers and digital marketers who believe in the power of ideas. We turn your vision into digital experiences that connect, engage and grow.
+            </p>
+            <a href="#contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '13px 28px', borderRadius: '6px', border: `1.5px solid ${gold}`, color: gold, fontWeight: 600, fontSize: '12.5px', letterSpacing: '0.06em', textTransform: 'uppercase', textDecoration: 'none', marginBottom: '40px' }}>
+              Learn More <span aria-hidden>&#8594;</span>
+            </a>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px 28px', borderLeft: `2px solid ${gold}`, paddingLeft: '24px' }}>
+              {features.map((f) => (
+                <div key={f.title}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2 L14 9 L21 10 L16 14 L18 21 L12 17 L6 21 L8 14 L3 10 L10 9 Z" stroke={gold} strokeWidth="1.5" strokeLinejoin="round" /></svg>
+                    <h4 style={{ fontSize: '15px', fontWeight: 700, color: cream, margin: 0 }}>{f.title}</h4>
+                  </div>
+                  <p style={{ fontSize: '13px', color: mutedDarkSoft, margin: 0, lineHeight: 1.5 }}>{f.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PORTFOLIO */}
+      <section id="portfolio" style={{ background: creamBright, color: ink, padding: '110px 0' }}>
+        <div style={container}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '40px', flexWrap: 'wrap', gap: '20px' }}>
+            <div>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', fontSize: '11px', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700, color: gold, marginBottom: '18px' }}>
+                Our Portfolio
+                <span style={{ display: 'inline-block', width: '30px', height: '1px', background: gold }} />
+              </div>
+              <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(1.9rem, 3.4vw, 2.9rem)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1, margin: '0 0 14px' }}>
+                Our Latest Projects
+              </h2>
+              <p style={{ fontSize: '14.5px', color: mutedLight, margin: 0, maxWidth: '480px' }}>
+                A glimpse of the brands we&apos;ve helped create, design and grow.
+              </p>
+            </div>
+            <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+              {['All', 'Web Design', 'Social Media', 'Branding', 'Content Creation'].map((tab, i) => (
+                <span key={tab} style={{ padding: '8px 18px', fontSize: '12.5px', fontWeight: 600, borderRadius: '999px', background: i === 0 ? gold : 'transparent', color: i === 0 ? ink : mutedLight, border: i === 0 ? `1px solid ${gold}` : `1px solid ${lineLight}`, cursor: 'pointer' }}>
+                  {tab}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '22px' }}>
+            {portfolio.map((p) => (
+              <div key={p.title} style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', aspectRatio: '4 / 5', background: inkWarm, border: `1px solid ${lineLight}`, cursor: 'pointer' }}>
+                <img src={p.img} alt={p.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: 'brightness(0.78)' }} />
+                <div aria-hidden style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 40%, rgba(10,10,10,0.85) 100%)' }} />
+                <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, padding: '20px 18px', color: cream }}>
+                  <div style={{ fontSize: '10.5px', letterSpacing: '0.18em', textTransform: 'uppercase', color: gold, marginBottom: '8px', fontWeight: 600 }}>{p.tag}</div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <h3 style={{ fontFamily: 'Georgia, serif', fontSize: '18px', fontWeight: 700, margin: 0 }}>{p.title}</h3>
+                    <span aria-hidden style={{ color: gold, fontSize: '18px' }}>&#8594;</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section style={{ background: ink, color: cream, padding: '110px 0', position: 'relative', overflow: 'hidden' }}>
+        <div aria-hidden style={{ position: 'absolute', right: '-80px', top: '-40px', width: '420px', height: '420px', background: `url(${imgLeaf}) center/cover no-repeat`, opacity: 0.18, filter: 'grayscale(0.3) hue-rotate(20deg)' }} />
+        <div style={{ ...container, position: 'relative' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.05fr', gap: '60px', alignItems: 'center' }}>
+            <div>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', fontSize: '11px', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700, color: gold, marginBottom: '20px' }}>
+                Our Testimonials
+                <span style={{ display: 'inline-block', width: '30px', height: '1px', background: gold }} />
+              </div>
+              <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(1.9rem, 3.4vw, 2.9rem)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1, margin: '0 0 30px' }}>
+                What Our Clients Say
+              </h2>
+              <p style={{ fontSize: '16px', lineHeight: 1.7, color: mutedDark, fontStyle: 'italic', margin: '0 0 28px' }}>
+                &ldquo;JFR Studios delivered more than we expected &mdash; creative designs, clear communication and real results. Highly recommend!&rdquo;
+              </p>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '24px' }}>
+                <div style={{ width: '52px', height: '52px', borderRadius: '50%', background: `linear-gradient(135deg, ${gold}, ${goldDark})`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: ink, fontFamily: 'Georgia, serif', fontWeight: 700, fontSize: '18px' }}>
+                  SK
+                </div>
+                <div>
+                  <div style={{ fontWeight: 700, fontSize: '15px' }}>Sarah Khan</div>
+                  <div style={{ fontSize: '12.5px', color: mutedDarkSoft }}>Business Owner</div>
+                  <div style={{ color: gold, fontSize: '13px', marginTop: '4px', letterSpacing: '0.15em' }}>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                </div>
+              </div>
+              <div style={{ display: 'flex', gap: '10px' }}>
+                <button aria-label="Previous testimonial" style={{ width: '42px', height: '42px', borderRadius: '50%', background: 'transparent', border: `1px solid ${lineDark}`, color: gold, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <span aria-hidden style={{ fontSize: '18px' }}>&#8592;</span>
+                </button>
+                <button aria-label="Next testimonial" style={{ width: '42px', height: '42px', borderRadius: '50%', background: gold, border: 'none', color: ink, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <span aria-hidden style={{ fontSize: '18px' }}>&#8594;</span>
+                </button>
+              </div>
+            </div>
+
+            <div style={{ position: 'relative', padding: '50px 40px', borderRadius: '14px', border: `1px solid ${lineDark}`, background: 'rgba(245,240,229,0.04)' }}>
+              <div aria-hidden style={{ position: 'absolute', top: '20px', left: '30px', fontFamily: 'Georgia, serif', fontSize: '90px', color: gold, lineHeight: 1, opacity: 0.4 }}>
+                &ldquo;
+              </div>
+              <p style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(1.5rem, 2.5vw, 2.1rem)', fontStyle: 'italic', color: gold, lineHeight: 1.3, margin: '30px 0 0', fontWeight: 600 }}>
+                Great design<br />builds trust.
+              </p>
+              <div style={{ marginTop: '24px', fontSize: '13px', color: mutedDarkSoft, letterSpacing: '0.04em' }}>
+                &mdash; A JFR Studios promise
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* BLOG */}
+      <section style={{ background: creamBright, color: ink, padding: '110px 0' }}>
+        <div style={container}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '40px', flexWrap: 'wrap', gap: '20px' }}>
+            <div>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', fontSize: '11px', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700, color: gold, marginBottom: '18px' }}>
+                Our Blog
+                <span style={{ display: 'inline-block', width: '30px', height: '1px', background: gold }} />
+              </div>
+              <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(1.9rem, 3.4vw, 2.9rem)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1, margin: '0 0 14px' }}>
+                Latest Insights &amp; <span style={{ color: gold, fontStyle: 'italic' }}>Trends</span>
+              </h2>
+              <p style={{ fontSize: '14.5px', color: mutedLight, margin: 0, maxWidth: '480px' }}>
+                Tips, ideas and updates to help you grow in the digital world.
+              </p>
+            </div>
+            <a href="#blog" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: gold, fontWeight: 600, fontSize: '13px', textDecoration: 'none' }}>
+              View All Articles <span aria-hidden>&#8594;</span>
             </a>
           </div>
 
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: '24px',
-            }}
-          >
-            {[
-              {
-                no: '01',
-                title: 'Atlas Logistics',
-                cat: 'Web · Brand',
-                desc: 'A digital foundation for a regional logistics platform preparing to scale across South Asia.',
-              },
-              {
-                no: '02',
-                title: 'Karachi Coffee Co.',
-                cat: 'Brand · Packaging',
-                desc: 'A new identity for a specialty roaster — from the cup in your hand to the sign above the door.',
-              },
-              {
-                no: '03',
-                title: 'Northwind Studios',
-                cat: 'Web · Motion',
-                desc: 'An agency site with a WebGL hero, GSAP scroll work and a CMS the team actually wants to use.',
-              },
-              {
-                no: '04',
-                title: 'Saffron & Salt',
-                cat: 'Social · Content',
-                desc: 'A content engine for a restaurant group that tripled organic reach in twelve weeks.',
-              },
-            ].map((p) => (
-              <article
-                key={p.no}
-                style={{
-                  background: ink,
-                  border: `1px solid ${line}`,
-                  borderRadius: '20px',
-                  overflow: 'hidden',
-                }}
-              >
-                <div
-                  style={{
-                    aspectRatio: '4 / 3',
-                    background: `linear-gradient(135deg, rgba(59, 130, 246, 0.25), ${ink})`,
-                    position: 'relative',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: 'clamp(80px, 14vw, 160px)',
-                      fontWeight: 700,
-                      color: 'rgba(245, 245, 242, 0.05)',
-                      letterSpacing: '-0.06em',
-                      lineHeight: 1,
-                    }}
-                  >
-                    {p.no}
-                  </span>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '22px' }}>
+            {blog.map((b) => (
+              <article key={b.title} style={{ background: '#fff', borderRadius: '10px', overflow: 'hidden', border: `1px solid ${lineLight}` }}>
+                <div style={{ aspectRatio: '4 / 3', overflow: 'hidden', background: inkWarm }}>
+                  <img src={b.img} alt={b.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                 </div>
-                <div style={{ padding: '32px 28px' }}>
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                      marginBottom: '14px',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize: '11px',
-                        letterSpacing: '0.14em',
-                        textTransform: 'uppercase',
-                        fontWeight: 500,
-                        color: blueLight,
-                      }}
-                    >
-                      {p.cat}
-                    </span>
-                    <span
-                      style={{
-                        fontSize: '11px',
-                        color: mutedSoft,
-                        letterSpacing: '0.1em',
-                      }}
-                    >
-                      2025 — 2026
-                    </span>
+                <div style={{ padding: '18px 18px 20px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '11px', letterSpacing: '0.06em', color: mutedLightSoft, marginBottom: '10px' }}>
+                    <span style={{ color: gold, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em' }}>{b.tag}</span>
+                    <span style={{ width: '3px', height: '3px', borderRadius: '50%', background: mutedLightSoft, display: 'inline-block' }} />
+                    <span>{b.date}</span>
                   </div>
-                  <h3
-                    style={{
-                      fontSize: '24px',
-                      fontWeight: 700,
-                      letterSpacing: '-0.03em',
-                      color: cream,
-                      margin: '0 0 12px',
-                    }}
-                  >
-                    {p.title}
+                  <h3 style={{ fontFamily: 'Georgia, serif', fontSize: '16px', fontWeight: 700, lineHeight: 1.35, margin: 0, color: ink }}>
+                    {b.title}
                   </h3>
-                  <p
-                    style={{
-                      fontSize: '14.5px',
-                      lineHeight: 1.6,
-                      color: muted,
-                      margin: 0,
-                    }}
-                  >
-                    {p.desc}
-                  </p>
                 </div>
               </article>
             ))}
@@ -709,331 +588,117 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* About */}
-      <section id="about" style={section}>
-        <div style={container}>
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)',
-              gap: '80px',
-              alignItems: 'start',
-            }}
-          >
-            <div>
-              <p style={eyebrow}>
-                <span style={{ width: '32px', height: '1px', background: blueLight }} />
-                The studio
-              </p>
-              <h2 style={h2Display}>
-                A small team.{' '}
-                <span style={{ color: mutedSoft }}>A long memory.</span>
-              </h2>
-              <p
-                style={{
-                  marginTop: '24px',
-                  fontSize: '15px',
-                  color: muted,
-                  maxWidth: '420px',
-                }}
-              >
-                We&apos;ve been the team people call when the brief is hard, the
-                timeline is real, and the work has to be good.
-              </p>
-            </div>
-            <div>
-              <p
-                style={{
-                  fontSize: '18px',
-                  lineHeight: 1.7,
-                  color: muted,
-                  margin: '0 0 28px',
-                }}
-              >
-                JFR Studios was started because the work we wanted to make
-                didn&apos;t have a home in larger shops, and the work our
-                clients needed couldn&apos;t be done well by one freelancer at
-                a time.
-              </p>
-              <p
-                style={{
-                  fontSize: '18px',
-                  lineHeight: 1.7,
-                  color: muted,
-                  margin: 0,
-                }}
-              >
-                We&apos;re small on purpose. Every project is led by a senior,
-                every line of code and every frame is reviewed, and we
-                don&apos;t take on work we can&apos;t finish properly. The
-                result is a studio that ships calmly, talks straight, and
-                treats your time like ours.
-              </p>
-
-              <div
-                style={{
-                  marginTop: '48px',
-                  paddingTop: '32px',
-                  borderTop: `1px solid ${line}`,
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(2, 1fr)',
-                  gap: '28px',
-                }}
-              >
-                {[
-                  { v: 'Senior-led', l: 'Every project' },
-                  { v: 'Fixed scope', l: 'No surprise bills' },
-                  { v: 'One team', l: 'Start to finish' },
-                  { v: 'Lifetime', l: 'Post-launch support' },
-                ].map((s) => (
-                  <div key={s.l}>
-                    <p
-                      style={{
-                        fontSize: '24px',
-                        fontWeight: 700,
-                        color: blueLight,
-                        margin: 0,
-                        letterSpacing: '-0.03em',
-                      }}
-                    >
-                      {s.v}
-                    </p>
-                    <p
-                      style={{
-                        fontSize: '11px',
-                        letterSpacing: '0.14em',
-                        textTransform: 'uppercase',
-                        color: muted,
-                        margin: '8px 0 0',
-                        fontWeight: 500,
-                      }}
-                    >
-                      {s.l}
-                    </p>
-                  </div>
-                ))}
+      {/* CTA */}
+      <section id="contact" style={{ background: ink, color: cream, padding: '90px 0', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ ...container, display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '60px', alignItems: 'center' }}>
+          <div>
+            <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1, margin: '0 0 22px' }}>
+              Let&apos;s Create Something <span style={{ color: gold, fontStyle: 'italic' }}>Amazing Together</span>.
+            </h2>
+            <p style={{ fontSize: '15.5px', lineHeight: 1.7, color: mutedDark, maxWidth: '520px', margin: 0 }}>
+              Ready to take your brand to the next level? Get in touch with us today and let&apos;s turn your ideas into reality.
+            </p>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+            <a href="mailto:hello@jfrstudios.store" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px', padding: '15px 32px', borderRadius: '6px', background: gold, color: ink, fontWeight: 700, fontSize: '13px', letterSpacing: '0.06em', textTransform: 'uppercase', textDecoration: 'none' }}>
+              Contact Us <span aria-hidden>&#8594;</span>
+            </a>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '10px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', color: mutedDark, fontSize: '14px' }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 4 H9 L11 9 L8.5 10.5 a12 12 0 0 0 6 6 L16 14 L21 16 V20 a2 2 0 0 1 -2 2 A16 16 0 0 1 3 6 a2 2 0 0 1 2 -2 Z" stroke={gold} strokeWidth="1.6" strokeLinejoin="round" fill="none" /></svg>
+                +92 300 1234567
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', color: mutedDark, fontSize: '14px' }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke={gold} strokeWidth="1.6" /><path d="M3 7 L12 13 L21 7" stroke={gold} strokeWidth="1.6" fill="none" /></svg>
+                hello@jfrstudios.store
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', color: mutedDark, fontSize: '14px' }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 21 s-7 -7 -7 -12 a7 7 0 0 1 14 0 c0 5 -7 12 -7 12 Z" stroke={gold} strokeWidth="1.6" fill="none" /><circle cx="12" cy="9" r="2.4" stroke={gold} strokeWidth="1.6" fill="none" /></svg>
+                Lahore, Pakistan
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Contact */}
-      <section id="contact" style={{ ...section, background: ink900 }}>
+      {/* FOOTER */}
+      <footer style={{ background: inkWarm, color: cream, padding: '70px 0 30px', borderTop: `1px solid ${lineDark}` }}>
         <div style={container}>
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)',
-              gap: '80px',
-              alignItems: 'start',
-            }}
-          >
+          <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr 1fr 1.4fr', gap: '40px', paddingBottom: '50px', borderBottom: `1px solid ${lineDark}` }}>
             <div>
-              <p style={eyebrow}>
-                <span style={{ width: '32px', height: '1px', background: blueLight }} />
-                Get in touch
+              <img src="/logo.svg" alt="JFR Studios" style={{ height: '44px', marginBottom: '20px' }} />
+              <p style={{ fontSize: '13.5px', color: mutedDarkSoft, lineHeight: 1.6, maxWidth: '280px', margin: 0 }}>
+                Crafting bold digital experiences for modern brands.
               </p>
-              <h2 style={{ ...h2Display, marginBottom: '32px' }}>
-                Tell us about the work.{' '}
-                <span style={blueText}>We&apos;ll take it from there.</span>
-              </h2>
-              <p
-                style={{
-                  fontSize: '17px',
-                  lineHeight: 1.65,
-                  color: muted,
-                  maxWidth: '460px',
-                  margin: 0,
-                }}
-              >
-                One short email is enough to start. We read everything, reply
-                within a working day, and if we&apos;re not the right fit,
-                we&apos;ll tell you who is.
-              </p>
-            </div>
-
-            <div>
-              <a
-                href="mailto:hello@jfrstudios.store"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '14px',
-                  fontSize: 'clamp(1.4rem, 2.6vw, 2.25rem)',
-                  fontWeight: 600,
-                  letterSpacing: '-0.04em',
-                  color: cream,
-                  textDecoration: 'none',
-                  lineHeight: 1.15,
-                }}
-              >
-                hello@jfrstudios.store
-                <span style={{ ...blueText, fontSize: '0.85em' }}>↗</span>
-              </a>
-
-              <div
-                style={{
-                  marginTop: '48px',
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(2, 1fr)',
-                  gap: '24px',
-                  paddingTop: '32px',
-                  borderTop: `1px solid ${line}`,
-                }}
-              >
-                <div>
-                  <p
-                    style={{
-                      fontSize: '10.5px',
-                      letterSpacing: '0.16em',
-                      textTransform: 'uppercase',
-                      color: blueLight,
-                      margin: 0,
-                      fontWeight: 500,
-                      marginBottom: '8px',
-                    }}
-                  >
-                    Based
-                  </p>
-                  <p
-                    style={{
-                      fontSize: '15px',
-                      color: cream,
-                      margin: 0,
-                      lineHeight: 1.5,
-                    }}
-                  >
-                    Lahore · Pakistan
-                    <br />
-                    <span style={{ color: muted }}>Working with the world</span>
-                  </p>
-                </div>
-                <div>
-                  <p
-                    style={{
-                      fontSize: '10.5px',
-                      letterSpacing: '0.16em',
-                      textTransform: 'uppercase',
-                      color: blueLight,
-                      margin: 0,
-                      fontWeight: 500,
-                      marginBottom: '8px',
-                    }}
-                  >
-                    Hours
-                  </p>
-                  <p
-                    style={{
-                      fontSize: '15px',
-                      color: cream,
-                      margin: 0,
-                      lineHeight: 1.5,
-                    }}
-                  >
-                    Mon — Fri
-                    <br />
-                    <span style={{ color: muted }}>09:00 — 19:00 PKT</span>
-                  </p>
-                </div>
-              </div>
-
-              <div
-                style={{
-                  marginTop: '32px',
-                  display: 'flex',
-                  gap: '10px',
-                  flexWrap: 'wrap',
-                }}
-              >
+              <div style={{ display: 'flex', gap: '14px', marginTop: '22px' }}>
                 {[
-                  { name: 'Instagram', href: 'https://instagram.com/jfrstudios' },
-                  { name: 'LinkedIn', href: 'https://linkedin.com/company/jfrstudios' },
-                  { name: 'Behance', href: 'https://behance.net/jfrstudios' },
-                  { name: 'Dribbble', href: 'https://dribbble.com/jfrstudios' },
+                  { label: 'Facebook', d: 'M13 22 V12 H16 L16.5 8 H13 V6 a1 1 0 0 1 1 -1 H17 V2 H14 a4 4 0 0 0 -4 4 V8 H7 V12 H10 V22 Z' },
+                  { label: 'Instagram', d: 'M7 3 H17 a4 4 0 0 1 4 4 V17 a4 4 0 0 1 -4 4 H7 a4 4 0 0 1 -4 -4 V7 a4 4 0 0 1 4 -4 Z M12 8 a4 4 0 1 0 0 8 a4 4 0 0 0 0 -8 Z M17.5 6.5 a1 1 0 1 0 0 2 a1 1 0 0 0 0 -2 Z' },
+                  { label: 'LinkedIn', d: 'M4 4 H8 V20 H4 Z M6 1.5 a2 2 0 1 0 0 4 a2 2 0 0 0 0 -4 Z M10 8 H14 V10 a4 4 0 0 1 7 2 V20 H17 V13 a2 2 0 0 0 -4 0 V20 H10 Z' },
+                  { label: 'YouTube', d: 'M2 8 a3 3 0 0 1 3 -3 H19 a3 3 0 0 1 3 3 V16 a3 3 0 0 1 -3 3 H5 a3 3 0 0 1 -3 -3 Z M10 9 L15 12 L10 15 Z' },
                 ].map((s) => (
-                  <a
-                    key={s.name}
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      ...tagPill,
-                      textDecoration: 'none',
-                      padding: '8px 14px',
-                    }}
-                  >
-                    {s.name} ↗
+                  <a key={s.label} href="#" aria-label={s.label} style={{ width: '34px', height: '34px', borderRadius: '50%', border: `1px solid ${lineDark}`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: cream, textDecoration: 'none' }}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d={s.d} stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" /></svg>
                   </a>
                 ))}
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Footer */}
-      <footer
-        style={{
-          padding: '40px 0 32px',
-          borderTop: `1px solid ${line}`,
-          background: ink,
-        }}
-      >
-        <div style={container}>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              flexWrap: 'wrap',
-              gap: '16px',
-            }}
-          >
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '2px',
-                fontWeight: 800,
-                fontSize: '17px',
-                letterSpacing: '-0.04em',
-              }}
-            >
-              <span style={{ color: cream }}>/JFR</span>
-              <span style={blueText}>.</span>
-              <span style={{ color: muted }}>studios</span>
+            <div>
+              <h4 style={{ fontFamily: 'Georgia, serif', fontSize: '14px', color: gold, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: '18px' }}>Quick Links</h4>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                {['Home', 'Services', 'Portfolio', 'About Us', 'Blog'].map((l) => (
+                  <li key={l}>
+                    <a href={`#${l.toLowerCase().replace(/\s+/g, '-')}`} style={{ color: mutedDark, fontSize: '13.5px', textDecoration: 'none' }}>
+                      {l}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <p
-              style={{
-                fontSize: '12px',
-                color: mutedSoft,
-                margin: 0,
-                letterSpacing: '0.04em',
-              }}
-            >
-              © 2026 JFR Studios · Crafted in Pakistan · Available worldwide
-            </p>
+
+            <div>
+              <h4 style={{ fontFamily: 'Georgia, serif', fontSize: '14px', color: gold, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: '18px' }}>Our Services</h4>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                {['Web Design & Development', 'Social Media Management', 'Branding & Identity', 'Digital Marketing', 'Content Creation'].map((l) => (
+                  <li key={l}>
+                    <a href="#services" style={{ color: mutedDark, fontSize: '13.5px', textDecoration: 'none' }}>
+                      {l}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h4 style={{ fontFamily: 'Georgia, serif', fontSize: '14px', color: gold, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: '18px' }}>Newsletter</h4>
+              <p style={{ color: mutedDarkSoft, fontSize: '13px', margin: '0 0 16px', lineHeight: 1.5 }}>
+                Get the latest updates and tips straight to your inbox.
+              </p>
+              <form action="#" onSubmit={(e) => e.preventDefault()} style={{ display: 'flex', gap: '0', borderRadius: '6px', overflow: 'hidden', border: `1px solid ${lineDark}` }}>
+                <input
+                  type="email"
+                  placeholder="Your Email Address"
+                  required
+                  style={{ flex: 1, padding: '12px 14px', background: 'transparent', color: cream, border: 'none', outline: 'none', fontSize: '13px', fontFamily: 'inherit' }}
+                />
+                <button type="submit" aria-label="Subscribe" style={{ padding: '12px 16px', background: gold, color: ink, border: 'none', cursor: 'pointer' }}>
+                  <span aria-hidden>&#8594;</span>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <div style={{ paddingTop: '26px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', fontSize: '12.5px', color: mutedDarkSoft }}>
+            <div>&copy; 2025 JFR Studios. All Rights Reserved.</div>
+            <div style={{ display: 'flex', gap: '24px' }}>
+              <a href="#" style={{ color: mutedDarkSoft, textDecoration: 'none' }}>Privacy Policy</a>
+              <span aria-hidden>|</span>
+              <a href="#" style={{ color: mutedDarkSoft, textDecoration: 'none' }}>Terms &amp; Conditions</a>
+            </div>
           </div>
         </div>
       </footer>
-
-      <style>{`
-        @keyframes pulse {
-          0%, 100% { transform: scale(1); opacity: 0.55; }
-          50% { transform: scale(2.4); opacity: 0; }
-        }
-        @keyframes float {
-          0%, 100% { transform: translateY(0) rotate(0deg); }
-          50% { transform: translateY(-12px) rotate(2deg); }
-        }
-        * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { -webkit-font-smoothing: antialiased; }
-        ::selection { background: ${blue}; color: ${cream}; }
-        a:hover { color: ${blueLight}; transition: color 0.2s ease; }
-        a { transition: color 0.2s ease; }
-      `}</style>
     </>
   );
 }
