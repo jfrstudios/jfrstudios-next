@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { useState } from 'react';
 import type { CSSProperties } from 'react';
 
 // JFR Studios - Gold + Black + Cream agency theme
@@ -129,6 +132,8 @@ function Icon({ name }: { name: string }) {
 }
 
 export default function HomePage() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <>
       {/* HEADER */}
@@ -158,7 +163,7 @@ export default function HomePage() {
             <img src="/logo.svg" alt="JFR Studios" style={{ height: '42px', width: 'auto' }} />
           </Link>
 
-          <nav aria-label="Primary" style={{ display: 'flex', gap: '30px', alignItems: 'center' }}>
+          <nav aria-label="Primary" className="desktop-nav" style={{ display: 'flex', gap: '30px', alignItems: 'center' }}>
             {navItems.map((l) => (
               <a
                 key={l}
@@ -180,6 +185,7 @@ export default function HomePage() {
 
           <a
             href="mailto:hello@jfrstudios.store"
+            className="hide-mobile"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -195,7 +201,87 @@ export default function HomePage() {
           >
             Let&apos;s Talk <span aria-hidden>&#8594;</span>
           </a>
+
+          <button
+            type="button"
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+            className="mobile-nav-trigger"
+            style={{
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '44px',
+              height: '44px',
+              borderRadius: '10px',
+              background: 'transparent',
+              border: `1px solid ${lineDark}`,
+              cursor: 'pointer',
+              flexShrink: 0,
+            }}
+          >
+            <span style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+              <span style={{ display: 'block', width: '20px', height: '1.5px', background: gold, transform: menuOpen ? 'translateY(6.5px) rotate(45deg)' : 'none', transition: 'transform 0.2s ease' }} />
+              <span style={{ display: 'block', width: '20px', height: '1.5px', background: gold, opacity: menuOpen ? 0 : 1, transition: 'opacity 0.2s ease' }} />
+              <span style={{ display: 'block', width: '20px', height: '1.5px', background: gold, transform: menuOpen ? 'translateY(-6.5px) rotate(-45deg)' : 'none', transition: 'transform 0.2s ease' }} />
+            </span>
+          </button>
         </div>
+
+        {/* MOBILE MENU PANEL */}
+        {menuOpen && (
+          <nav
+            aria-label="Mobile"
+            style={{
+              ...container,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '2px',
+              paddingTop: '12px',
+              paddingBottom: '20px',
+              borderTop: `1px solid ${lineDark}`,
+              marginTop: '12px',
+            }}
+          >
+            {navItems.map((l) => (
+              <a
+                key={l}
+                href={`#${l.toLowerCase().replace(/\s+/g, '-')}`}
+                onClick={() => setMenuOpen(false)}
+                style={{
+                  fontSize: '15px',
+                  fontWeight: 500,
+                  color: l === 'Home' ? gold : cream,
+                  textDecoration: 'none',
+                  padding: '13px 0',
+                  borderBottom: `1px solid ${lineDarkSoft}`,
+                }}
+              >
+                {l}
+              </a>
+            ))}
+            <a
+              href="mailto:hello@jfrstudios.store"
+              onClick={() => setMenuOpen(false)}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                marginTop: '18px',
+                padding: '14px 22px',
+                borderRadius: '999px',
+                background: gold,
+                color: ink,
+                fontWeight: 700,
+                fontSize: '13px',
+                textDecoration: 'none',
+              }}
+            >
+              Let&apos;s Talk <span aria-hidden>&#8594;</span>
+            </a>
+          </nav>
+        )}
       </header>
 
       {/* HERO */}
@@ -210,7 +296,7 @@ export default function HomePage() {
           overflow: 'hidden',
         }}
       >
-        <div style={{ ...container, display: 'grid', gridTemplateColumns: '1.05fr 0.95fr', gap: '60px', alignItems: 'center' }}>
+        <div className="g-hero" style={{ ...container, display: 'grid', gridTemplateColumns: '1.05fr 0.95fr', gap: '60px', alignItems: 'center' }}>
           <div>
             <div
               style={{
@@ -296,7 +382,7 @@ export default function HomePage() {
 
       {/* STATS BAR */}
       <section style={{ background: ink, borderTop: `1px solid ${lineDark}`, borderBottom: `1px solid ${lineDark}`, padding: '40px 0' }}>
-        <div style={{ ...container, display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px' }}>
+        <div className="g-stats" style={{ ...container, display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px' }}>
           {[
             { num: '100+', label: 'Projects Completed', icon: 'briefcase' },
             { num: '50+', label: 'Happy Clients', icon: 'smile' },
@@ -330,7 +416,7 @@ export default function HomePage() {
       {/* SERVICES */}
       <section id="services" style={{ background: creamBright, color: ink, padding: '110px 0' }}>
         <div style={container}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '60px', alignItems: 'start' }}>
+          <div className="g-services" style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '60px', alignItems: 'start' }}>
             <div>
               <div
                 style={{
@@ -385,7 +471,7 @@ export default function HomePage() {
               </a>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px' }}>
+            <div className="g-cards-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px' }}>
               {services.map((s) => (
                 <div
                   key={s.title}
@@ -415,7 +501,7 @@ export default function HomePage() {
 
       {/* ABOUT */}
       <section id="about-us" style={{ background: ink, color: cream, padding: '110px 0', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ ...container, display: 'grid', gridTemplateColumns: '0.95fr 1.05fr', gap: '60px', alignItems: 'center' }}>
+        <div className="g-about" style={{ ...container, display: 'grid', gridTemplateColumns: '0.95fr 1.05fr', gap: '60px', alignItems: 'center' }}>
           <div style={{ position: 'relative', borderRadius: '14px', overflow: 'hidden', aspectRatio: '4 / 3', border: `1px solid ${lineDark}` }}>
             <img src={imgAbout} alt="JFR Studios team workspace" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: 'brightness(0.78) contrast(1.08)' }} />
             <div aria-hidden style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(212,164,55,0.15), transparent 60%)' }} />
@@ -436,7 +522,7 @@ export default function HomePage() {
               Learn More <span aria-hidden>&#8594;</span>
             </a>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px 28px', borderLeft: `2px solid ${gold}`, paddingLeft: '24px' }}>
+            <div className="g-features" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px 28px', borderLeft: `2px solid ${gold}`, paddingLeft: '24px' }}>
               {features.map((f) => (
                 <div key={f.title}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
@@ -476,7 +562,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '22px' }}>
+          <div className="g-cards-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '22px' }}>
             {portfolio.map((p) => (
               <div key={p.title} style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', aspectRatio: '4 / 5', background: inkWarm, border: `1px solid ${lineLight}`, cursor: 'pointer' }}>
                 <img src={p.img} alt={p.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: 'brightness(0.78)' }} />
@@ -498,7 +584,7 @@ export default function HomePage() {
       <section style={{ background: ink, color: cream, padding: '110px 0', position: 'relative', overflow: 'hidden' }}>
         <div aria-hidden style={{ position: 'absolute', right: '-80px', top: '-40px', width: '420px', height: '420px', background: `url(${imgLeaf}) center/cover no-repeat`, opacity: 0.18, filter: 'grayscale(0.3) hue-rotate(20deg)' }} />
         <div style={{ ...container, position: 'relative' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.05fr', gap: '60px', alignItems: 'center' }}>
+          <div className="g-testimonial" style={{ display: 'grid', gridTemplateColumns: '1fr 1.05fr', gap: '60px', alignItems: 'center' }}>
             <div>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', fontSize: '11px', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700, color: gold, marginBottom: '20px' }}>
                 Our Testimonials
@@ -566,7 +652,7 @@ export default function HomePage() {
             </a>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '22px' }}>
+          <div className="g-cards-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '22px' }}>
             {blog.map((b) => (
               <article key={b.title} style={{ background: '#fff', borderRadius: '10px', overflow: 'hidden', border: `1px solid ${lineLight}` }}>
                 <div style={{ aspectRatio: '4 / 3', overflow: 'hidden', background: inkWarm }}>
@@ -590,7 +676,7 @@ export default function HomePage() {
 
       {/* CTA */}
       <section id="contact" style={{ background: ink, color: cream, padding: '90px 0', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ ...container, display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '60px', alignItems: 'center' }}>
+        <div className="g-cta" style={{ ...container, display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '60px', alignItems: 'center' }}>
           <div>
             <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1, margin: '0 0 22px' }}>
               Let&apos;s Create Something <span style={{ color: gold, fontStyle: 'italic' }}>Amazing Together</span>.
@@ -624,7 +710,7 @@ export default function HomePage() {
       {/* FOOTER */}
       <footer style={{ background: inkWarm, color: cream, padding: '70px 0 30px', borderTop: `1px solid ${lineDark}` }}>
         <div style={container}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr 1fr 1.4fr', gap: '40px', paddingBottom: '50px', borderBottom: `1px solid ${lineDark}` }}>
+          <div className="g-footer" style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr 1fr 1.4fr', gap: '40px', paddingBottom: '50px', borderBottom: `1px solid ${lineDark}` }}>
             <div>
               <img src="/logo.svg" alt="JFR Studios" style={{ height: '44px', marginBottom: '20px' }} />
               <p style={{ fontSize: '13.5px', color: mutedDarkSoft, lineHeight: 1.6, maxWidth: '280px', margin: 0 }}>

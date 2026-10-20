@@ -189,6 +189,76 @@
     .hide-mobile { display: none !important; }
   }
 
+  /* ============================================
+     RESPONSIVE GRID OVERRIDES (Gold theme)
+     Inline styles cannot hold media queries, so the
+     grid templates below are overridden here with
+     !important to make every section collapse on
+     small screens.
+     ============================================ */
+
+  .g-hero        { grid-template-columns: 1.05fr 0.95fr !important; }
+  .g-services    { grid-template-columns: 1fr 2fr !important; }
+  .g-about       { grid-template-columns: 0.95fr 1.05fr !important; }
+  .g-testimonial { grid-template-columns: 1fr 1.05fr !important; }
+  .g-cta         { grid-template-columns: 1.2fr 0.8fr !important; }
+  .g-footer      { grid-template-columns: 1.4fr 1fr 1fr 1.4fr !important; }
+  .g-features    { grid-template-columns: repeat(2, 1fr) !important; }
+  .g-cards-3     { grid-template-columns: repeat(3, 1fr) !important; }
+  .g-cards-4     { grid-template-columns: repeat(4, 1fr) !important; }
+  .g-cards-2     { grid-template-columns: repeat(2, 1fr) !important; }
+  .g-stats       { grid-template-columns: repeat(4, 1fr) !important; }
+
+  @media (max-width: 1024px) {
+    .g-cards-4, .g-stats { grid-template-columns: repeat(2, 1fr) !important; }
+    .g-cards-3, .g-features { grid-template-columns: repeat(2, 1fr) !important; }
+  }
+
+  @media (max-width: 900px) {
+    .g-hero,
+    .g-services,
+    .g-about,
+    .g-testimonial,
+    .g-cta,
+    .g-footer {
+      grid-template-columns: 1fr !important;
+      gap: 44px !important;
+    }
+    .g-cards-2 { grid-template-columns: 1fr !important; }
+  }
+
+  @media (max-width: 640px) {
+    .g-cards-4,
+    .g-cards-3,
+    .g-cards-2,
+    .g-stats,
+    .g-features {
+      grid-template-columns: 1fr !important;
+    }
+    /* Stats row separators become horizontal on mobile */
+    .g-stats > * {
+      border-right: none !important;
+      border-bottom: 1px solid rgba(245, 240, 229, 0.10) !important;
+      padding-left: 0 !important;
+    }
+  }
+
+  /* ===== Mobile navigation ===== */
+  .mobile-nav-panel {
+    display: none;
+  }
+  @media (max-width: 1024px) {
+    .desktop-nav { display: none !important; }
+    .mobile-nav-trigger { display: inline-flex !important; }
+    .mobile-nav-panel.is-open { display: flex !important; }
+  }
+  .mobile-nav-trigger { display: none; }
+
+  /* ===== Sections need breathing room on small screens ===== */
+  @media (max-width: 640px) {
+    section { padding-top: 72px !important; padding-bottom: 72px !important; }
+  }
+
   /* ===== Reduce motion ===== */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
