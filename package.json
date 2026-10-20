@@ -6,6 +6,12 @@
   "engines": {
     "node": ">=18.17.0"
   },
+  "allowScripts": {
+    "esbuild": true,
+    "@swc/core": true,
+    "unrs-resolver": true,
+    "sharp": true
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
