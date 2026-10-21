@@ -1,87 +1,63 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
 import type { CSSProperties } from 'react';
+import {
+  ink,
+  inkWarm,
+  cream,
+  creamBright,
+  gold,
+  mutedDark,
+  mutedDarkSoft,
+  lineDark,
+  lineDarkSoft,
+  mutedLight,
+  mutedLightSoft,
+  lineLight,
+  container,
+  services,
+  projects,
+  stats,
+  values,
+  EMAIL,
+  PHONE,
+} from '@/lib/site';
 
-// JFR Studios - Gold + Black + Cream agency theme
-
-// Color tokens
-const ink = '#0A0A0A';
-const inkWarm = '#14110D';
-const cream = '#F5F0E5';
-const creamBright = '#FAF7F0';
-const gold = '#D4A437';
-const goldLight = '#F5C76A';
-const goldDark = '#A87C1F';
-
-const mutedDark = 'rgba(245, 240, 229, 0.72)';
-const mutedDarkSoft = 'rgba(245, 240, 229, 0.5)';
-const mutedDarkMute = 'rgba(245, 240, 229, 0.32)';
-const lineDark = 'rgba(245, 240, 229, 0.12)';
-const lineDarkSoft = 'rgba(245, 240, 229, 0.06)';
-
-const mutedLight = 'rgba(20, 17, 13, 0.62)';
-const mutedLightSoft = 'rgba(20, 17, 13, 0.4)';
-const lineLight = 'rgba(20, 17, 13, 0.10)';
-
-// Layout primitives
-const container: CSSProperties = {
-  maxWidth: '1280px',
-  margin: '0 auto',
-  padding: '0 24px',
-};
-
-// Hero / portrait imagery (free Unsplash CDN)
 const imgHero = 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=900&h=720&fit=crop';
 const imgAbout = 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&h=720&fit=crop';
-const imgPortfolioWeb = 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&h=520&fit=crop';
-const imgPortfolioSocial = 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=520&fit=crop';
-const imgPortfolioBrand = 'https://images.unsplash.com/photo-1561070791-2526d30994b8?w=800&h=520&fit=crop';
-const imgPortfolioContent = 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&h=520&fit=crop';
-const imgBlogDesign = 'https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600&h=400&fit=crop';
-const imgBlogSocial = 'https://images.unsplash.com/photo-1611605698335-8b1569810432?w=600&h=400&fit=crop';
-const imgBlogMarketing = 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop';
-const imgBlogContent = 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&h=400&fit=crop';
 const imgLeaf = 'https://images.unsplash.com/photo-1545244125-b4eff5fa1df6?w=600&h=600&fit=crop';
 
-// Navigation list
-const navItems = ['Home', 'Services', 'Portfolio', 'About Us', 'Pricing', 'Shop', 'FAQ', 'Contact'];
+const portfolio = projects.slice(0, 4);
 
-// Service cards
-const services = [
-  { title: 'Web Design & Development', desc: 'Modern, responsive and user-friendly websites.', icon: 'web' },
-  { title: 'Social Media Management', desc: 'Grow your brand with engaging content & strategy.', icon: 'social' },
-  { title: 'Branding & Identity', desc: 'Build a unique brand that stands out.', icon: 'brand' },
-  { title: 'Graphic Design', desc: 'Stunning visuals for your brand.', icon: 'design' },
-  { title: 'Digital Marketing', desc: 'Drive traffic, generate leads and increase sales.', icon: 'marketing' },
-  { title: 'Content Creation', desc: 'Scroll-stopping content that tells your story.', icon: 'content' },
-];
-
-// Portfolio cards
-const portfolio = [
-  { tag: 'Web Design & Development', title: 'Brand Strategy', img: imgPortfolioWeb, cat: 'Web Design' },
-  { tag: 'Social Media Management', title: 'Social Media', img: imgPortfolioSocial, cat: 'Social Media' },
-  { tag: 'Brand Identity', title: 'Branding', img: imgPortfolioBrand, cat: 'Branding' },
-  { tag: 'Video & Photo Content', title: 'Content Creation', img: imgPortfolioContent, cat: 'Content Creation' },
-];
-
-// Blog cards
 const blog = [
-  { tag: 'Design', date: 'Apr 10, 2025', title: '10 Modern Web Design Trends for 2025', img: imgBlogDesign },
-  { tag: 'Social Media', date: 'Apr 20, 2025', title: 'How to Grow Your Brand on Social Media', img: imgBlogSocial },
-  { tag: 'Marketing', date: 'Apr 18, 2025', title: 'Digital Marketing Strategies That Actually Work', img: imgBlogMarketing },
-  { tag: 'Content', date: 'Apr 12, 2025', title: 'The Power of Short Videos for Your Brand', img: imgBlogContent },
+  {
+    tag: 'Design',
+    date: 'Apr 10, 2025',
+    title: '10 Modern Web Design Trends for 2025',
+    img: 'https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600&h=400&fit=crop',
+  },
+  {
+    tag: 'Social Media',
+    date: 'Apr 20, 2025',
+    title: 'How to Grow Your Brand on Social Media',
+    img: 'https://images.unsplash.com/photo-1611605698335-8b1569810432?w=600&h=400&fit=crop',
+  },
+  {
+    tag: 'Marketing',
+    date: 'Apr 18, 2025',
+    title: 'Digital Marketing Strategies That Actually Work',
+    img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop',
+  },
+  {
+    tag: 'Content',
+    date: 'Apr 12, 2025',
+    title: 'The Power of Short Videos for Your Brand',
+    img: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&h=400&fit=crop',
+  },
 ];
 
-// Feature pills (About right column)
-const features = [
-  { title: 'Premium Quality', desc: 'We deliver excellence in every project.' },
-  { title: 'On-Time Delivery', desc: 'Your time matters to us.' },
-  { title: 'Client Focused', desc: 'Your goals are our priority.' },
-  { title: '24/7 Support', desc: 'We are always here for you.' },
-];
-
+const features = values;
 // Service icon SVG path helper
 function Icon({ name }: { name: string }) {
   const stroke = gold;
@@ -132,158 +108,8 @@ function Icon({ name }: { name: string }) {
 }
 
 export default function HomePage() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <>
-      {/* HEADER */}
-      <header
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 50,
-          padding: '16px 0',
-          background: 'rgba(10, 10, 10, 0.78)',
-          backdropFilter: 'blur(20px) saturate(160%)',
-          WebkitBackdropFilter: 'blur(20px) saturate(160%)',
-          borderBottom: `1px solid ${lineDark}`,
-        }}
-      >
-        <div
-          style={{
-            ...container,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-          }}
-        >
-          <Link href="/" aria-label="JFR Studios home" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
-            <img src="/logo.svg" alt="JFR Studios" style={{ height: '42px', width: 'auto' }} />
-          </Link>
-
-          <nav aria-label="Primary" className="desktop-nav" style={{ display: 'flex', gap: '30px', alignItems: 'center' }}>
-            {navItems.map((l) => (
-              <a
-                key={l}
-                href={`#${l.toLowerCase().replace(/\s+/g, '-')}`}
-                style={{
-                  fontSize: '13px',
-                  letterSpacing: '0.04em',
-                  fontWeight: 500,
-                  color: l === 'Home' ? gold : cream,
-                  textDecoration: 'none',
-                  paddingBottom: '4px',
-                  borderBottom: l === 'Home' ? `2px solid ${gold}` : '2px solid transparent',
-                }}
-              >
-                {l}
-              </a>
-            ))}
-          </nav>
-
-          <a
-            href="mailto:hello@jfrstudios.store"
-            className="hide-mobile"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '11px 22px',
-              borderRadius: '999px',
-              border: `1px solid ${gold}`,
-              color: gold,
-              fontWeight: 600,
-              fontSize: '13px',
-              textDecoration: 'none',
-            }}
-          >
-            Let&apos;s Talk <span aria-hidden>&#8594;</span>
-          </a>
-
-          <button
-            type="button"
-            onClick={() => setMenuOpen((v) => !v)}
-            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={menuOpen}
-            className="mobile-nav-trigger"
-            style={{
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '44px',
-              height: '44px',
-              borderRadius: '10px',
-              background: 'transparent',
-              border: `1px solid ${lineDark}`,
-              cursor: 'pointer',
-              flexShrink: 0,
-            }}
-          >
-            <span style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
-              <span style={{ display: 'block', width: '20px', height: '1.5px', background: gold, transform: menuOpen ? 'translateY(6.5px) rotate(45deg)' : 'none', transition: 'transform 0.2s ease' }} />
-              <span style={{ display: 'block', width: '20px', height: '1.5px', background: gold, opacity: menuOpen ? 0 : 1, transition: 'opacity 0.2s ease' }} />
-              <span style={{ display: 'block', width: '20px', height: '1.5px', background: gold, transform: menuOpen ? 'translateY(-6.5px) rotate(-45deg)' : 'none', transition: 'transform 0.2s ease' }} />
-            </span>
-          </button>
-        </div>
-
-        {/* MOBILE MENU PANEL */}
-        {menuOpen && (
-          <nav
-            aria-label="Mobile"
-            style={{
-              ...container,
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '2px',
-              paddingTop: '12px',
-              paddingBottom: '20px',
-              borderTop: `1px solid ${lineDark}`,
-              marginTop: '12px',
-            }}
-          >
-            {navItems.map((l) => (
-              <a
-                key={l}
-                href={`#${l.toLowerCase().replace(/\s+/g, '-')}`}
-                onClick={() => setMenuOpen(false)}
-                style={{
-                  fontSize: '15px',
-                  fontWeight: 500,
-                  color: l === 'Home' ? gold : cream,
-                  textDecoration: 'none',
-                  padding: '13px 0',
-                  borderBottom: `1px solid ${lineDarkSoft}`,
-                }}
-              >
-                {l}
-              </a>
-            ))}
-            <a
-              href="mailto:hello@jfrstudios.store"
-              onClick={() => setMenuOpen(false)}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px',
-                marginTop: '18px',
-                padding: '14px 22px',
-                borderRadius: '999px',
-                background: gold,
-                color: ink,
-                fontWeight: 700,
-                fontSize: '13px',
-                textDecoration: 'none',
-              }}
-            >
-              Let&apos;s Talk <span aria-hidden>&#8594;</span>
-            </a>
-          </nav>
-        )}
-      </header>
-
       {/* HERO */}
       <section
         id="home"
@@ -451,7 +277,7 @@ export default function HomePage() {
                 We help businesses build a strong online presence with creative design, smart strategy and result-driven solutions.
               </p>
               <a
-                href="#portfolio"
+                href="/portfolio"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -647,7 +473,7 @@ export default function HomePage() {
                 Tips, ideas and updates to help you grow in the digital world.
               </p>
             </div>
-            <a href="#blog" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: gold, fontWeight: 600, fontSize: '13px', textDecoration: 'none' }}>
+            <a href="/portfolio" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: gold, fontWeight: 600, fontSize: '13px', textDecoration: 'none' }}>
               View All Articles <span aria-hidden>&#8594;</span>
             </a>
           </div>
@@ -707,84 +533,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer style={{ background: inkWarm, color: cream, padding: '70px 0 30px', borderTop: `1px solid ${lineDark}` }}>
-        <div style={container}>
-          <div className="g-footer" style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr 1fr 1.4fr', gap: '40px', paddingBottom: '50px', borderBottom: `1px solid ${lineDark}` }}>
-            <div>
-              <img src="/logo.svg" alt="JFR Studios" style={{ height: '44px', marginBottom: '20px' }} />
-              <p style={{ fontSize: '13.5px', color: mutedDarkSoft, lineHeight: 1.6, maxWidth: '280px', margin: 0 }}>
-                Crafting bold digital experiences for modern brands.
-              </p>
-              <div style={{ display: 'flex', gap: '14px', marginTop: '22px' }}>
-                {[
-                  { label: 'Facebook', d: 'M13 22 V12 H16 L16.5 8 H13 V6 a1 1 0 0 1 1 -1 H17 V2 H14 a4 4 0 0 0 -4 4 V8 H7 V12 H10 V22 Z' },
-                  { label: 'Instagram', d: 'M7 3 H17 a4 4 0 0 1 4 4 V17 a4 4 0 0 1 -4 4 H7 a4 4 0 0 1 -4 -4 V7 a4 4 0 0 1 4 -4 Z M12 8 a4 4 0 1 0 0 8 a4 4 0 0 0 0 -8 Z M17.5 6.5 a1 1 0 1 0 0 2 a1 1 0 0 0 0 -2 Z' },
-                  { label: 'LinkedIn', d: 'M4 4 H8 V20 H4 Z M6 1.5 a2 2 0 1 0 0 4 a2 2 0 0 0 0 -4 Z M10 8 H14 V10 a4 4 0 0 1 7 2 V20 H17 V13 a2 2 0 0 0 -4 0 V20 H10 Z' },
-                  { label: 'YouTube', d: 'M2 8 a3 3 0 0 1 3 -3 H19 a3 3 0 0 1 3 3 V16 a3 3 0 0 1 -3 3 H5 a3 3 0 0 1 -3 -3 Z M10 9 L15 12 L10 15 Z' },
-                ].map((s) => (
-                  <a key={s.label} href="#" aria-label={s.label} style={{ width: '34px', height: '34px', borderRadius: '50%', border: `1px solid ${lineDark}`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: cream, textDecoration: 'none' }}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d={s.d} stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h4 style={{ fontFamily: 'Georgia, serif', fontSize: '14px', color: gold, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: '18px' }}>Quick Links</h4>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                {['Home', 'Services', 'Portfolio', 'About Us', 'Blog'].map((l) => (
-                  <li key={l}>
-                    <a href={`#${l.toLowerCase().replace(/\s+/g, '-')}`} style={{ color: mutedDark, fontSize: '13.5px', textDecoration: 'none' }}>
-                      {l}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h4 style={{ fontFamily: 'Georgia, serif', fontSize: '14px', color: gold, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: '18px' }}>Our Services</h4>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                {['Web Design & Development', 'Social Media Management', 'Branding & Identity', 'Digital Marketing', 'Content Creation'].map((l) => (
-                  <li key={l}>
-                    <a href="#services" style={{ color: mutedDark, fontSize: '13.5px', textDecoration: 'none' }}>
-                      {l}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h4 style={{ fontFamily: 'Georgia, serif', fontSize: '14px', color: gold, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: '18px' }}>Newsletter</h4>
-              <p style={{ color: mutedDarkSoft, fontSize: '13px', margin: '0 0 16px', lineHeight: 1.5 }}>
-                Get the latest updates and tips straight to your inbox.
-              </p>
-              <form action="#" onSubmit={(e) => e.preventDefault()} style={{ display: 'flex', gap: '0', borderRadius: '6px', overflow: 'hidden', border: `1px solid ${lineDark}` }}>
-                <input
-                  type="email"
-                  placeholder="Your Email Address"
-                  required
-                  style={{ flex: 1, padding: '12px 14px', background: 'transparent', color: cream, border: 'none', outline: 'none', fontSize: '13px', fontFamily: 'inherit' }}
-                />
-                <button type="submit" aria-label="Subscribe" style={{ padding: '12px 16px', background: gold, color: ink, border: 'none', cursor: 'pointer' }}>
-                  <span aria-hidden>&#8594;</span>
-                </button>
-              </form>
-            </div>
-          </div>
-
-          <div style={{ paddingTop: '26px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', fontSize: '12.5px', color: mutedDarkSoft }}>
-            <div>&copy; 2025 JFR Studios. All Rights Reserved.</div>
-            <div style={{ display: 'flex', gap: '24px' }}>
-              <a href="#" style={{ color: mutedDarkSoft, textDecoration: 'none' }}>Privacy Policy</a>
-              <span aria-hidden>|</span>
-              <a href="#" style={{ color: mutedDarkSoft, textDecoration: 'none' }}>Terms &amp; Conditions</a>
-            </div>
-          </div>
-        </div>
-      </footer>
     </>
   );
 }
+

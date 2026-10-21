@@ -209,6 +209,12 @@
   .g-cards-2     { grid-template-columns: repeat(2, 1fr) !important; }
   .g-stats       { grid-template-columns: repeat(4, 1fr) !important; }
 
+  /* ===== Tablet: tighten the header nav before it wraps ===== */
+  @media (max-width: 1200px) and (min-width: 1025px) {
+    .desktop-nav { gap: 18px !important; }
+    .desktop-nav a { font-size: 12px !important; letter-spacing: 0 !important; }
+  }
+
   @media (max-width: 1024px) {
     .g-cards-4, .g-stats { grid-template-columns: repeat(2, 1fr) !important; }
     .g-cards-3, .g-features { grid-template-columns: repeat(2, 1fr) !important; }

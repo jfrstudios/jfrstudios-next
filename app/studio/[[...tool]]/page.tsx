@@ -1,10 +1,8 @@
 export default function StudioPage() {
   return (
-    <main
+    <div
       style={{
         minHeight: '100vh',
-        background: '#07070A',
-        color: '#F5F5F2',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -12,6 +10,6 @@ export default function StudioPage() {
       }}
     >
       <h1>Studio — Coming Soon</h1>
-    </main>
+    </div>
   );
 }
