@@ -8,6 +8,8 @@ import {
   cream,
   creamBright,
   gold,
+  goldLight,
+  goldDark,
   mutedDark,
   mutedDarkSoft,
   lineDark,
