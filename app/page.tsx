@@ -26,7 +26,7 @@ import {
   PHONE,
 } from '@/lib/site';
 
-const imgHero = 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=900&h=720&fit=crop';
+const imgHero = '/hero-branding.png';
 const imgAbout = 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&h=720&fit=crop';
 const imgLeaf = 'https://images.unsplash.com/photo-1545244125-b4eff5fa1df6?w=600&h=600&fit=crop';
 
@@ -193,8 +193,13 @@ export default function HomePage() {
           >
             <img
               src={imgHero}
-              alt="JFR Studios digital workspace"
-              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: 'brightness(0.85) contrast(1.05)' }}
+              alt="JFR Studios brand identity — the gold JFR mark on a black notebook"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              width={752}
+              height={588}
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
             />
             <div
               aria-hidden
@@ -217,8 +222,7 @@ export default function HomePage() {
             { num: '5+', label: 'Years Experience', icon: 'trophy' },
             { num: '100%', label: 'Client Satisfaction', icon: 'heart' },
           ].map((s) => (
-            <div key={s.label} style={{ display: 'flex', alignItems: 'center', gap: '20px', padding: '8px 18px', borderRight: `1px solid ${lineDark}` }}>
-              <span style={{ color: gold, fontSize: '28px' }}>
+            <div key={s.label} style={{ display: 'flex', alignItems: 'center', gap: '20px', padding: '8px 18px', borderRight: `1px solid ${lineDark}` }}>              <span style={{ color: gold, fontSize: '28px' }}>
                 {s.icon === 'briefcase' && (
                   <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="18" height="13" rx="2" stroke={gold} strokeWidth="1.6" /><path d="M9 7 V5 a2 2 0 0 1 2 -2 h2 a2 2 0 0 1 2 2 V7" stroke={gold} strokeWidth="1.6" /></svg>
                 )}
@@ -238,6 +242,23 @@ export default function HomePage() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* TAGLINE STRIP */}
+        <div style={{ ...container, marginTop: '34px', paddingTop: '28px', borderTop: `1px solid ${lineDark}` }}>
+          <p
+            style={{
+              margin: 0,
+              textAlign: 'center',
+              fontFamily: 'Georgia, serif',
+              fontSize: 'clamp(1.1rem, 2vw, 1.5rem)',
+              color: cream,
+              fontStyle: 'italic',
+            }}
+          >
+            Your Vision <span style={{ color: gold }}>+</span> Our Creativity <span style={{ color: gold }}>=</span>{' '}
+            <span style={{ color: gold }}>Digital Success</span>
+          </p>
         </div>
       </section>
 
@@ -358,6 +379,89 @@ export default function HomePage() {
                     <h4 style={{ fontSize: '15px', fontWeight: 700, color: cream, margin: 0 }}>{f.title}</h4>
                   </div>
                   <p style={{ fontSize: '13px', color: mutedDarkSoft, margin: 0, lineHeight: 1.5 }}>{f.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* YOUR GROWTH - OUR PRIORITY */}
+      <section style={{ background: cream, color: ink, padding: '80px 0' }}>
+        <div style={container}>
+          <div
+            className="g-cta"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1.6fr',
+              gap: '50px',
+              alignItems: 'center',
+            }}
+          >
+            <div>
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  fontSize: '11px',
+                  letterSpacing: '0.22em',
+                  textTransform: 'uppercase',
+                  fontWeight: 700,
+                  color: gold,
+                  marginBottom: '16px',
+                }}
+              >
+                Why choose us
+                <span style={{ display: 'inline-block', width: '30px', height: '1px', background: gold }} />
+              </div>
+              <h2
+                style={{
+                  fontFamily: 'Georgia, serif',
+                  fontSize: 'clamp(1.7rem, 3vw, 2.5rem)',
+                  fontWeight: 700,
+                  letterSpacing: '-0.02em',
+                  lineHeight: 1.12,
+                  margin: 0,
+                }}
+              >
+                Your Growth. <span style={{ color: gold, fontStyle: 'italic' }}>Our Priority</span>
+              </h2>
+            </div>
+
+            <div
+              className="g-features"
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(4, 1fr)',
+                gap: '28px',
+              }}
+            >
+              {[
+                { title: 'Premium Quality', desc: 'In every project.', icon: 'star' },
+                { title: 'On-Time Delivery', desc: 'Your time matters.', icon: 'clock' },
+                { title: 'Client Focused', desc: 'Your goals are ours.', icon: 'target' },
+                { title: '24/7 Support', desc: 'Always here for you.', icon: 'support' },
+              ].map((v) => (
+                <div key={v.title} style={{ textAlign: 'center' }}>
+                  <span style={{ color: gold, display: 'inline-block', marginBottom: '12px' }}>
+                    {v.icon === 'star' && (
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2 L14 9 L21 10 L16 14 L18 21 L12 17 L6 21 L8 14 L3 10 L10 9 Z" stroke={gold} strokeWidth="1.5" strokeLinejoin="round" /></svg>
+                    )}
+                    {v.icon === 'clock' && (
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke={gold} strokeWidth="1.6" /><path d="M12 7 V12 L15 14" stroke={gold} strokeWidth="1.6" strokeLinecap="round" /></svg>
+                    )}
+                    {v.icon === 'target' && (
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke={gold} strokeWidth="1.6" /><circle cx="12" cy="12" r="4.5" stroke={gold} strokeWidth="1.6" /><circle cx="12" cy="12" r="1" fill={gold} /></svg>
+                    )}
+                    {v.icon === 'support' && (
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 13 a8 8 0 0 1 16 0" stroke={gold} strokeWidth="1.6" strokeLinecap="round" /><rect x="2.5" y="13" width="4" height="6" rx="2" stroke={gold} strokeWidth="1.6" /><rect x="17.5" y="13" width="4" height="6" rx="2" stroke={gold} strokeWidth="1.6" /><path d="M20 19 a3 3 0 0 1 -3 3 h-3" stroke={gold} strokeWidth="1.6" strokeLinecap="round" fill="none" /></svg>
+                    )}
+                  </span>
+                  <div style={{ fontSize: '14px', fontWeight: 700, color: ink, marginBottom: '5px' }}>
+                    {v.title}
+                  </div>
+                  <div style={{ fontSize: '12.5px', color: mutedLightSoft }}>{v.desc}</div>
                 </div>
               ))}
             </div>

@@ -1,8 +1,10 @@
 import type { Metadata, Viewport } from 'next';
+import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
-import { SITE_URL } from '@/lib/site';
+import WhatsAppButton from '@/components/WhatsAppButton';
+import { SITE_URL, EMAIL, PHONE, WHATSAPP } from '@/lib/site';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -117,6 +119,8 @@ export default function RootLayout({
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />
+        <WhatsAppButton />
+        <Analytics />
       </body>
     </html>
   );

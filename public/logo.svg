@@ -1,23 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 52" fill="none" role="img" aria-label="JFR Studios">
+  <title>JFR Studios</title>
   <defs>
-    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#F5C76A"/>
-      <stop offset="50%" stop-color="#D4A437"/>
-      <stop offset="100%" stop-color="#A87C1F"/>
+    <linearGradient id="hdrGold" x1="6%" y1="0%" x2="94%" y2="100%">
+      <stop offset="0%"   stop-color="#F7DC9B"/>
+      <stop offset="38%"  stop-color="#D9AE42"/>
+      <stop offset="72%"  stop-color="#C0952C"/>
+      <stop offset="100%" stop-color="#9C721C"/>
     </linearGradient>
   </defs>
 
-  <!-- Monogram mark: stylized JFR letters merged -->
-  <g transform="translate(2, 4)">
-    <!-- J vertical stroke -->
-    <path d="M 8 6 L 8 28 Q 8 34 2 34" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round" fill="none"/>
-    <!-- F horizontal top + middle -->
-    <path d="M 16 6 L 16 34 M 16 6 L 28 6 M 16 18 L 25 18" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round" fill="none"/>
-    <!-- R diagonal with bowl -->
-    <path d="M 32 34 L 32 6 L 40 6 Q 46 6 46 12 Q 46 18 40 18 L 32 18 M 40 18 L 46 34" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Gold monogram mark, same geometry as logo-mark.svg -->
+  <g transform="translate(2, 3) scale(0.165)">
+    <path fill="url(#hdrGold)" d="
+      M 20 18
+      H 196
+      C 250 18 276 46 276 92
+      C 276 130 258 156 228 170
+      L 244 208
+      L 214 208
+      L 200 174
+      H 116
+      V 254
+      L 92 282
+      L 92 174
+      H 66
+      L 30 236
+      L 14 236
+      V 174
+      H 20
+      V 130
+      H 8
+      L 8 100
+      H 20
+      Z" />
+    <rect x="116" y="108" width="96" height="26" fill="url(#hdrGold)" />
+    <path fill="url(#hdrGold)" d="M 300 62 H 372 L 316 148 V 106 H 300 Z" />
   </g>
 
-  <!-- Wordmark -->
-  <text x="56" y="24" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="700" letter-spacing="0.02em" fill="url(#goldGrad)">JFR</text>
-  <text x="56" y="42" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="400" letter-spacing="0.18em" fill="url(#goldGrad)" text-transform="uppercase">STUDIOS</text>
+  <!-- Studios wordmark -->
+  <text
+    x="86"
+    y="37"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="27"
+    font-style="italic"
+    letter-spacing="-0.01em"
+    fill="#F5F0E5"
+  >Studios</text>
+  <path d="M 87 43 H 152" stroke="url(#hdrGold)" stroke-width="1.4" stroke-linecap="round" opacity="0.5"/>
 </svg>
