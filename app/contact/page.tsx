@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 };
 
 const h1: React.CSSProperties = {
-  fontFamily: 'Georgia, serif',
+  fontFamily: 'var(--font-display), Georgia, serif',
   fontSize: 'clamp(2.2rem, 4.4vw, 3.6rem)',
   fontWeight: 700,
   letterSpacing: '-0.02em',
@@ -41,7 +41,7 @@ const h1: React.CSSProperties = {
 };
 
 const h2: React.CSSProperties = {
-  fontFamily: 'Georgia, serif',
+  fontFamily: 'var(--font-display), Georgia, serif',
   fontSize: 'clamp(1.6rem, 2.8vw, 2.3rem)',
   fontWeight: 700,
   letterSpacing: '-0.02em',
@@ -339,7 +339,7 @@ export default function ContactPage() {
               >
                 <h3
                   style={{
-                    fontFamily: 'Georgia, serif',
+                    fontFamily: 'var(--font-display), Georgia, serif',
                     fontSize: '18px',
                     fontWeight: 700,
                     margin: '0 0 20px',
@@ -413,7 +413,7 @@ export default function ContactPage() {
               >
                 <h3
                   style={{
-                    fontFamily: 'Georgia, serif',
+                    fontFamily: 'var(--font-display), Georgia, serif',
                     fontSize: '18px',
                     fontWeight: 700,
                     margin: '0 0 18px',
@@ -448,7 +448,7 @@ export default function ContactPage() {
               >
                 <div
                   style={{
-                    fontFamily: 'Georgia, serif',
+                    fontFamily: 'var(--font-display), Georgia, serif',
                     fontSize: '19px',
                     fontStyle: 'italic',
                     color: gold,
@@ -498,7 +498,7 @@ export default function ContactPage() {
               >
                 <div
                   style={{
-                    fontFamily: 'Georgia, serif',
+                    fontFamily: 'var(--font-display), Georgia, serif',
                     fontSize: '19px',
                     fontWeight: 700,
                     color: gold,

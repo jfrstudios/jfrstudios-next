@@ -1,10 +1,36 @@
 import type { Metadata, Viewport } from 'next';
+import localFont from 'next/font/local';
 import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
+import './motion.css';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import MotionLayer from '@/components/MotionLayer';
 import { SITE_URL, EMAIL, PHONE, WHATSAPP } from '@/lib/site';
+
+/* Self-hosted premium type — no build-time network call, no external request.
+   Fraunces = display serif, Inter = body sans. */
+const displayFont = localFont({
+  src: [
+    { path: '../public/fonts/fraunces.woff2', weight: '300 800', style: 'normal' },
+    { path: '../public/fonts/fraunces-italic.woff2', weight: '300 800', style: 'italic' },
+  ],
+  variable: '--font-display',
+  display: 'swap',
+  fallback: ['Georgia', 'serif'],
+  adjustFontFallback: false,
+});
+
+const sansFont = localFont({
+  src: '../public/fonts/inter.woff2',
+  weight: '100 900',
+  style: 'normal',
+  variable: '--font-sans',
+  display: 'swap',
+  fallback: ['system-ui', 'sans-serif'],
+  adjustFontFallback: false,
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -100,7 +126,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${displayFont.variable} ${sansFont.variable}`}>
       <body
         style={{
           margin: 0,
@@ -108,7 +134,7 @@ export default function RootLayout({
           background: '#0A0A0A',
           color: '#F5F0E5',
           fontFamily:
-            'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif',
+            'var(--font-sans), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif',
           overflowX: 'hidden',
         }}
       >
@@ -120,6 +146,7 @@ export default function RootLayout({
         <main>{children}</main>
         <SiteFooter />
         <WhatsAppButton />
+        <MotionLayer />
         <Analytics />
       </body>
     </html>

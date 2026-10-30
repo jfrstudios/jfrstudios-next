@@ -42,3 +42,46 @@ next-env.d.ts
 
 # misc
 *.pem
+.vercel
+.env*
+
+# Internal business docs - never publish
+LAUNCH-KIT.md
+CLIENT-HUNTING-KIT.md
+DOMAIN-SETUP.md
+STATUS_NOTES.md
+TODO.md
+VERCEL_ERROR_ANALYSIS.md
+*.ps1
+serve.cjs
+syntax-check*.cjs
+check-tokens.cjs
+add-lazy.cjs
+scan-imports.cjs
+fix-tabindex.cjs
+package-lock.corrupt.bak
+
+# Design tooling + generated client assets (not part of the website)
+design/
+
+# Removed legacy experiment folders (Sanity / early component system)
+components/animations/
+components/layout/
+components/sections/
+components/ui/
+lib/sanity/
+lib/utils.ts
+sanity.config.ts
+sanity/
+
+# Local scratch files
+21st-pricing-raw.txt
+chat-history.html
+chat-history.md
+md2html.js
+edge-stderr.log
+edge-stdout.log
+jfrstudios-chat-history.pdf
+public/index-preview.html
+public/jfr-mark-gold.png
+public/portfolio-cards.html

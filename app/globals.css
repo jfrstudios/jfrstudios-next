@@ -4,7 +4,7 @@
 
 /* ============================================
    JFR Studios — Global Styles
-   Bold black + Lime Green (#BEF264) accent
+   Bold black + Lime Green (#D4A437) accent
    Inspired by nk.studio's treatment
    ============================================ */
 
@@ -24,7 +24,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    background-color: #07070A;
+    background-color: #0A0A0A;
   }
 
   body {
@@ -35,8 +35,8 @@
 
   /* Selection style */
   ::selection {
-    background-color: #BEF264;
-    color: #07070A;
+    background-color: #D4A437;
+    color: #0A0A0A;
   }
 
   /* Custom scrollbar (subtle, dark) */
@@ -45,14 +45,14 @@
     height: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #07070A;
+    background: #0A0A0A;
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(190, 242, 100, 0.3);
+    background: rgba(212, 164, 55, 0.3);
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(190, 242, 100, 0.6);
+    background: rgba(212, 164, 55, 0.6);
   }
 
   /* Headings */
@@ -78,7 +78,7 @@
 
   /* Focus visible (accessibility) */
   *:focus-visible {
-    outline: 2px solid #BEF264;
+    outline: 2px solid #D4A437;
     outline-offset: 4px;
     border-radius: 4px;
   }
@@ -153,7 +153,7 @@
 @layer utilities {
   /* ===== Text gradient utility ===== */
   .text-gradient-accent {
-    background: linear-gradient(135deg, #BEF264 0%, #84CC16 100%);
+    background: linear-gradient(135deg, #D4A437 0%, #A87C1F 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;

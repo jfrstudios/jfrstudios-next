@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 };
 
 const h1: React.CSSProperties = {
-  fontFamily: 'Georgia, serif',
+  fontFamily: 'var(--font-display), Georgia, serif',
   fontSize: 'clamp(2.2rem, 4.4vw, 3.6rem)',
   fontWeight: 700,
   letterSpacing: '-0.02em',
@@ -121,7 +121,7 @@ export default function FaqPage() {
                 >
                   <span
                     style={{
-                      fontFamily: 'Georgia, serif',
+                      fontFamily: 'var(--font-display), Georgia, serif',
                       fontSize: '19px',
                       fontWeight: 700,
                       color: ink,
@@ -173,7 +173,7 @@ export default function FaqPage() {
             <div>
               <h2
                 style={{
-                  fontFamily: 'Georgia, serif',
+                  fontFamily: 'var(--font-display), Georgia, serif',
                   fontSize: 'clamp(1.7rem, 3vw, 2.5rem)',
                   fontWeight: 700,
                   letterSpacing: '-0.02em',

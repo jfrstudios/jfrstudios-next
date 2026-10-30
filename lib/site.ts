@@ -25,7 +25,7 @@ export const container = {
 
 export const EMAIL = 'hello@jfrstudios.store';
 export const PHONE = '0322 1001048';
-export const SITE_URL = 'https://jfrstudios-next.vercel.app';
+export const SITE_URL = 'https://jfrstudios.store';
 export const WHATSAPP = '923221001048';
 
 export type NavItem = { label: string; href: string };

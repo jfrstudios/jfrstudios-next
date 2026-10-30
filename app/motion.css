@@ -1,0 +1,182 @@
+/* ============================================
+   JFR Studios — Motion layer
+   Page wipe · scroll progress · custom cursor ·
+   split-text reveal · scroll reveal · grain
+   Dependency-free (no GSAP / Lenis).
+   ============================================ */
+
+/* ---------- Page wipe transition ---------- */
+.jc-wipe {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #A87C1F 0%, #D4A437 48%, #F5C76A 100%);
+  transform: translateY(100%);
+  transition: transform 0.62s cubic-bezier(0.76, 0, 0.24, 1);
+  pointer-events: none;
+}
+.jc-wipe.is-in {
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.jc-wipe-label {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #0A0A0A;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.4s ease 0.14s, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.14s;
+}
+.jc-wipe.is-in .jc-wipe-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Scroll progress ---------- */
+.jc-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #A87C1F, #D4A437 55%, #F5C76A);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  z-index: 9400;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* ---------- Custom cursor ---------- */
+.jc-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(212, 164, 55, 0.85);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0;
+  transition: opacity 0.25s ease,
+    width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+.jc-cursor.is-visible { opacity: 1; }
+.jc-cursor.is-hover {
+  width: 62px;
+  height: 62px;
+  background: rgba(212, 164, 55, 0.16);
+  border-color: rgba(212, 164, 55, 0.45);
+}
+.jc-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  background: #D4A437;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.jc-cursor-dot.is-visible { opacity: 1; }
+.jc-cursor-on a,
+.jc-cursor-on button,
+.jc-cursor-on [role='button'],
+.jc-cursor-on input,
+.jc-cursor-on textarea,
+.jc-cursor-on select {
+  cursor: none !important;
+}
+
+/* ---------- Split-text reveal ---------- */
+.jc-line { display: inline; }
+.jc-word {
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+.jc-word-i {
+  display: inline-block;
+  transform: translateY(108%);
+  transition: transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--jc-i, 0) * 42ms);
+  will-change: transform;
+}
+main h1.is-in .jc-word-i,
+main h2.is-in .jc-word-i,
+main h3.is-in .jc-word-i {
+  transform: translateY(0);
+}
+
+/* ---------- Scroll reveal ---------- */
+.jc-reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.85s var(--ease-soft), transform 0.85s var(--ease-soft);
+  transition-delay: var(--jc-delay, 0ms);
+}
+.jc-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Magnetic pill buttons ---------- */
+.jc-magnetic {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  will-change: transform;
+}
+
+/* ---------- Film grain ---------- */
+body::after {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  z-index: 9400;
+  pointer-events: none;
+  opacity: 0.032;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  animation: jc-grain 7s steps(8) infinite;
+}
+@keyframes jc-grain {
+  0%   { transform: translate(0, 0); }
+  20%  { transform: translate(-2%, 1%); }
+  40%  { transform: translate(1%, -2%); }
+  60%  { transform: translate(-1%, -1%); }
+  80%  { transform: translate(2%, 1%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* ---------- Touch devices: no custom cursor, no grain motion ---------- */
+@media (pointer: coarse) {
+  .jc-cursor,
+  .jc-cursor-dot { display: none; }
+  body::after { animation: none; }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .jc-wipe { display: none; }
+  .jc-progress { display: none; }
+  .jc-word-i { transform: none !important; }
+  .jc-reveal { opacity: 1 !important; transform: none !important; }
+  body::after { animation: none; }
+}

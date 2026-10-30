@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 };
 
 const h1: React.CSSProperties = {
-  fontFamily: 'Georgia, serif',
+  fontFamily: 'var(--font-display), Georgia, serif',
   fontSize: 'clamp(2.2rem, 4.4vw, 3.6rem)',
   fontWeight: 700,
   letterSpacing: '-0.02em',
@@ -39,7 +39,7 @@ const h1: React.CSSProperties = {
 };
 
 const h2: React.CSSProperties = {
-  fontFamily: 'Georgia, serif',
+  fontFamily: 'var(--font-display), Georgia, serif',
   fontSize: 'clamp(1.8rem, 3.2vw, 2.7rem)',
   fontWeight: 700,
   letterSpacing: '-0.02em',
@@ -168,7 +168,7 @@ export default function PricingPage() {
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', marginBottom: '6px' }}>
                   <span
                     style={{
-                      fontFamily: 'Georgia, serif',
+                      fontFamily: 'var(--font-display), Georgia, serif',
                       fontSize: '3rem',
                       fontWeight: 700,
                       color: cream,
@@ -404,7 +404,7 @@ export default function PricingPage() {
               >
                 <h3
                   style={{
-                    fontFamily: 'Georgia, serif',
+                    fontFamily: 'var(--font-display), Georgia, serif',
                     fontSize: '17px',
                     fontWeight: 700,
                     margin: '0 0 8px',
@@ -426,7 +426,7 @@ export default function PricingPage() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
                   <span
                     style={{
-                      fontFamily: 'Georgia, serif',
+                      fontFamily: 'var(--font-display), Georgia, serif',
                       fontSize: '22px',
                       fontWeight: 700,
                       color: gold,
@@ -458,7 +458,7 @@ export default function PricingPage() {
                 <summary
                   style={{
                     cursor: 'pointer',
-                    fontFamily: 'Georgia, serif',
+                    fontFamily: 'var(--font-display), Georgia, serif',
                     fontSize: '18px',
                     fontWeight: 700,
                     color: cream,

@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 };
 
 const h1: React.CSSProperties = {
-  fontFamily: 'Georgia, serif',
+  fontFamily: 'var(--font-display), Georgia, serif',
   fontSize: 'clamp(2.2rem, 4.4vw, 3.6rem)',
   fontWeight: 700,
   letterSpacing: '-0.02em',
@@ -41,7 +41,7 @@ const h1: React.CSSProperties = {
 };
 
 const h2: React.CSSProperties = {
-  fontFamily: 'Georgia, serif',
+  fontFamily: 'var(--font-display), Georgia, serif',
   fontSize: 'clamp(1.8rem, 3.2vw, 2.7rem)',
   fontWeight: 700,
   letterSpacing: '-0.02em',
@@ -50,7 +50,7 @@ const h2: React.CSSProperties = {
 };
 
 const h3: React.CSSProperties = {
-  fontFamily: 'Georgia, serif',
+  fontFamily: 'var(--font-display), Georgia, serif',
   fontSize: '19px',
   fontWeight: 700,
   margin: '0 0 10px',
@@ -167,7 +167,7 @@ export default function AboutPage() {
               <div key={s.label}>
                 <div
                   style={{
-                    fontFamily: 'Georgia, serif',
+                    fontFamily: 'var(--font-display), Georgia, serif',
                     fontSize: 'clamp(2.2rem, 4vw, 3.4rem)',
                     fontWeight: 700,
                     color: gold,
@@ -268,7 +268,7 @@ export default function AboutPage() {
               >
                 <div
                   style={{
-                    fontFamily: 'Georgia, serif',
+                    fontFamily: 'var(--font-display), Georgia, serif',
                     fontSize: '30px',
                     fontWeight: 700,
                     color: gold,
@@ -310,7 +310,7 @@ export default function AboutPage() {
                 <summary
                   style={{
                     cursor: 'pointer',
-                    fontFamily: 'Georgia, serif',
+                    fontFamily: 'var(--font-display), Georgia, serif',
                     fontSize: '18px',
                     fontWeight: 700,
                     color: ink,

@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 };
 
 const h2: React.CSSProperties = {
-  fontFamily: 'Georgia, serif',
+  fontFamily: 'var(--font-display), Georgia, serif',
   fontSize: 'clamp(1.9rem, 3.4vw, 2.9rem)',
   fontWeight: 700,
   letterSpacing: '-0.02em',
@@ -287,7 +287,7 @@ export default function ServicesPage() {
               >
                 <div
                   style={{
-                    fontFamily: 'Georgia, serif',
+                    fontFamily: 'var(--font-display), Georgia, serif',
                     fontSize: '30px',
                     fontWeight: 700,
                     color: gold,
@@ -299,7 +299,7 @@ export default function ServicesPage() {
                 </div>
                 <h3
                   style={{
-                    fontFamily: 'Georgia, serif',
+                    fontFamily: 'var(--font-display), Georgia, serif',
                     fontSize: '18px',
                     fontWeight: 700,
                     margin: '0 0 10px',

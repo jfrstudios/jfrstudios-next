@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 };
 
 const h1: React.CSSProperties = {
-  fontFamily: 'Georgia, serif',
+  fontFamily: 'var(--font-display), Georgia, serif',
   fontSize: 'clamp(2.2rem, 4.4vw, 3.6rem)',
   fontWeight: 700,
   letterSpacing: '-0.02em',
@@ -37,7 +37,7 @@ const h1: React.CSSProperties = {
 };
 
 const h2: React.CSSProperties = {
-  fontFamily: 'Georgia, serif',
+  fontFamily: 'var(--font-display), Georgia, serif',
   fontSize: 'clamp(1.8rem, 3.2vw, 2.7rem)',
   fontWeight: 700,
   letterSpacing: '-0.02em',
@@ -330,7 +330,7 @@ export default function PortfolioPage() {
                   <div key={r.label}>
                     <div
                       style={{
-                        fontFamily: 'Georgia, serif',
+                        fontFamily: 'var(--font-display), Georgia, serif',
                         fontSize: 'clamp(1.4rem, 2.4vw, 2rem)',
                         fontWeight: 700,
                         color: gold,

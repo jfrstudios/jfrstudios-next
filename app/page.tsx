@@ -144,7 +144,7 @@ export default function HomePage() {
             </div>
             <h1
               style={{
-                fontFamily: 'Georgia, "Times New Roman", serif',
+                fontFamily: 'var(--font-display), Georgia, serif',
                 fontSize: 'clamp(2.5rem, 5.4vw, 4.6rem)',
                 fontWeight: 700,
                 letterSpacing: '-0.02em',
@@ -237,7 +237,7 @@ export default function HomePage() {
                 )}
               </span>
               <div>
-                <div style={{ fontFamily: 'Georgia, serif', fontSize: '30px', fontWeight: 700, color: cream, lineHeight: 1 }}>{s.num}</div>
+                <div data-jc-count={s.num} style={{ fontFamily: 'var(--font-display), Georgia, serif', fontSize: '30px', fontWeight: 700, color: cream, lineHeight: 1 }}>{s.num}</div>
                 <div style={{ fontSize: '12px', color: mutedDarkSoft, marginTop: '4px', letterSpacing: '0.04em' }}>{s.label}</div>
               </div>
             </div>
@@ -250,7 +250,7 @@ export default function HomePage() {
             style={{
               margin: 0,
               textAlign: 'center',
-              fontFamily: 'Georgia, serif',
+              fontFamily: 'var(--font-display), Georgia, serif',
               fontSize: 'clamp(1.1rem, 2vw, 1.5rem)',
               color: cream,
               fontStyle: 'italic',
@@ -285,7 +285,7 @@ export default function HomePage() {
               </div>
               <h2
                 style={{
-                  fontFamily: 'Georgia, serif',
+                  fontFamily: 'var(--font-display), Georgia, serif',
                   fontSize: 'clamp(1.9rem, 3.4vw, 2.9rem)',
                   fontWeight: 700,
                   letterSpacing: '-0.02em',
@@ -336,7 +336,7 @@ export default function HomePage() {
                   }}
                 >
                   <Icon name={s.icon} />
-                  <h3 style={{ fontFamily: 'Georgia, serif', fontSize: '17px', fontWeight: 700, margin: 0, color: ink, lineHeight: 1.3 }}>{s.title}</h3>
+                  <h3 style={{ fontFamily: 'var(--font-display), Georgia, serif', fontSize: '17px', fontWeight: 700, margin: 0, color: ink, lineHeight: 1.3 }}>{s.title}</h3>
                   <p style={{ fontSize: '13.5px', color: mutedLight, margin: 0, lineHeight: 1.55 }}>{s.desc}</p>
                   <a href="#contact" style={{ marginTop: 'auto', color: gold, fontSize: '13px', fontWeight: 600, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
                     Learn More <span aria-hidden>&#8594;</span>
@@ -361,7 +361,7 @@ export default function HomePage() {
               About Us
               <span style={{ display: 'inline-block', width: '30px', height: '1px', background: gold }} />
             </div>
-            <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(1.9rem, 3.4vw, 2.9rem)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1, margin: '0 0 24px' }}>
+            <h2 style={{ fontFamily: 'var(--font-display), Georgia, serif', fontSize: 'clamp(1.9rem, 3.4vw, 2.9rem)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1, margin: '0 0 24px' }}>
               Creative Minds <span style={{ color: gold, fontStyle: 'italic' }}>Behind Your Success</span>.
             </h2>
             <p style={{ fontSize: '15.5px', lineHeight: 1.7, color: mutedDark, margin: '0 0 28px' }}>
@@ -417,7 +417,7 @@ export default function HomePage() {
               </div>
               <h2
                 style={{
-                  fontFamily: 'Georgia, serif',
+                  fontFamily: 'var(--font-display), Georgia, serif',
                   fontSize: 'clamp(1.7rem, 3vw, 2.5rem)',
                   fontWeight: 700,
                   letterSpacing: '-0.02em',
@@ -478,7 +478,7 @@ export default function HomePage() {
                 Our Portfolio
                 <span style={{ display: 'inline-block', width: '30px', height: '1px', background: gold }} />
               </div>
-              <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(1.9rem, 3.4vw, 2.9rem)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1, margin: '0 0 14px' }}>
+              <h2 style={{ fontFamily: 'var(--font-display), Georgia, serif', fontSize: 'clamp(1.9rem, 3.4vw, 2.9rem)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1, margin: '0 0 14px' }}>
                 Our Latest Projects
               </h2>
               <p style={{ fontSize: '14.5px', color: mutedLight, margin: 0, maxWidth: '480px' }}>
@@ -502,7 +502,7 @@ export default function HomePage() {
                 <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, padding: '20px 18px', color: cream }}>
                   <div style={{ fontSize: '10.5px', letterSpacing: '0.18em', textTransform: 'uppercase', color: gold, marginBottom: '8px', fontWeight: 600 }}>{p.tag}</div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <h3 style={{ fontFamily: 'Georgia, serif', fontSize: '18px', fontWeight: 700, margin: 0 }}>{p.title}</h3>
+                    <h3 style={{ fontFamily: 'var(--font-display), Georgia, serif', fontSize: '18px', fontWeight: 700, margin: 0 }}>{p.title}</h3>
                     <span aria-hidden style={{ color: gold, fontSize: '18px' }}>&#8594;</span>
                   </div>
                 </div>
@@ -522,14 +522,14 @@ export default function HomePage() {
                 Our Testimonials
                 <span style={{ display: 'inline-block', width: '30px', height: '1px', background: gold }} />
               </div>
-              <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(1.9rem, 3.4vw, 2.9rem)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1, margin: '0 0 30px' }}>
+              <h2 style={{ fontFamily: 'var(--font-display), Georgia, serif', fontSize: 'clamp(1.9rem, 3.4vw, 2.9rem)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1, margin: '0 0 30px' }}>
                 What Our Clients Say
               </h2>
               <p style={{ fontSize: '16px', lineHeight: 1.7, color: mutedDark, fontStyle: 'italic', margin: '0 0 28px' }}>
                 &ldquo;JFR Studios delivered more than we expected &mdash; creative designs, clear communication and real results. Highly recommend!&rdquo;
               </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '24px' }}>
-                <div style={{ width: '52px', height: '52px', borderRadius: '50%', background: `linear-gradient(135deg, ${gold}, ${goldDark})`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: ink, fontFamily: 'Georgia, serif', fontWeight: 700, fontSize: '18px' }}>
+                <div style={{ width: '52px', height: '52px', borderRadius: '50%', background: `linear-gradient(135deg, ${gold}, ${goldDark})`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: ink, fontFamily: 'var(--font-display), Georgia, serif', fontWeight: 700, fontSize: '18px' }}>
                   SK
                 </div>
                 <div>
@@ -549,10 +549,10 @@ export default function HomePage() {
             </div>
 
             <div style={{ position: 'relative', padding: '50px 40px', borderRadius: '14px', border: `1px solid ${lineDark}`, background: 'rgba(245,240,229,0.04)' }}>
-              <div aria-hidden style={{ position: 'absolute', top: '20px', left: '30px', fontFamily: 'Georgia, serif', fontSize: '90px', color: gold, lineHeight: 1, opacity: 0.4 }}>
+              <div aria-hidden style={{ position: 'absolute', top: '20px', left: '30px', fontFamily: 'var(--font-display), Georgia, serif', fontSize: '90px', color: gold, lineHeight: 1, opacity: 0.4 }}>
                 &ldquo;
               </div>
-              <p style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(1.5rem, 2.5vw, 2.1rem)', fontStyle: 'italic', color: gold, lineHeight: 1.3, margin: '30px 0 0', fontWeight: 600 }}>
+              <p style={{ fontFamily: 'var(--font-display), Georgia, serif', fontSize: 'clamp(1.5rem, 2.5vw, 2.1rem)', fontStyle: 'italic', color: gold, lineHeight: 1.3, margin: '30px 0 0', fontWeight: 600 }}>
                 Great design<br />builds trust.
               </p>
               <div style={{ marginTop: '24px', fontSize: '13px', color: mutedDarkSoft, letterSpacing: '0.04em' }}>
@@ -572,7 +572,7 @@ export default function HomePage() {
                 Our Blog
                 <span style={{ display: 'inline-block', width: '30px', height: '1px', background: gold }} />
               </div>
-              <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(1.9rem, 3.4vw, 2.9rem)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1, margin: '0 0 14px' }}>
+              <h2 style={{ fontFamily: 'var(--font-display), Georgia, serif', fontSize: 'clamp(1.9rem, 3.4vw, 2.9rem)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1, margin: '0 0 14px' }}>
                 Latest Insights &amp; <span style={{ color: gold, fontStyle: 'italic' }}>Trends</span>
               </h2>
               <p style={{ fontSize: '14.5px', color: mutedLight, margin: 0, maxWidth: '480px' }}>
@@ -596,7 +596,7 @@ export default function HomePage() {
                     <span style={{ width: '3px', height: '3px', borderRadius: '50%', background: mutedLightSoft, display: 'inline-block' }} />
                     <span>{b.date}</span>
                   </div>
-                  <h3 style={{ fontFamily: 'Georgia, serif', fontSize: '16px', fontWeight: 700, lineHeight: 1.35, margin: 0, color: ink }}>
+                  <h3 style={{ fontFamily: 'var(--font-display), Georgia, serif', fontSize: '16px', fontWeight: 700, lineHeight: 1.35, margin: 0, color: ink }}>
                     {b.title}
                   </h3>
                 </div>
@@ -610,7 +610,7 @@ export default function HomePage() {
       <section id="contact" style={{ background: ink, color: cream, padding: '90px 0', position: 'relative', overflow: 'hidden' }}>
         <div className="g-cta" style={{ ...container, display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '60px', alignItems: 'center' }}>
           <div>
-            <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1, margin: '0 0 22px' }}>
+            <h2 style={{ fontFamily: 'var(--font-display), Georgia, serif', fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1, margin: '0 0 22px' }}>
               Let&apos;s Create Something <span style={{ color: gold, fontStyle: 'italic' }}>Amazing Together</span>.
             </h2>
             <p style={{ fontSize: '15.5px', lineHeight: 1.7, color: mutedDark, maxWidth: '520px', margin: 0 }}>

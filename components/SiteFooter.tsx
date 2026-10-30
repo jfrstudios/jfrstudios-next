@@ -38,7 +38,7 @@ const socials = [
 ];
 
 const heading: CSSProperties = {
-  fontFamily: 'Georgia, serif',
+  fontFamily: 'var(--font-display), Georgia, serif',
   fontSize: '14px',
   color: gold,
   letterSpacing: '0.18em',

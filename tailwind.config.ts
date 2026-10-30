@@ -12,40 +12,40 @@ const config: Config = {
       colors: {
         // ===== Brand palette =====
         // Inspired by nk.studio's bold black + accent treatment
-        // Accent: Lime Green (#BEF264) — fresh, creative, modern
+        // Accent: Lime Green (#D4A437) — fresh, creative, modern
         accent: {
-          50:  '#F7FEE7',
-          100: '#ECFCCB',
-          200: '#D9F99D',
-          300: '#BEF264',  // ← your primary accent
-          400: '#A3E635',
-          500: '#84CC16',
-          600: '#65A30D',
-          700: '#4D7C0F',
+          50:  '#FAF7F0',
+          100: '#F5F0E5',
+          200: '#F5C76A',
+          300: '#D4A437',  // ← your primary accent
+          400: '#F5C76A',
+          500: '#A87C1F',
+          600: '#8A641A',
+          700: '#6E5015',
         },
         ink: {
-          950: '#07070A', // deep black (background)
-          900: '#0A0A0F',
-          800: '#111118',
-          700: '#1C1C24',
-          600: '#2A2A33',
+          950: '#0A0A0A', // deep black (background)
+          900: '#14110D',
+          800: '#1C1811',
+          700: '#241E14',
+          600: '#2E2618',
         },
         cream: {
-          50:  '#F5F5F2', // off-white (text on dark)
-          100: '#E6E6E0',
-          200: '#C9C9C2',
+          50:  '#F5F0E5', // off-white (text on dark)
+          100: '#E4DCCB',
+          200: '#C2B7A0',
         },
         muted: {
-          DEFAULT: 'rgba(245,245,242,0.55)',
-          soft:    'rgba(245,245,242,0.35)',
-          line:    'rgba(245,245,242,0.10)',
+          DEFAULT: 'rgba(245,240,229,0.55)',
+          soft:    'rgba(245,240,229,0.35)',
+          line:    'rgba(245,240,229,0.10)',
         },
       },
       fontFamily: {
         // Display: Syne — geometric, bold, award-winning-agency vibe
-        display: ['var(--font-display)', 'Syne', 'system-ui', 'sans-serif'],
+        display: ['var(--font-display)', 'Fraunces', 'Georgia', 'serif'],
         // Body: DM Sans — clean, modern, highly legible
-        sans: ['var(--font-sans)', 'DM Sans', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-sans)', 'Inter', 'system-ui', 'sans-serif'],
         mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       fontSize: {
