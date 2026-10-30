@@ -209,6 +209,58 @@
   .g-cards-2     { grid-template-columns: repeat(2, 1fr) !important; }
   .g-stats       { grid-template-columns: repeat(4, 1fr) !important; }
 
+  /* ===== Grid blow-out guard =====
+     Grid items default to min-width:auto, so one wide image (the 752px hero
+     shot) can force a 1fr track wider than the viewport. On phones that
+     pushed the whole page sideways and got clipped by overflow-x:hidden.
+     min-width:0 lets the tracks actually shrink. */
+  .g-hero > *,
+  .g-services > *,
+  .g-about > *,
+  .g-testimonial > *,
+  .g-cta > *,
+  .g-footer > *,
+  .g-features > *,
+  .g-cards-2 > *,
+  .g-cards-3 > *,
+  .g-cards-4 > *,
+  .g-stats > * {
+    min-width: 0;
+  }
+
+  /* Images never push a track wider than its column */
+  .g-hero img,
+  .g-services img,
+  .g-about img,
+  .g-testimonial img,
+  .g-cta img,
+  .g-footer img,
+  .g-features img,
+  .g-cards-2 img,
+  .g-cards-3 img,
+  .g-cards-4 img,
+  .g-stats img {
+    max-width: 100%;
+  }
+
+  /* Long words in a headline can never spill out of the column */
+  h1, h2, h3, h4 {
+    overflow-wrap: break-word;
+  }
+
+  /* ===== Phone fallback for grids written without a .g- class =====
+     Several pages build their grids with a plain inline
+     grid-template-columns, so the .g-* overrides above never reached them
+     and a 3-up row stayed cramped on a phone. These collapse to one
+     column instead. The named grids are excluded so their own breakpoints
+     keep control. */
+  @media (max-width: 820px) {
+    main [style*="grid-template-columns"]:not(.g-hero):not(.g-services):not(.g-about):not(.g-testimonial):not(.g-cta):not(.g-footer):not(.g-features):not(.g-cards-2):not(.g-cards-3):not(.g-cards-4):not(.g-stats) {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+
   /* ===== Tablet: tighten the header nav before it wraps ===== */
   @media (max-width: 1200px) and (min-width: 1025px) {
     .desktop-nav { gap: 18px !important; }
